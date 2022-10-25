@@ -163,3 +163,44 @@ function openOrSenior(data){
 }
    */
 
+/*
+Complete the function that accepts a string parameter, and reverses each word in the string. All spaces in the string should be retained.
+
+Examples
+"This is an example!" ==> "sihT si na !elpmaxe"
+"double  spaces"      ==> "elbuod  secaps"
+
+*/
+
+function reverseWords(str) {
+  // Go for it
+  let word = '';
+  let finalReverse = '';
+  for(let i = 0; i < str.length; i++){
+    let letter = str[i];
+    if(letter !== ' '){
+      word += letter;
+    } else {
+      for(let i = word.length - 1; i >= 0; i--){
+      finalReverse += word[i];
+        
+      }
+      finalReverse += ' ';
+      word = '';
+    }
+  }
+  for(let i = word.length - 1; i >= 0; i--){
+      finalReverse += word[i];
+  }
+  return finalReverse;
+}
+
+/*notable solution
+function reverseWords(str) {
+  return str.split(' ').map(function(word){
+    return word.split('').reverse().join('');
+  }).join(' ');
+}
+
+*/
+
