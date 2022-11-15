@@ -221,3 +221,427 @@ const numberFrequency = (num) => {
 // console.log(numberFrequency([3, 3, 3, 3]));//{3: 4}
 
 
+/*
+numberFrequency which only counts numbers
+write numberFrequency
+takes an array which might include numbers and letters
+returns object, where keys are the numbers and values are the number of times they appeared
+it should only count numbers
+console.log(numberFrequency([1, 2, 1, 3]));//{1: 2, 2: 1, 3: 1}
+console.log(numberFrequency(['a']));//{}
+console.log(numberFrequency([3, 3, 'a', 'b', 3, 3]));//{3: 4}
+*/
+
+//TODO
+// const numberFrequency = (num) => {
+  let numFreq = {}
+  for(let i = 0; i < num.length; i++){
+  let currNum = num[i];
+    if(typeof currNum === 'number'){
+      if(currNum in numFreq){
+        numFreq[currNum]++;
+    } else {
+      numFreq[currNum] = 1;
+    }
+    }
+  }
+  return numFreq;
+// }
+
+// console.log(numberFrequency([1, 2, 1, 3]));//{1: 2, 2: 1, 3: 1}
+// console.log(numberFrequency(['a']));//{}
+// console.log(numberFrequency([3, 3, 'a', 'b', 3, 3]));//{3: 4}
+
+/*
+generate a random number
+generateRandom generates a random number between 0 and 9 inclusive
+inclusive means that the number can be 9
+full range of number is 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+*/
+
+//TODO
+const generateRandom = () => {
+  return Math.floor(Math.random() * 10);
+  }
+  
+  // console.log(generateRandom());//some number between 0 and 9
+  // console.log(generateRandom());//some number between 0 and 9
+  // console.log(generateRandom());//some number between 0 and 9
+
+  /*
+  generateNRand is a function which takes a number as an argument
+it returns an array of random numbers
+each of the numbers is between 1 and 10
+the length of the array is the number passed into the function
+
+  */
+
+//TODO
+const generateNRand = (arrLength) => {
+  let newArr = [];
+    for(let i = 0; i < arrLength; i++){
+    newArr.push(Math.ceil(Math.random() * 10));
+    }
+    return newArr;
+  }
+  
+  // let arr = generateNRand(2);
+  // console.log(arr);//prints array of 2 random numnbers
+  // arr = generateNRand(5);
+  // console.log(arr);//prints array of 5 random numbers
+
+/*
+generateNRand - with no duplicates
+generateNRand is a function which takes a number as an argument
+it returns an array of random numbers
+each of the numbers is between 1 and 10 AND there are no duplicates!
+the length of the array is the number passed into the function
+since we only have 10 numbers, we can't create an array with a length greater than 10
+let arr = generateNRand(2);
+console.log(arr);//prints array of 2 random numnbers with no duplicates
+arr = generateNRand(5);
+console.log(arr);//prints array of 5 random numbers with no duplicates
+arr = generateNRand(50);
+console.log(arr);//PRINTS all 10 numbers in a random order!
+
+*/
+
+//TODO
+// const generateNRand = (num) => {
+  let randArr = [];
+    for(let i = 0; i < num; i++){
+      let randNum = Math.ceil(Math.random() * 10);
+      
+      if(randArr.indexOf(randNum) === -1){
+        randArr.push(randNum);
+      }
+    }
+    return randArr;
+  // }
+  
+  // let arr = generateNRand(2);
+  // console.log(arr);//prints array of 2 random numnbers with no duplicates
+  // arr = generateNRand(5);
+  // console.log(arr);//prints array of 5 random numbers with no duplicates
+  // arr = generateNRand(50);
+  // console.log(arr);//PRINTS all 10 numbers in a random order!
+  
+  /*
+  generateOdd
+generateOdd is a function which returns an odd number between 1 and 9 inclusive
+  */
+
+//TODO
+const generateOdd = () => {
+  let rand = 0;
+  while(rand % 2 !== 1){
+    rand = Math.ceil(Math.random() * 9);
+  }
+   return rand;
+  }
+  
+  // let x = generateOdd();
+  // let y = generateOdd();
+  // console.log(x);//a random number between 1 and 9 inclusive
+  // console.log(y)
+  // console.log(x)
+
+  /*
+  how many threes?
+write the function howManyThrees
+it take a number n
+it returns the number of times a 3 was chosen when picking a random number between 1 and 10 out of n tries
+  */
+
+//TODO
+const numberOfThrees = (tries) => {
+  let numOfThree = 0;
+  for(let i = 0; i < tries; i++){
+    let rand = Math.ceil(Math.random() * 10);
+    if(rand === 3){
+      numOfThree++;
+       }
+     }
+    return numOfThree;
+  }
+  
+  // let count = numberOfThrees(100);
+  // console.log(count);//answer depends but should be between 5 and 20
+  
+/*
+findWinner x and o
+findWinner takes an array of three values
+the values can be 'x', 'o', or ''
+if the values are all 'x' then 'x' is returned
+if the values are all 'o' then 'o' is returned
+if neither then false is returned
+*/
+
+//TODO
+const findWinner = (win) => {
+  if(win[1] === win[0] && win[2] === win[0]){
+    return win[0];
+  }
+  return false;
+}
+// console.log(findWinner(['x','x','x']));//'x'
+// console.log(findWinner(['o','o','o']));//'o'
+// console.log(findWinner(['x','o','o']));//false
+// console.log(findWinner(['x', '', 'x']));//false
+
+/*
+who goes next - tic tac toe
+whoGoesNext takes an array of 'x's and 'o's and ''
+these values represent the 9 spaces of a tic-tac-toe board
+it returns 'x' if 'x' goes next
+it returns 'o' if 'o' goes next
+it returns false if there are no spaces
+*/
+
+//TODO
+const whoGoesNext = (arr) => {
+  let whoTurn = {};
+    for(let i = 0; i < arr.length; i++){
+      let curr = arr[i];
+      if(curr in whoTurn){
+      whoTurn[curr]++;
+      } else {
+        whoTurn[curr] = 1;
+      }
+    }
+   if(whoTurn.x + whoTurn.o === arr.length){
+      return false;
+    } else if (whoTurn.x <= whoTurn.o) {
+        return 'x';
+    } else {
+        return 'o';
+    }
+  }
+  
+  // let board = [
+  //   'x','o','x',
+  //   '', '', '',
+  //   '', '', ''
+  // ];
+  // console.log(whoGoesNext(board));//'o'
+  // board[4] = 'o';//
+  // console.log(whoGoesNext(board));//'x'
+  // board = [
+  //   'x','o','x',
+  //   'o', 'x', 'o',
+  //   'o', 'x', 'x'
+  // ];
+  // console.log(whoGoesNext(board));//false
+
+
+  /*
+  boardSummary
+write boardSummary function
+function takes an array of 9 values which are 'x', 'o', or ''
+it returns an object with the keys 'x', 'o', and 'empty'
+the values are the number of times each of the keys appears.
+  */
+
+//TODO
+const boardSummary = (board) => {
+  //let boardTotal = {x: 0, o: 0, empty:0}
+  let boardTotal = {};
+for(let i = 0; i < board.length; i++){
+  let check = board[i];
+    if(check === ''){
+      check = 'empty';
+  }
+  if(check in boardTotal){
+    boardTotal[check]++;
+    } else {
+        boardTotal[check] = 1;
+    }
+  }
+  return boardTotal;
+}
+
+// const board = [
+//   'x','o','x',
+//   'o', 'x', 'o',
+//   '', 'x', ''
+// ];
+// console.log(boardSummary(board));//{x : 4, o: 3, 'empty': 2} 
+
+/*
+tic tac toe - getRow
+write getRow
+getRow takes an array of 9 values made up of x's and o's and empty strings
+and an integer which indicates the row to return
+it returns an array of 3 values which are the values of the row
+*/
+//TODO
+const getRow = (board, num) => {
+  let start = num * 3;
+ return board.slice(num * 3, num * 3 +3)
+}
+
+let board = [
+'x', 'o', 'x',
+'o', 'x', 'o',
+'x', 'o',  ''
+];
+
+// let row = getRow(board, 0);//first row
+// console.log(row);//['x', 'o', 'x'];
+// row = getRow(board, 1);//second row
+// console.log(row);//['o', 'x', 'o'];
+// row = getRow(board, 2);//third row
+// console.log(row);//['x', 'o', ''];
+
+/*
+tic tac toe - getColumn
+write getColumn
+getRow takes an array of 9 values made up of x's and o's and empty strings
+and an integer which indicates the column to return
+it returns an array of 3 values which are the values of the column
+*/
+//TODO
+const getColumn = (board, col) => {
+  let column = [];
+    column.push(board[col], board[col + 3], board[col + 6]);
+    return column;
+  }
+  
+  // let board = [
+  // 'x', 'o', 'x',
+  // 'o', 'x', 'o',
+  // '', 'o',  ''
+  // ];
+  
+  // let column = getColumn(board, 0);//first column
+  // console.log(column);//['x', 'o', ''];
+  // column = getColumn(board, 1);//first column
+  // console.log(column);//['o', 'x', 'o'];
+
+/*
+computeSumOfKeyLengths
+write computeSumOfKeyLengths function
+it takes an object
+it returns the sum of the lengths of all the keys
+let sum = computeSumOfKeyLengths({foo: 'bar', bazz: 2});//7 because foo has 3 letters and bazz has 4
+console.log(sum);//7
+sum = computeSumOfKeyLengths({});
+console.log(sum);//0
+sum = computeSumOfKeyLengths({ab: 'c', d: 42});
+console.log(sum);//3 because ab has a length of 2 and d has a length of 1
+*/
+//TODO
+const computeSumOfKeyLengths = (obj) => {
+  let sum = 0;
+for(let key in obj){
+  let add = key.length;
+  sum += add;
+  }
+  return sum;
+}
+
+
+// let sum = computeSumOfKeyLengths({foo: 'bar', bazz: 2});//7 because foo has 3 letters and bazz has 4
+// console.log(sum);//7
+// sum = computeSumOfKeyLengths({});
+// console.log(sum);//0
+// sum = computeSumOfKeyLengths({ab: 'c', d: 42});
+// console.log(sum);//3 because ab has a length of 2 and d has a length of 1
+
+/*
+notUsed numbers
+the notUsed function takes 2 arrays of numbers
+the first array is an array of all available numbers
+the second array is an array of numbers which have been used
+the function should return an array of unused numbers (numbers from first array, not in the second array)
+*/
+//TODO
+const notUsed = (fullList, used) => {
+  let unused = [];
+   for(let i = 0; i < fullList.length; i++){
+     let currNum = fullList[i]; 
+       if(used.indexOf(currNum) === -1){
+         unused.push(currNum);
+       }
+   }
+   return unused;
+ }
+ 
+//  let list = notUsed([1, 2, 3, 4], [2, 4]);
+//  console.log(list);//[1, 3];
+//  list = notUsed([8, 9, 10], [9]);
+//  console.log(list);//[8, 10];
+//  list = notUsed([8, 9, 10], []);
+//  console.log(list);//[8, 9, 10];
+
+/*
+arrayToObject
+arrayToObject takes and an array with an even number of items
+it returns an object where the even indexes are keys, and the odd indexes are values
+*/
+//TODO
+//const arrayToObject = (arr) => {
+  let obj = {};
+    for(let i = 0; i < arr.length; i++){
+      if(i % 2 === 0){
+        let search = arr[i];
+        obj[search] = arr[i + 1];
+        }
+      }
+      return obj;
+    // }
+   
+  
+  // console.log(arrayToObject(['a', 1, 'b', 2]));//{ a: 1, b: 2}
+  // console.log(arrayToObject(['a', 1, 'b', 2, 'c', 'd']));//{ a: 1, b: 2, c: 'd'}
+  
+
+/*
+arrayEqualsObject
+arrayEqualsObject takes an array of numbers and an object
+it returns true if all of the numbers in the array are keys in the object
+it returns false otherwise
+*/
+//TODO
+const arrayEqualsObject = (keys, obj) => {
+  for(let i = 0; i < keys.length; i++){
+    let searchArr = keys[i];
+    if(obj[searchArr] === undefined){
+      return false;
+      }
+    }
+    return true;
+  }
+  
+  // let isEqual = arrayEqualsObject([1, 2, 3], {1: 'a', 2: 'b', 3: 'c'});//true
+  // console.log(isEqual);
+  // isEqual = arrayEqualsObject([1, 2, 3], {1: 'a', 2: 'b'});//false
+  // console.log(isEqual);
+  // isEqual = arrayEqualsObject([], {});//true
+  // console.log(isEqual);
+  // isEqual = arrayEqualsObject([5, 6], {5: 'x', 6: 'z', 7: 'q'})
+
+/*
+getStats - letter counts
+write getStats
+it takes a string
+it returns an object
+the keys are the letters in the string
+the values are how many times that letter appears in the string
+*/
+
+//TODO
+const getStats = (str) => {
+  let letterCount = {};
+  for(let i = 0; i < str.length; i++){
+    let letter = str[i];
+    if(letterCount[letter] === undefined){
+      letterCount[letter] = 1;
+    } else {
+      letterCount[letter]++;
+    }
+  }
+      return letterCount;
+}
+// console.log(getStats('aba'));//{a: 2, b: 1}
+// console.log(getStats('ababbc'));//{a: 2, b: 3, c: 1}

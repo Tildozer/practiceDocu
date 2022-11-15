@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Press Start 2P', cursive;
+}
+
+html {
+  background-color: #222;
+  color: white;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+select {
+  text-align: center;
+  height: 1.30rem;
+}
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+#numOfRows{
+  width: 13rem;
+}
+
+.red {
+  background-color: red;
+  height: 50px;
+  width: 50px;
+} 
+.green {
+  background-color: green;
+  height: 50px;
+  width: 50px;
+}
+.blue {
+  background-color: blue;
+  height: 50px;
+  width: 50px;
+}
+.purple {
+  background-color: purple;
+  height: 50px;
+  width: 50px;
+}
+.cyan {
+  background-color: cyan;
+  height: 50px;
+  width: 50px;
+}
+.black {
+  background-color: black;
+  height: 50px;
+  width: 50px;
+}
+.white {
+  background-color: white;
+  height: 50px;
+  width: 50px;
+}
+.pixel {
+  background-color: lightgray;
+  height: 50px;
+  width: 50px;
+}
