@@ -645,3 +645,22 @@ const getStats = (str) => {
 }
 // console.log(getStats('aba'));//{a: 2, b: 1}
 // console.log(getStats('ababbc'));//{a: 2, b: 3, c: 1}
+
+/*
+transpose an object (flip the keys and values)
+write transpose
+it takes an object
+it returns a new object
+the keys and values of the object are transposed (flipped)
+*/
+
+const transpose = (obj) => {
+  let flipObj = {};
+    for(let key in obj){
+      flipObj[obj[key]] = key;
+    }
+    return flipObj;
+  }
+  // let input = { y: 42, z: 'hello' };
+  // let output = transpose(input);
+  // console.log(output);//{42: 'y', hello: 'z'}
