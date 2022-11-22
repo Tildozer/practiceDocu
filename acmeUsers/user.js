@@ -3,7 +3,7 @@ let load = document.querySelector('#loadButton');
 let list = document.querySelector('#usersList');
 let randBtn = document.querySelector('#randomButton');
 let h1 = document.querySelector('#random');
-let company = document.querySelector('#companyName');
+let companyBtn = document.querySelector('#companyName');
 let compDiv = document.querySelector('#companyNames');
 let count = {moreUsers: 1, compCount: 0,}
 
@@ -15,7 +15,7 @@ randBtn.addEventListener('click', () => {
     loadRandomUser();
 });
 
-company.addEventListener('click', () => {
+companyBtn.addEventListener('click', () => {
     loadCompanies();
 });
 
@@ -28,12 +28,10 @@ async function loadCompanies() {
             let li = document.createElement('li');
             li.innerText = company;
             compDiv.appendChild(li);
-            count.compCount++
+            count.compCount++;
         }
     }
 }
-
-
 
 async function loadRandomUser() {
     let response = await fetch('https://www.acme-api.com/api/users/random');

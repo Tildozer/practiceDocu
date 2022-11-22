@@ -1,3 +1,20 @@
+.btnBx {
+    display: flex;
+    justify-content: space-around;
+}
+.title {
+    text-align: center;
+}
+#companyName, #randomButton, #loadButton {
+    border-radius: 0%;
+    color: whitesmoke;
+    background-color: black;
+    height: 2rem;
+}
+#random {
+    text-align: center;
+}
 .nameAndComp {
     display: flex;
+    justify-content: space-around;
 }
