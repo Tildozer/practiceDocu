@@ -664,3 +664,164 @@ const transpose = (obj) => {
   // let input = { y: 42, z: 'hello' };
   // let output = transpose(input);
   // console.log(output);//{42: 'y', hello: 'z'}
+
+
+  /*
+  transpose with a twist
+write transpose
+it takes an object
+it returns a new object
+the keys and values of the object are transposed (flipped)
+BUT if the value is a number, then don't transpose it.
+let input = { x: 'y', z: 'q'};
+let output = transpose(input);
+console.log(output);//{y: 'x', q: 'z'}
+input = { y: 42, z: 'hello' };
+output = transpose(input);
+console.log(output);//{y: 42, hello: 'z'} 
+  */
+
+//TODO
+
+const transposeAgain = (obj) => {
+  let objFlip = {};
+for(let key in obj){
+  if(typeof obj[key] !== 'string'){
+      console.log(key);
+    objFlip[key] = obj[key];
+  } else {
+    objFlip[obj[key]] = key;
+    }
+  }
+  return objFlip;
+}
+
+// let input = { x: 'y', z: 'q'};
+// let output = transposeAgain(input);
+// console.log(output);//{y: 'x', q: 'z'}
+// input = { y: 42, z: 'hello' };
+// output = transposeAgain(input);
+// console.log(output);//{y: 42, hello: 'z'} 
+
+/*
+generateArray
+write generateArray
+it takes an object with a count property and a data property
+it returns an array based on the count and the data
+*/
+
+const generateArray = (arrXTimes) => {
+  let arrOfData = [];
+  let timesToAdd = arrXTimes.count;
+  let info = arrXTimes.data;
+  for(let i = 0; i < timesToAdd; i++){
+  arrOfData.push(info);
+  }
+  return arrOfData;
+}
+
+// let output = generateArray({ count: 2, data: 'hello'});
+// console.log(output);//['hello', 'hello'];
+
+/*
+template
+write template
+it takes an array of strings
+it returns a string which contains all the strings in the array, with each of them wrapped in two asterisks
+*/
+
+const template = (arr) => {
+  let stringOfArr = '';
+  for(let i = 0; i < arr.length; i++){
+  let currItem = arr[i];
+    stringOfArr += `**${currItem}** `;
+  }
+  return stringOfArr;
+}
+// let input = ['foo', 'bar', 'bazz'];
+// let output = template(input);
+// console.log(output);//**foo** **bar** **bazz**
+// input = ['x', 'y'];
+// output = template(input);
+// console.log(output);//**x** **y**
+
+/*
+more template
+write template
+it takes an array of objects and a string which is a key in each of those objects in the array
+it returns a string
+the string returned contains the values of the passed in key for each of the objects
+those values are wrapped in double asterisks
+*/
+
+//TODO
+const templateMore = (arrOfObj, keyName) => {
+  let keyStr = '';
+  for(let i in arrOfObj){
+    let obj = arrOfObj[i];
+    for(let key in obj){
+    let nameSearch = obj[key];
+    if(key === keyName){
+      keyStr += `**${nameSearch}** `;
+    }
+  }
+}
+  return keyStr;
+}
+
+// let input = [{ name: 'foo', id: 1}, { name: 'bar', id: 2}, { name: 'bazz', id: 3}];
+// let output = templateMore(input, 'name');
+// console.log(output);//**foo** **bar** **bazz**
+// output = templateMore(input, 'id');
+// console.log(output);//**1** **2** **3**
+
+/*
+largestArray (courtesy Kokko)
+write largestArr
+takes any number of arrays
+ */
+
+const largestArr = (...arr) => {
+  let largest;
+  for(let i  in arr){
+    let currArr = arr[i];
+    if(!largest){
+    largest = currArr;
+    }
+    if(largest.length < currArr.length){
+    largest = currArr;
+    }
+  }
+  return largest;
+}
+//console.log(largestArr([], ['a', true], ['b']));//['a', true]
+//console.log(largestArr([], ['a', true], ['b'], [ 'a', 'b', 'c', 'd']));//[ 'a', 'b', 'c', 'd' ]
+
+/*
+indexOf
+write indexOf
+it takes an array and a value
+it returns the index of the value in the array
+it returns a negative one if it can't be found
+do not use the indexOf array method
+*/
+
+const indexOf = (arr, num) => {
+  for(let i = 0; i < arr.length; i++){
+   let numSearch = arr[i];
+    if(numSearch === num){
+    return i;
+    } 
+  }
+    return -1;
+  }
+
+  // let input = [1, 2, 3, 4, 5];
+  // let output = indexOf(input, 3);//2
+  // console.log(output);
+  // output = indexOf(input, 33);//-1
+  // console.log(output);
+  // output = indexOf(input, 5);//4
+  // console.log(output);
+
+  
