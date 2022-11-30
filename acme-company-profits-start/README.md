@@ -1,0 +1,2 @@
+- use endpoints to show the listing of the companies (name)
+- user can click on company to show the profits

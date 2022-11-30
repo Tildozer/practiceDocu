@@ -1,0 +1,17 @@
+body{
+    background-color: indianred;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.wholeApp {
+    display: flex;
+    flex-direction: row;
+}
+.wholeApp > * {
+    flex: 1;
+}
+.companies a {
+    color: rgb(255, 252, 169);
+}
+.selected {
+    font-size: 1.5rem;
+}

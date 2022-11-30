@@ -2,7 +2,7 @@ const App = () => {
     const [user, setUsers] = React.useState([]);
     const [detail, setDetails] = React.useState([]);
 
-    const loadUser = async () => {
+    const loadUsers = async () => {
       const response = await fetch('https://www.acme-api.com/api/users');
       const usersInfo = await response.json();
       const users = usersInfo.users;
@@ -20,12 +20,13 @@ const App = () => {
       }
     }
   React.useEffect(() => {
-    loadUser();
+    loadUsers();
   }, []);
 
   React.useEffect(() => {
     window.addEventListener('hashchange', loadDetail)
       loadDetail();
+      loadUsers();
   }, [])
     return ( 
       <div>
