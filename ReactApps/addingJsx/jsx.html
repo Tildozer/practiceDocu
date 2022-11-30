@@ -7,27 +7,27 @@
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-    <title>Document</title>
+    <title>Add things</title>
 </head>
 <body>
     <div id="root"></div>
     <script type="text/babel">
         function App(){
             let [numbers, setNumbers] = React.useState([3, 4]);
-            let sum = numbers.reduce((acc, num) => {
-                return acc + num;
-            }, 0);
+            let sum = numbers.reduce((acc, num) =>  acc + num, 0);
             function addRandom() {
-                setNumbers(...numbers, Math.ceil(Math.random() * 10));
+                setNumbers([...numbers, Math.ceil(Math.random() * 10)]);
             }
             return (
                 <div>
                   <h1>The sum is { sum }</h1>
                   <button onClick={ addRandom }>Click me</button>
                   <ul>
-                    <li>
-                      { number }
-                    </li>
+                        { 
+                        numbers.map((num, idx) => {
+                            return <li key ={ idx }>{ num }</li>
+                        })
+                     }
                   </ul>
                 </div>
             );
