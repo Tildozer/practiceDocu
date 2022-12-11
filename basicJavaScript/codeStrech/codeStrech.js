@@ -824,4 +824,86 @@ const indexOf = (arr, num) => {
   // output = indexOf(input, 5);//4
   // console.log(output);
 
+  /*
+    isMatch - see if target object has all the properties of another object
+isMatch returns true if the first object has all the same keys and values of second object
+note the first object can have extra properties, yet still return true
+  */
+
+//TODO
+/*const isMatch = (obj, objToMatch) => {
+ const entries = Object.entries(objToMatch);
+  for(let i = 0; i < entries.length; i++){
+  const [key, value] = entries[i];
+    if(obj[key] !== value){
+    return false;
+    }
+  }
+  return true;
+} 
+Original answer
+*/
+
+const isMatch = (obj, objToMatch) => {
+  for(let key in objToMatch){
+    if(objToMatch[key] !== obj[key]){
+     return false;
+    }
+    }
+    return true;
+  }
+  // console.log(isMatch({}, {x: 1}));//false
+  // console.log(isMatch({x: 1, y: 2}, {x: 1}));//true
+  // console.log(isMatch({x: 1, y: 2, z: 3}, {x: 1, y: 2}));//true
+  // console.log(isMatch({x: 1, y: 2, z: 3}, {x: 1, y: 1}));//false
+
+  /*
+   sum with stopping value
+write the function sum
+it takes an array of values
+it stops counting when it encounters -999 and does not include -999 in the sum
+  */
+
+//TODO
+const sum = arrOfNums => {
+  let sumTill = 0;
+  for(let num in arrOfNums){
+    let currNum = arrOfNums[num];
+    if(currNum === -999){
+      return sumTill;
+    }
+    sumTill+= currNum;
+  }
+  return sumTill;
+}
+
+//console.log(sum([1, 2, -999]));//3
+//console.log(sum([-999, 1, 2, 3]));//0
+
+/*
+  concat with stopping value
+write concat
+it is passed an array of strings
+it concatenates the strings until it sees the value 'stop' or until is concats all the strings
+it returns the concatenated string
+console.log(concat(['hello', 'world', 'stop']));//'helloworld';
+console.log(concat(['stop', 'hello', 'world']));//''
+console.log(concat(['hello', 'world']));//'helloworld'
+*/
+
+//TODO
+const concat = (words) => {
+  let concatinate = '';
+    for(let word of words){
+      if(word === 'stop'){
+        return concatinate;
+      }
+      concatinate += word;
+    }
+    return concatinate;
+  }
   
+  // console.log(concat(['hello', 'world', 'stop']));//'helloworld';
+  // console.log(concat(['stop', 'hello', 'world']));//''
+  // console.log(concat(['hello', 'world']));//'helloworld'
+

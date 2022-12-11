@@ -1,0 +1,10 @@
+.todoApp {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 45%;
+  min-height: 600px;
+  align-items: center;
+  margin: 120px auto;
+  background-color: #c7bca1;
+}

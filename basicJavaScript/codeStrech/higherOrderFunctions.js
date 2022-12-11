@@ -283,3 +283,157 @@ const createTemplateList = (count, callback) => {
 //   console.log(createTemplateList(4, (n)=> `Foo ${n * 2}`));['Foo 0', 'Foo 2', 'Foo 4', 'Foo 6']
 //   console.log(createTemplateList(2, (n)=> n * 2));[0, 2]
   
+  /*
+    catMarkup
+catMarkup
+takes an array of cat names
+returns an array of the cat names in upper case
+console.log(catMarkup(['fluffy', 'meeka']));//['FLIUFFY', 'MEEKA']
+console.log(catMarkup(['fluffy', 'meeka', 'itchy']));//['FLIUFFY', 'MEEKA', 'ITCHY']
+  */
+
+//TODO
+
+const catMarkup = cats => (
+  cats.map(catName => catName.toUpperCase())
+  );
+  
+  // console.log(catMarkup(['fluffy', 'meeka']));//['FLIUFFY', 'MEEKA']
+  // console.log(catMarkup(['fluffy', 'meeka', 'itchy']));//['FLIUFFY', 'MEEKA', 'ITCHY']
+
+  /*
+    fourByFour
+fourByFour takes a list of words
+returns all four letter words
+if there are more than four words it only returns the first four
+  */
+
+//TODO
+const fourByFour = (names) => {
+  let filteredNames = names.filter(name =>  name.length === 4)
+  while (filteredNames.length > 4){
+    filteredNames.pop();   
+}
+return filteredNames;
+}
+
+// console.log(fourByFour(['foo', 'bar', 'fizz', 'buzz']));//['fizz', 'buzz']
+// console.log(fourByFour(['foo', 'bar', 'fizz', 'buzz', 'boat', 'tack', 'bill']));//['fizz', 'buzz', 'boat', 'tack']
+
+/*
+findFriendPairs
+findFriendPairs
+takes an array of objects
+each object can have a list of friends
+returns the pairs of friends
+*/
+
+const findFriendPairs = (people) => {
+  const peopleWithFriends = people.filter(person => person.friends);
+  const names = peopleWithFriends.map(person => person.name);
+  const friendsList = peopleWithFriends.map(person => person.friends.map(friend => friend.name));
+  
+    return friendsList.map((friends, idx) => friends.map((friend) => [names[idx], friend])).flat();
+}
+// that took me to long to do...
+// const people = [
+//   {
+//     name: 'moe',
+//     friends: [
+//       {
+//         name: 'larry'
+//       },
+//       {
+//         name: 'curly'
+//       },
+//     ]
+//   },
+//   {
+//      name: 'lucy'
+//   },
+//   {
+//      name: 'ethyl',
+//      friends: [
+//        { name: 'lucy' }
+//      ]
+//   }
+// ];
+// console.log(findFriendPairs(people));//[['moe', 'larry'], ['moe', 'curly'], ['ethyl', 'lucy']]
+
+/*
+object generator
+generateObject takes a set of strings and returns an object
+each entry in the object consists of a key and value which corresponds to the string
+const obj = generateObject('FOO', 'BAR', 'BAZZ');
+*/
+
+//TODO
+const generateObject = (...arr) => {
+  let obj = {};
+  arr.forEach(key => obj[key] = key);
+    return obj;
+}
+// I can't remember how to make an object pair with recuce() so this was the best I could do.
+//const obj = generateObject('FOO', 'BAR', 'BAZZ');
+
+//console.log(obj);
+/*
+{
+  BAR: "BAR",
+  BAZZ: "BAZZ",
+  FOO: "FOO"
+}*/
+
+/*
+findPopularPeople - those with more than one friend!
+findPopularPeople
+takes an array of objects
+each object can have a list of friends
+returns the names of users who have more than one friend
+*/
+
+//TODO
+/* 
+const findPopularPeople = (people) => {
+  let mostPop;
+  for(let key in people){
+    let person = people[key];
+    if(!mostPop){
+      mostPop = person;
+    }
+    //if(person.friends.length > mostPop.friends.length){
+     //mostPop = person
+   // }
+  }
+}
+Didn't finish, profs answer below
+*/
+
+const findPopularPeople = () => {
+  return people.filter(person => person.friends && person.friends.length > 1)
+  .map(person => person.name);
+}
+// const people = [
+//   {
+//     name: 'moe',
+//     friends: [
+//       {
+//         name: 'larry'
+//       },
+//       {
+//         name: 'curly'
+//       },
+//     ]
+//   },
+//   {
+//      name: 'lucy'
+//   },
+//   {
+//      name: 'ethyl',
+//      friends: [
+//        { name: 'lucy' }
+//      ]
+//   }
+// ];
+// console.log(findPopularPeople(people));//['moe']
+

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acme user search</title>
+</head>
+<body>
+    <script defer type="text/babel">
+        const BASE_URL = 'https://www.acme-api.com/api';
+        const App = () => {
+            const [term, setTerm] = React.useState('');
+            const [users, setUsers] = React.useState([])
+            const search = ev => {
+              ev.preventDefault();
+              const url = {BASE_URL}
+              const response = await fetch()
+              const data = await response.json();
+              const { users } = data
+              setUsers(users)
+            }
+            return (
+                <div>
+                  <h1>Acme User Search</h1>
+                  <form action="">
+                    <input 
+                      value={ term }
+                      onChange={ ev => setTerm(ev.target.value) } 
+                      type="text" />
+                    <button disabled={ !term }>Search</button>
+                  </form>
+                </div>
+            )
+        }
+        const root = ReactDOM.createRoot(document.querySelector('#root'));
+        root.render(<App />);
+    </script>
+    <div id="root"></div>
+</body>
+</html>
