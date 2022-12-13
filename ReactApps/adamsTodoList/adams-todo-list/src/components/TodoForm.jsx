@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import styles from './TodoForm.module.css';
+
 const TodoForm = ({ addTodo }) => {
   const [input, setinput] = useState('')
 
   const handleSubmit = e => {
     addTodo(input)
     e.preventDefault();
+    setinput('')
   }
   return (
     <form className={ styles.todoForm } onSubmit={ handleSubmit }>

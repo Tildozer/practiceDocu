@@ -1,0 +1,31 @@
+.todoRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4px auto;
+    padding: 1rem;
+    border-radius: 5px;
+    width: 90%;
+    background-color: #9f8772;
+}
+.completed {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4px auto;
+    padding: 1rem;
+    border-radius: 5px;
+    width: 90%;
+    background-color: #9f8772;
+    /* new css */
+    text-decoration: line-through;
+}
+.check{
+    margin-right: 7px;
+    color: white;
+}
+.check, .trash {
+    font-size: x-large;
+    cursor: pointer;
+}
+ 
