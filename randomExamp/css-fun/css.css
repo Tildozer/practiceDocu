@@ -6,7 +6,7 @@ body {
 .clip-path {
     height: 4rem;
     width: 4rem;
-    background-color: red;
+    background: purple;
     clip-path: polygon(
         0% 10%,
         90% 0%,
@@ -14,3 +14,4 @@ body {
         10% 90%
     )
 };
+

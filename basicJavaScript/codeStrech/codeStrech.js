@@ -907,3 +907,7 @@ const concat = (words) => {
   // console.log(concat(['stop', 'hello', 'world']));//''
   // console.log(concat(['hello', 'world']));//'helloworld'
 
+
+/*
+
+*/
