@@ -1,4 +1,6 @@
-const express = require('express')
+import Puppies from './components/Puppies';
+
+const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => {
