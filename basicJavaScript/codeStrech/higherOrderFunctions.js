@@ -538,4 +538,227 @@ const processScores = (data)=> {
   });
   return result; 
 }
-console.log(processScores(str));//{moe: 90, lucy: 99, curly: 81}
+// console.log(processScores(str));//{moe: 90, lucy: 99, curly: 81}
+
+/**
+ * peopleAndPets
+write peopleAndPets
+returns all the users and an array of the pets that user owns
+ */
+
+//TODO
+//const peopleAndPets = () => {
+  //return people.map(person => {return person})
+//}
+
+const peopleAndPets = () => {
+  let results = [];
+  people.forEach( person => {
+    person.pets = [];
+    ownerships.forEach( ownership => {
+      if(ownership.personId === person.id){
+        const pet = pets.find(pet => pet.id === ownership.petId);
+        person.pets.push(pet);
+      }
+    })
+    results.push(person);
+  })
+  return results;
+}
+
+
+const pets = [
+  { id: 1, name: 'Fido'},
+  { id: 2, name: 'Rex'},
+  { id: 3, name: 'Fluffy'},
+];
+
+const people = [
+  { id: 1, name: 'Prof'},
+  { id: 2, name: 'Pete'},
+  { id: 3, name: 'Stanley'},
+  { id: 4, name: 'Ben'},
+];
+
+const ownerships = [
+  { personId: 2, petId: 2},
+  { personId: 3, petId: 2},
+  { personId: 3, petId: 3},
+];
+
+//console.log(peopleAndPets());
+/*
+[
+  {
+    "id": 1,
+    "name": "Prof",
+    "pets": []
+  },
+  {
+    "id": 2,
+    "name": "Pete",
+    "pets": [
+      {
+        "id": 2,
+        "name": "Rex"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Stanley",
+    "pets": [
+      {
+        "id": 2,
+        "name": "Rex"
+      },
+      {
+        "id": 3,
+        "name": "Fluffy"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Ben",
+    "pets": []
+  }
+] */
+
+/**
+ * Capitalize Every Other Letter
+Write a function that capitalizes every other letter in a string starting with the first
+ */
+
+//TODO
+const stringConverter = (str) => {
+  /*let newStr = ''; 
+  let acc = 0
+  for(let i = 0; i < str.length; i++){
+    let letter = str[i];
+    if(acc % 2){
+      newStr += letter.toLowerCase();
+    } else {
+      newStr += letter.toUpperCase();
+    }
+    if(letter.match(/[a-z]/i)){
+      acc++;
+    }
+  }
+  return newStr;*/
+  const strArr = [...str];
+  let acc = 0;
+  
+  return strArr.reduce( (newStr, letter) => {
+    acc % 2 ?
+      newStr += letter.toLowerCase()
+    : newStr += letter.toUpperCase();
+    
+    if(letter.match(/[a-z]/i)){
+      acc++;
+    }
+    
+    return newStr;
+  }, '');
+}
+// console.log(stringConverter("That was so cool!!!! Let's do it again!")); // "ThAt WaS sO cOoL!!!! lEt'S dO iT aGaIn!"
+// console.log(stringConverter("My name is Jon and I am so serious right now!")); // "My NaMe Is JoN aNd I aM sO sErIoUs RiGhT nOw!"
+
+/**
+ * Searching An Object For A String
+write objectContainsString
+returns true if one of the values in the passed in object contains the passed in string
+Search is case insensitive
+returns false otherwise
+ */
+
+//TODO
+const objContainsString = (obj, str) => {
+  for(let key in obj){
+    if(obj[key].toLowerCase().includes(str.toLowerCase())){
+      return true;
+    }
+  }
+  return false;
+}
+
+// console.log(objContainsString({
+//   x: 'Foo',
+//   b: 'bare'
+// }, 'foo'));//true
+// console.log(objContainsString({
+//   x: 'Foo',
+//   b: 'bare'
+// }, 'bar'));//true
+// console.log(objContainsString({
+//   one: 'Foo',
+//   two: 'bare'
+// }, 'bazz'));//false
+// console.log(objContainsString({}, 'whatever'));//false
+
+/**
+ * find length of short keys
+write countKeyLength
+it takes an object
+it returns a number which is the string length of all the combined keys
+but don't count keys which are longer than 3 characters
+ */
+
+//TODO
+const obj = {
+  foo: 'hello',
+  bar: 'world',
+  bazz: '!!'
+}
+
+const countShortKeys = (obj) => {
+  let keyLength = 0;
+  for(let key in obj){
+    if(key.length < 4){
+      keyLength += key.length;
+    }
+  }
+  return keyLength;
+}
+
+// console.log(countShortKeys(obj));//6 because the short keys are foo and bar
+// delete obj.foo;
+// console.log(countShortKeys(obj));//3 because the short keys are bar
+// delete obj.bar;
+// console.log(countShortKeys(obj));//0 because there are no short keys
+
+/**
+ * processScores
+processScores takes string, with line breaks
+each row represents a student
+each row is delimited by commas
+the first value in the row is the name
+the rest of the values are scores
+processScores returns an object, where keys are names and values are score averages
+finish writing processScores
+
+ */
+
+const studentsScores = `
+moe,100,80,90
+lucy,100,99,98
+curly,80,81,82
+`;
+
+const processScoresStr = (data)=> {
+  const result = {};
+  data.trim().split('\n').forEach( row => {
+    const parts = row.split(',')
+    const name = parts[0];
+    const scores = parts.slice(1);
+    let sum = 0;
+    scores.forEach( score => {
+      sum += +score;
+    })
+    const average = sum / scores.length;
+    result[name] = average;
+  });
+  return result; 
+}
+//console.log(processScoresStr(studentsScores));//{moe: 90, lucy: 99, curly: 81}
+
