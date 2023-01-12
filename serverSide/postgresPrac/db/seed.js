@@ -1,8 +1,13 @@
-const { 
-  client, 
-  getAllUsers,
+const {  
+  client,
   createUser,
-  updateUser 
+  updateUser,
+  getAllUsers,
+  getUserById,
+  createPost,
+  updatePost,
+  getAllPosts,
+  getPostsByUser
 } = require('./index');
 
 async function dropTables() {
@@ -10,6 +15,8 @@ async function dropTables() {
     console.log("Starting to drop tables...");
 
     await client.query(`
+      DROP TABLE IF EXISTS post_tags;
+      DROP TABLE IF EXISTS tags;
       DROP TABLE IF EXISTS posts;
       DROP TABLE IF EXISTS users;
         `);
@@ -41,6 +48,14 @@ async function createTables() {
             content TEXT NOT NULL,
             active BOOLEAN DEFAULT true
           );
+          CREATE TABLE tags (
+            id SERIAL PRIMARY KEY,
+            name VARCHAR(255) UNIQUE NOT NULL
+          );
+          CREATE TABLE post_tags(
+            "postId" INTEGER REFERENCES posts(id) UNIQUE,
+            "tagId" INTEGER REFERENCES tags(id) UNIQUE
+          );
         `);
 
     console.log("finished building tables!");
@@ -53,13 +68,76 @@ async function createInitialUsers() {
   try{
     console.log("starting to create users...");
 
-    const albert = await createUser({username: 'albert', password: 'bertie99', name: 'albert', location: 'Texas'});
-    const sanda = await createUser({username: 'sandra', password: '2sandy4me', name: 'sandy', location: 'New York'});
-    const glamgal = await createUser({username: 'glamgal', password: 'soglam', name: 'casey', location: 'SoCal'});
+    await createUser({
+      username: 'albert', 
+      password: 'bertie99', 
+      name: 'albert', 
+      location: 'Texas'});
+
+    await createUser({
+      username: 'sandra', 
+      password: '2sandy4me', 
+      name: 'sandy', 
+      location: 'New York'});
+
+    await createUser({
+      username: 'notsoGlamgal', 
+      password: 'sounglam', 
+      name: 'casey', 
+      location: 'SoCal'});
+
+      await createUser({ 
+        username: 'notSandra', 
+        password: 'sandyBullets',
+        name: 'Just Sandra',
+        location: 'Ain\'t tellin\''
+      });
+      await createUser({ 
+        username: 'glamgal',
+        password: 'soglam',
+        name: 'Joshua',
+        location: 'Upper East Side'
+      });
 
     console.log('Finished creating users!')
   } catch (err) {
     console.error('Error creating initial users!')
+    throw err;
+  }
+}
+
+async function createInitialPosts(){
+  try{
+    console.log("starting to create Posts...")
+
+    const [albert, sandra, notsoGlamgal] = await getAllUsers();
+
+    await createPost({
+      authorId: albert.id,
+      title: "First Post",
+      content: "This is my first post. I hope I love writing blogs as much as I love writing them."
+    });
+
+    await createPost({
+      authorId: albert.id,
+      title: "First Post",
+      content: "This is my first post. I hope I love writing blogs as much as I love writing them."
+    });
+
+    await createPost({
+      authorId: sandra.id,
+      title: "How does this work?",
+      content: "Seriously, does this even do anything?"
+    });
+
+    await createPost({
+      authorId: notsoGlamgal.id,
+      title: "Living the Glam Life",
+      content: "Do you even? I swear that half of you are posing."
+    });
+
+    console.log("finished making posts!")
+  } catch (err) {
     throw err;
   }
 }
@@ -71,6 +149,7 @@ async function rebuildDB(){
     await dropTables();
     await createTables();
     await createInitialUsers();
+    await createInitialPosts();
   } catch (err) {
     throw err;
   }
@@ -83,12 +162,27 @@ async function testDB() {
     const users = await getAllUsers();
     console.log('getAllUsers:', users);
 
+    const posts = await getAllPosts();
+    console.log('getAllposts:', posts);
+
     console.log("Calling updateUser on users[0]")
     const updateUserResult = await updateUser(users[0].id, {
       name: "Newname Sogood",
-      location: "Lesterville, KY"
+      location: "Lesterville, KY",
+      active: false
     });
     console.log("Result:", updateUserResult);
+    
+    console.log("Calling updatePost on post[0]")
+    const updatePostResult = await updatePost(posts[0].id, {
+      title: "this is a new post, I hope you are ready for it!",
+      content: "potato soup is not fun to make",
+    });
+    console.log("Result:", updatePostResult);
+
+    console.log("Calling getUserById with 3");
+    const albert = await getUserById(3);
+    console.log("Result:", albert);
 
     console.log("finished database tests!");
   } catch (err) {
