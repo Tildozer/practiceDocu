@@ -6,7 +6,9 @@ module.exports = {
     extend: {
       animation: {
         fadeIn: "fadeIn 4s 5",
+        fadeInOnce: "fadeIn 3s 1",
         rotate: "rotate 3s linear reverse 1",
+        slowPing: 'ping 3s 3'
       },
       keyframes: {
         fadeIn: {
