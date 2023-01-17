@@ -27,7 +27,6 @@ const PokeHome = () => {
   }, [pokemon]);
 
   // added this to make sure the shinies disaper when you hit next or previous
-  let shinies = document.querySelectorAll(".opacity-0");
 
   return (
     <div className="bg-black m-10">
@@ -38,9 +37,12 @@ const PokeHome = () => {
               <button
                 className="bg-white h-7 w-20 hover:animate-pulse shadow-yellow-600 shadow-lg"
                 onClick={async (_) => {
-                  shinies.forEach((shiny) => {
-                    shiny.className = "opacity-0 hover:animate-fadeIn";
-                  });
+                  document
+                    .querySelectorAll(".shiny-sprites")
+                    .forEach((shiny) => {
+                      shiny.className =
+                        "shiny-sprites opacity-0 hover:animate-fadeIn hover:cursor-pointer";
+                    });
 
                   return await fetchPokemon(pokemon.previous)
                     .then((data) => setPokemon(data))
@@ -55,10 +57,12 @@ const PokeHome = () => {
               <button
                 className="bg-white h-7 w-12 hover:animate-pulse shadow-yellow-600 shadow-lg "
                 onClick={async (_) => {
-                  shinies.forEach((shiny) => {
-                    shiny.className =
-                      "opacity-0 hover:animate-fadeIn hover:cursor-pointer";
-                  });
+                  document
+                    .querySelectorAll(".shiny-sprites")
+                    .forEach((shiny) => {
+                      shiny.className =
+                        "shiny-sprites opacity-0 hover:animate-fadeIn hover:cursor-pointer";
+                    });
 
                   return await fetchPokemon(pokemon.next)
                     .then((data) => {
@@ -98,25 +102,27 @@ const PokeHome = () => {
                       </div>
                       <div className="flex flew-row justify-center m-0 w-32">
                         <img
-                          className="opacity-0 hover:animate-fadeIn hover:cursor-pointer"
+                          className="shiny-sprites opacity-0 hover:animate-fadeIn hover:cursor-pointer"
                           onClick={(ev) =>
                             ev.target.className ===
-                            "opacity-0 hover:animate-fadeIn hover:cursor-pointer"
-                              ? (ev.target.className = "hover:cursor-pointer")
+                            "shiny-sprites opacity-0 hover:animate-fadeIn hover:cursor-pointer"
+                              ? (ev.target.className =
+                                  "shiny-sprites hover:cursor-pointer")
                               : (ev.target.className =
-                                  "opacity-0 hover:animate-fadeIn hover:cursor-pointer")
+                                  "shiny-sprites opacity-0 hover:animate-fadeIn hover:cursor-pointer")
                           }
                           src={pokemonInfo[idx].sprites.front_shiny}
                           alt={`${pokemonInfo[idx].name} front facing shiny sprite`}
                         />
                         <img
-                          className="opacity-0 hover:animate-fadeIn hover:cursor-pointer"
+                          className="shiny-sprites opacity-0 hover:animate-fadeIn hover:cursor-pointer"
                           onClick={(ev) =>
                             ev.target.className ===
-                            "opacity-0 hover:animate-fadeIn hover:cursor-pointer"
-                              ? (ev.target.className = "hover:cursor-pointer")
+                            "shiny-sprites opacity-0 hover:animate-fadeIn hover:cursor-pointer"
+                              ? (ev.target.className =
+                                  "shiny-sprites hover:cursor-pointer")
                               : (ev.target.className =
-                                  "opacity-0 hover:animate-fadeIn hover:cursor-pointer")
+                                  "shiny-sprites opacity-0 hover:animate-fadeIn hover:cursor-pointer")
                           }
                           src={pokemonInfo[idx].sprites.back_shiny}
                           alt={`${pokemonInfo[idx].name} back facing shiny sprite`}
