@@ -3,15 +3,14 @@
  * async    continue    extends     if          of          this        while
  * await    debugger    false       import      return      throw       width
  * break    default     finally     in          set         true        yeild
- * case     delete      for         instanceof  statitc     try    
- * catch    do          from        let         super       typeof 
+ * case     delete      for         instanceof  statitc     try
+ * catch    do          from        let         super       typeof
  * class    else        function    new         switch      var
  */
 
 // Javascript also reserves certain key words that are not currently in jS but might in the future
 
 // enum     implements      interface       package     private     protected       public
-
 
 // smiley face emoji
 // console.log("\u{1F600}")
@@ -31,14 +30,9 @@
 
 // Errors and its subtypes represent errors that can arise when exucuting javaScript code;
 
-
-
 /*
 the javaScript Interpreter preforms automatic garbage collection for memory managment. this mean jS programmers generally don't have to 
 worry about destructions and deallocation of objects or other values.(not always the case so just be wearry.) 
 */
 
-
-
 // in jS null and undefined are the only values that methods cannot be invoked on.
-

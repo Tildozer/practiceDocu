@@ -1,16 +1,15 @@
-###### javaScript.info ######
+###### javaScript.info
 
 To attach several scripts, use multiple tags:
 
 <script src="/js/script1.js"></script>
 <script src="/js/script2.js"></script>
- 
- alert tags,
 
- alert('I'm a javaScript!');
+alert tags,
 
+alert('I'm a javaScript!');
 
- If you’re curious to see a concrete example of such an error, check this code out:
+If you’re curious to see a concrete example of such an error, check this code out:
 
 alert("Hello");
 
@@ -47,7 +46,7 @@ For example:
 
 // this code works the modern way
 
- There’s no way to cancel use strict
+There’s no way to cancel use strict
 There is no directive like "no use strict" that reverts the engine to old behavior.
 
 Once we enter strict mode, there’s no going back.
@@ -56,18 +55,18 @@ Modern JavaScript supports “classes” and “modules” – advanced language
 
 Here’s an extract from the precedence table (you don’t need to remember this, but note that unary operators are higher than corresponding binary ones):
 
-Precedence	Name	Sign
-…	…	…
-14	unary plus	+
-14	unary negation	-
-13	exponentiation	**
-12	multiplication	*
-12	division	/
-11	addition	+
-11	subtraction	-
-…	…	…
-2	assignment	=
-…	…	…
+Precedence Name Sign
+… … …
+14 unary plus +
+14 unary negation -
+13 exponentiation \*_
+12 multiplication _
+12 division /
+11 addition +
+11 subtraction -
+… … …
+2 assignment =
+… … …
 As we can see, the “unary plus” has a priority of 14 which is higher than the 11 of “addition” (binary plus). That’s why, in the expression "+apples + +oranges", unary pluses work before the addition.
 
 ## ternary operator
@@ -107,9 +106,9 @@ For instance:
 let age = prompt('age?', 18);
 
 let message = (age < 3) ? 'Hi, baby!' :
-  (age < 18) ? 'Hello!' :
-  (age < 100) ? 'Greetings!' :
-  'What an unusual age!';
+(age < 18) ? 'Hello!' :
+(age < 100) ? 'Greetings!' :
+'What an unusual age!';
 
 alert( message );
 It may be difficult at first to grasp what’s going on. But after a closer look, we can see that it’s just an ordinary sequence of tests:
@@ -121,15 +120,14 @@ If that’s true – it returns 'Greetings!'. Otherwise, it continues to the exp
 Here’s how this looks using if..else:
 
 if (age < 3) {
-  message = 'Hi, baby!';
+message = 'Hi, baby!';
 } else if (age < 18) {
-  message = 'Hello!';
+message = 'Hello!';
 } else if (age < 100) {
-  message = 'Greetings!';
+message = 'Greetings!';
 } else {
-  message = 'What an unusual age!';
+message = 'What an unusual age!';
 }
-
 
 Non-traditional use of ‘?’
 Sometimes the question mark ? is used as a replacement for if:
@@ -137,7 +135,7 @@ Sometimes the question mark ? is used as a replacement for if:
 let company = prompt('Which company created JavaScript?', '');
 
 (company == 'Netscape') ?
-   alert('Right!') : alert('Wrong.');
+alert('Right!') : alert('Wrong.');
 Depending on the condition company == 'Netscape', either the first or the second expression after the ? gets executed and shows an alert.
 
 We don’t assign a result to a variable here. Instead, we execute different code depending on the condition.
@@ -149,9 +147,9 @@ Here is the same code using if for comparison:
 let company = prompt('Which company created JavaScript?', '');
 
 if (company == 'Netscape') {
-  alert('Right!');
+alert('Right!');
 } else {
-  alert('Wrong.');
+alert('Wrong.');
 }
 Our eyes scan the code vertically. Code blocks which span several lines are easier to understand than a long, horizontal instruction set.
 
@@ -171,7 +169,7 @@ In other words, || doesn’t distinguish between false, 0, an empty string "" an
 
 In practice though, we may want to use default value only when the variable is null/undefined. That is, when the value is really unknown/not set.
 
-For example, consider this: 
+For example, consider this:
 let height = 0;
 
 alert(height || 100); // 100
@@ -183,12 +181,14 @@ The height ?? 100 checks height for being null/undefined, and it’s not,
 so the result is height “as is”, that is 0.
 
 ### Loops
+
 # do while loop
+
 The “do…while” loop
 The condition check can be moved below the loop body using the do..while syntax:
 
 do {
-  // loop body
+// loop body
 } while (condition);
 The loop will first execute the body, then check the condition, and, while it’s truthy, execute it again and again.
 
@@ -196,12 +196,13 @@ For example:
 
 let i = 0;
 do {
-  alert( i );
-  i++;
+alert( i );
+i++;
 } while (i < 3);
 This form of syntax should only be used when you want the body of the loop to execute at least once regardless of the condition being truthy. Usually, the other form is preferred: while(…) {…}.
 
-# break loops 
+# break loops
+
 Breaking the loop
 Normally, a loop exits when its condition becomes falsy.
 
@@ -213,15 +214,15 @@ let sum = 0;
 
 while (true) {
 
-  let value = +prompt("Enter a number", '');
+let value = +prompt("Enter a number", '');
 
-  if (!value) break; // (*)
+if (!value) break; // (\*)
 
-  sum += value;
+sum += value;
 
 }
 alert( 'Sum: ' + sum );
-The break directive is activated at the line (*) if the user enters an empty line or cancels the input. It stops the loop immediately, passing control to the first line after the loop. Namely, alert.
+The break directive is activated at the line (\*) if the user enters an empty line or cancels the input. It stops the loop immediately, passing control to the first line after the loop. Namely, alert.
 
 The combination “infinite loop + break as needed” is great for situations when a loop’s condition must be checked not in the beginning or end of the loop, but in the middle or even in several places of its body.
 
@@ -236,10 +237,10 @@ The loop below uses continue to output only odd values:
 
 for (let i = 0; i < 10; i++) {
 
-  // if true, skip the remaining part of the body
-  if (i % 2 == 0) continue;
+// if true, skip the remaining part of the body
+if (i % 2 == 0) continue;
 
-  alert(i); // 1, then 3, 5, 7, 9
+alert(i); // 1, then 3, 5, 7, 9
 }
 For even values of i, the continue directive stops executing the body and passes control to the next iteration of for (with the next number). So the alert is only called for odd values.
 
@@ -248,9 +249,9 @@ A loop that shows odd values could look like this:
 
 for (let i = 0; i < 10; i++) {
 
-  if (i % 2) {
-    alert( i );
-  }
+if (i % 2) {
+alert( i );
+}
 
 }
 From a technical point of view, this is identical to the example above. Surely, we can just wrap the code in an if block instead of using continue.
@@ -263,9 +264,9 @@ Please note that syntax constructs that are not expressions cannot be used with 
 For example, if we take this code:
 
 if (i > 5) {
-  alert(i);
+alert(i);
 } else {
-  continue;
+continue;
 }
 …and rewrite it using a question mark:
 
@@ -281,12 +282,13 @@ For example, in the code below we loop over i and j, prompting for the coordinat
 
 for (let i = 0; i < 3; i++) {
 
-  for (let j = 0; j < 3; j++) {
+for (let j = 0; j < 3; j++) {
 
     let input = prompt(`Value at coords (${i},${j})`, '');
 
     // what if we want to exit from here to Done (below)?
-  }
+
+}
 }
 
 alert('Done!');
@@ -297,13 +299,13 @@ The ordinary break after input would only break the inner loop. That’s not suf
 A label is an identifier with a colon before a loop:
 
 labelName: for (...) {
-  ...
+...
 }
 The break <labelName> statement in the loop below breaks out to the label:
 
 outer: for (let i = 0; i < 3; i++) {
 
-  for (let j = 0; j < 3; j++) {
+for (let j = 0; j < 3; j++) {
 
     let input = prompt(`Value at coords (${i},${j})`, '');
 
@@ -311,13 +313,14 @@ outer: for (let i = 0; i < 3; i++) {
     if (!input) break outer; // (*)
 
     // do something with the value...
-  }
+
+}
 }
 
 alert('Done!');
 In the code above, break outer looks upwards for the label named outer and breaks out of that loop.
 
-So the control goes straight from (*) to alert('Done!').
+So the control goes straight from (\*) to alert('Done!').
 
 We can also move the label onto a separate line:
 
@@ -336,9 +339,9 @@ label: for (...)
 A break directive must be inside a code block. Technically, any labelled code block will do, e.g.:
 
 label: {
-  // ...
-  break label; // works
-  // ...
+// ...
+break label; // works
+// ...
 }
 …Although, 99.9% of the time break is used inside loops, as we’ve seen in the examples above.
 
@@ -355,29 +358,29 @@ To make an “infinite” loop, usually the while(true) construct is used. Such 
 If we don’t want to do anything in the current iteration and would like to forward to the next one, we can use the continue directive.
 
 break/continue support labels before the loop. A label is the only way for break/continue to escape a nested loop to go to an outer one.
-# switch 
+
+# switch
+
 The switch has one or more case blocks and an optional default.
 
 It looks like this:
 
 switch(x) {
-  case 'value1':  // if (x === 'value1')
-    ...
-    [break]
+case 'value1': // if (x === 'value1')
+...
+[break]
 
-  case 'value2':  // if (x === 'value2')
-    ...
-    [break]
+case 'value2': // if (x === 'value2')
+...
+[break]
 
-  default:
-    ...
-    [break]
+default:
+...
+[break]
 }
 The value of x is checked for a strict equality to the value from the first case (that is, value1) then to the second (value2) and so on.
 If the equality is found, switch starts to execute the code starting from the corresponding case, until the nearest break (or until the end of switch).
 If no case is matched then the default code is executed (if it exists).
-
-
 
 ## functions
 
@@ -387,12 +390,12 @@ If a function is called, but an argument is not provided, then the corresponding
 For instance, the aforementioned function showMessage(from, text) can be called with a single argument:
 
 showMessage("Ann");
-That’s not an error. Such a call would output "*Ann*: undefined". As the value for text isn’t passed, it becomes undefined.
+That’s not an error. Such a call would output "_Ann_: undefined". As the value for text isn’t passed, it becomes undefined.
 
 We can specify the so-called “default” (to use if omitted) value for a parameter in the function declaration, using =:
 
 function showMessage(from, text = "no text given") {
-  alert( from + ": " + text );
+alert( from + ": " + text );
 }
 
 showMessage("Ann"); // Ann: no text given
@@ -404,33 +407,32 @@ showMessage("Ann", undefined); // Ann: no text given
 Here "no text given" is a string, but it can be a more complex expression, which is only evaluated and assigned if the parameter is missing. So, this is also possible:
 
 function showMessage(from, text = anotherFunction()) {
-  // anotherFunction() only executed if no text given
-  // its result becomes the value of text
+// anotherFunction() only executed if no text given
+// its result becomes the value of text
 }
 
 Modern JavaScript engines support the nullish coalescing operator ??, it’s better when most falsy values, such as 0, should be considered “normal”:
 
 function showCount(count) {
-  // if count is undefined or null, show "unknown"
-  alert(count ?? "unknown");
+// if count is undefined or null, show "unknown"
+alert(count ?? "unknown");
 }
 
 showCount(0); // 0
 showCount(null); // unknown
 showCount(); // unknown
 
-
 It is possible to use return without a value. That causes the function to exit immediately.
 
 For example:
 
 function showMovie(age) {
-  if ( !checkAge(age) ) {
-    return;
-  }
+if ( !checkAge(age) ) {
+return;
+}
 
-  alert( "Showing you the movie" ); // (*)
-  // ...
+alert( "Showing you the movie" ); // (\*)
+// ...
 }
 In the code above, if checkAge(age) returns false, then showMovie won’t proceed to the alert.
 
@@ -446,8 +448,8 @@ createForm – would be bad if it modifies the document, adding a form to it (sh
 checkPermission – would be bad if it displays the access granted/denied message (should only perform the check and return the result).
 These examples assume common meanings of prefixes. You and your team are free to agree on other meanings, but usually they’re not much different. In any case, you should have a firm understanding of what a prefix means, what a prefixed function can and cannot do. All same-prefixed functions should obey the rules. And the team should share the knowledge.
 
-
 ## Naming a function
+
 Functions are actions. So their name is usually a verb. It should be brief, as accurate as possible and describe what the function does, so that someone reading the code gets an indication of what the function does.
 
 It is a widespread practice to start a function with a verbal prefix which vaguely describes the action. There must be an agreement within the team on the meaning of the prefixes.
@@ -462,17 +464,17 @@ Function starting with…
 "check…" – check something and return a boolean, etc.
 Examples of such names:
 
-showMessage(..)     // shows a message
-getAge(..)          // returns the age (gets it somehow)
-calcSum(..)         // calculates a sum and returns the result
-createForm(..)      // creates a form (and usually returns it)
+showMessage(..) // shows a message
+getAge(..) // returns the age (gets it somehow)
+calcSum(..) // calculates a sum and returns the result
+createForm(..) // creates a form (and usually returns it)
 checkPermission(..) // checks a permission, returns true/false
 With prefixes in place, a glance at a function name gives an understanding what kind of work it does and what kind of value it returns.
 
 Ultrashort function names
 Functions that are used very often sometimes have ultrashort names.
 
-For example, the jQuery framework defines a function with $. The Lodash library has its core function named _.
+For example, the jQuery framework defines a function with $. The Lodash library has its core function named \_.
 
 These are exceptions. Generally function names should be concise and descriptive.
 
@@ -484,7 +486,7 @@ Let’s reiterate: no matter how the function is created, a function is a value.
 We can even print out that value using alert:
 
 function sayHi() {
-  alert( "Hello" );
+alert( "Hello" );
 }
 
 alert( sayHi ); // shows the function code
@@ -498,15 +500,14 @@ But it’s still a value. So we can work with it like with other kinds of values
 
 We can copy a function to another variable:
 
-function sayHi() {   // (1) create
-  alert( "Hello" );
+function sayHi() { // (1) create
+alert( "Hello" );
 }
 
-let func = sayHi;    // (2) copy
+let func = sayHi; // (2) copy
 
-func(); // Hello     // (3) run the copy (it works)!
-sayHi(); // Hello    //     this still works too (why wouldn't it)
-
+func(); // Hello // (3) run the copy (it works)!
+sayHi(); // Hello // this still works too (why wouldn't it)
 
 Callback functions
 Let’s look at more examples of passing functions as values and using function expressions.
@@ -522,21 +523,20 @@ Function to run if the answer is “No”
 The function should ask the question and, depending on the user’s answer, call yes() or no():
 
 function ask(question, yes, no) {
-  if (confirm(question)) yes()
-  else no();
+if (confirm(question)) yes()
+else no();
 }
 
 function showOk() {
-  alert( "You agreed." );
+alert( "You agreed." );
 }
 
 function showCancel() {
-  alert( "You canceled the execution." );
+alert( "You canceled the execution." );
 }
 
 // usage: functions showOk, showCancel are passed as arguments to ask
 ask("Do you agree?", showOk, showCancel);
-
 
 actice, such functions are quite useful. The major difference between a real-life ask and the example above is that real-life functions use more complex ways to interact with the user than a simple confirm. In the browser, such functions usually draw a nice-looking question window. But that’s another story.
 
@@ -547,14 +547,14 @@ The idea is that we pass a function and expect it to be “called back” later 
 We can use Function Expressions to write an equivalent, shorter function:
 
 function ask(question, yes, no) {
-  if (confirm(question)) yes()
-  else no();
+if (confirm(question)) yes()
+else no();
 }
 
 ask(
-  "Do you agree?",
-  function() { alert("You agreed."); },
-  function() { alert("You canceled the execution."); }
+"Do you agree?",
+function() { alert("You agreed."); },
+function() { alert("You canceled the execution."); }
 );
 
 When to choose Function Declaration versus Function Expression?
@@ -577,10 +577,10 @@ Can be created with {}, for instance: {name: "John", age: 30}. There are other k
 One of the best things about objects is that we can store a function as one of its properties.
 
 let john = {
-  name: "John",
-  sayHi: function() {
-    alert("Hi buddy!");
-  }
+name: "John",
+sayHi: function() {
+alert("Hi buddy!");
+}
 };
 
 john.sayHi(); // Hi buddy!
@@ -591,8 +591,8 @@ Many built-in objects already exist, such as those that work with dates, errors,
 But, these features come with a cost!
 
 Objects are “heavier” than primitives. They require additional resources to support the internal machinery.
-### Numbers
 
+### Numbers
 
 # hexidecimal
 
@@ -617,8 +617,8 @@ For example:
 
 let num = 255;
 
-alert( num.toString(16) );  // ff
-alert( num.toString(2) );   // 11111111
+alert( num.toString(16) ); // ff
+alert( num.toString(2) ); // 11111111
 The base can vary from 2 to 36. By default it’s 10.
 
 Common use cases for this are:
@@ -650,10 +650,11 @@ Removes anything after the decimal point without rounding: 3.1 becomes 3, -1.1 b
 Here’s the table to summarize the differences between them:
 
     Math.floor	Math.ceil	Math.round	Math.trunc
-3.1;    3	        4	        3	        3
-3.6;    3	        4	        4	        3
--1.1;   -2	        -1	        -1      	-1
--1.6;   -2	        -1	        -2	        -1
+
+3.1; 3 4 3 3
+3.6; 3 4 4 3
+-1.1; -2 -1 -1 -1
+-1.6; -2 -1 -2 -1
 
 Multiply-and-divide.
 
@@ -661,7 +662,7 @@ For example, to round the number to the 2nd digit after the decimal, we can mult
 
 let num = 1.23456;
 
-alert( Math.round(num * 100) / 100 ); // 1.23456 -> 123.456 -> 123 -> 1.23
+alert( Math.round(num \* 100) / 100 ); // 1.23456 -> 123.456 -> 123 -> 1.23
 The method toFixed(n) rounds the number to n digits after the point and returns a string representation of the result.
 
 let num = 12.34;
@@ -759,10 +760,11 @@ Sometimes isFinite is used to validate whether a string value is a regular numbe
 Another advantage of using backticks is that they allow a string to span multiple lines:
 
 let guestList = `Guests:
- * John
- * Pete
- * Mary
-`;
+
+- John
+- Pete
+- Mary
+  `;
 
 alert(guestList); // a list of guests, multiple lines
 Looks natural, right? But single or double quotes do not work this way.
@@ -771,13 +773,13 @@ Looks natural, right? But single or double quotes do not work this way.
 
 There are other, less common special characters:
 
-Character	Description
-\n	New line
-\r	In Windows text files a combination of two characters \r\n represents a new break, while on non-Windows OS it’s just \n. That’s for historical reasons, most Windows software also understands \n.
-\', \", \`	Quotes
-\\	Backslash
-\t	Tab
-\b, \f, \v	Backspace, Form Feed, Vertical Tab – mentioned for completeness, coming from old times, not used nowadays (you can forget them right now).
+Character Description
+\n New line
+\r In Windows text files a combination of two characters \r\n represents a new break, while on non-Windows OS it’s just \n. That’s for historical reasons, most Windows software also understands \n.
+\', \", \` Quotes
+\\ Backslash
+\t Tab
+\b, \f, \v Backspace, Form Feed, Vertical Tab – mentioned for completeness, coming from old times, not used nowadays (you can forget them right now).
 
 # accessing characters.
 
@@ -802,14 +804,14 @@ let str = `Hello`;
 alert( str[-2] ); // undefined
 alert( str.at(-2) ); // l
 
-
 We can also iterate over characters using for..of:
 
 for (let char of "Hello") {
-  alert(char); // H,e,l,l,o (char becomes "H", then "e", then "l" etc)
+alert(char); // H,e,l,l,o (char becomes "H", then "e", then "l" etc)
 }
 
 # changing casing
+
 Methods toLowerCase() and toUpperCase() change the case:
 
 alert( 'Interface'.toUpperCase() ); // INTERFACE
@@ -819,4 +821,3 @@ Or, if we want a single character lowercased:
 alert( 'Interface'[0].toLowerCase() ); // 'i'
 Searching for a substring
 There are multiple ways to look for a substring within a string.
-

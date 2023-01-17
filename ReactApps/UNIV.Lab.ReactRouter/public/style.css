@@ -1,9 +1,10 @@
 * {
-  font-family: arial,sans-serif;
+  font-family: arial, sans-serif;
   margin: 0;
 }
 
-body, body > div {
+body,
+body > div {
   height: 100vh;
   width: 100vw;
 }
@@ -35,11 +36,11 @@ body, body > div {
 }
 
 .red {
-  background-color: #B05F6D;
+  background-color: #b05f6d;
   color: white;
 }
 
 .blue {
-  background-color: #275DB3;
+  background-color: #275db3;
   color: white;
 }

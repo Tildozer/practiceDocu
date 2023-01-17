@@ -8,29 +8,28 @@ evenAndOdd should return a new array containing two smaller arrays. The first el
 evenAndOdd([1, 2, 3, 4, 5, 6]); // => [[ 2 ,4, 6 ], [ 1, 3, 5 ]]
 */
 
-function evenAndOdd(arr){
-    let evenArr = [];
-    let oddArr = [];
-    for(let i = 0; i < arr.length; i++){
-        let currentNum = arr[i];
-        
-      if(currentNum % 2 === 0){
-        evenArr.push(currentNum);
-    //   console.log(evenArr);
-      } else {
-        oddArr.push(currentNum);
-      }
+function evenAndOdd(arr) {
+  let evenArr = [];
+  let oddArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    let currentNum = arr[i];
+
+    if (currentNum % 2 === 0) {
+      evenArr.push(currentNum);
+      //   console.log(evenArr);
+    } else {
+      oddArr.push(currentNum);
     }
-        return [evenArr, oddArr];
   }
+  return [evenArr, oddArr];
+}
 
-  // console.log(evenAndOdd([10, 15, 20, 25, 30]));
-  // console.log(evenAndOdd([7, 14, 21, 28, 35]));
-  // console.log(evenAndOdd([1, 2, 3]));
-  // console.log(evenAndOdd([ ,  ,  ,  ,  ,  ,  , ]));
+// console.log(evenAndOdd([10, 15, 20, 25, 30]));
+// console.log(evenAndOdd([7, 14, 21, 28, 35]));
+// console.log(evenAndOdd([1, 2, 3]));
+// console.log(evenAndOdd([ ,  ,  ,  ,  ,  ,  , ]));
 
-
-  /*
+/*
   function evenAndOdd(originalArray) {
 
   // create arrays where we'll store even and odd numbers
@@ -76,7 +75,7 @@ arrayFlattener should return a new, one-dimensional array.
 // YOUR CODE BELOW
 const arrayFlattener = (arr) => {
   return arr.flat();
-}
+};
 
 // console.log(arrayFlattener([1, 2, [3]]));
 // console.log(arrayFlattener([['I', 'am', 'working', ['on', 'another', 'level']]));

@@ -1,58 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>  
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
     <title>React V1</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="root"></div>
     <script>
-        let App = () => {
-            let [numbers, setNumbers] = React.useState([3, 4]);
-            let sum = numbers.reduce((acc, number) => {
-                return acc + number;
-            }, 0)
+      let App = () => {
+        let [numbers, setNumbers] = React.useState([3, 4]);
+        let sum = numbers.reduce((acc, number) => {
+          return acc + number;
+        }, 0);
 
-            function addNumber(){
-                setNumbers([...numbers, Math.ceil(Math.random() * 10)])
-            }
-
-            return React.createElement(
-                'div',
-                null,
-                React.createElement(
-                    'h1',
-                    null,
-                    `The sum is ${sum}`
-                ),
-                React.createElement(
-                    'button',
-                    {
-                        onClick: addNumber
-                    },
-                    'click me'
-                ),
-                React.createElement(
-                    'ul',
-                    null,
-                    numbers.map((number, idx) => {
-                        return React.createElement(
-                            'li',
-                            {key: idx},
-                            number,
-                      )
-                  })
-                )
-            )
+        function addNumber() {
+          setNumbers([...numbers, Math.ceil(Math.random() * 10)]);
         }
-        console.log(document.querySelector('#root'));
-        let root = ReactDOM.createRoot(document.querySelector('#root'));
-        root.render(React.createElement(App));
 
+        return React.createElement(
+          "div",
+          null,
+          React.createElement("h1", null, `The sum is ${sum}`),
+          React.createElement(
+            "button",
+            {
+              onClick: addNumber,
+            },
+            "click me"
+          ),
+          React.createElement(
+            "ul",
+            null,
+            numbers.map((number, idx) => {
+              return React.createElement("li", { key: idx }, number);
+            })
+          )
+        );
+      };
+      console.log(document.querySelector("#root"));
+      let root = ReactDOM.createRoot(document.querySelector("#root"));
+      root.render(React.createElement(App));
     </script>
-</body>
+  </body>
 </html>

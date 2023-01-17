@@ -1,17 +1,17 @@
-const appRouter = require('express').Router();
+const appRouter = require("express").Router();
 
 appRouter.use((req, res, next) => {
-    console.log(req.originalUrl);
+  console.log(req.originalUrl);
 
-    next();
+  next();
 });
 
-appRouter.get('/', (req, res, next) => {
-  res.send({message: 'welcome to my app'})
-})
+appRouter.get("/", (req, res, next) => {
+  res.send({ message: "welcome to my app" });
+});
 
-appRouter.post('/sayHello', (req, res, next) => {
-    res.send({ message: 'Thanks for the data' })
-})
+appRouter.post("/sayHello", (req, res, next) => {
+  res.send({ message: "Thanks for the data" });
+});
 
 module.exports = appRouter;

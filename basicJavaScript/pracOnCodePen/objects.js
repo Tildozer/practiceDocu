@@ -13,24 +13,24 @@ dogBreeder(15) // => {name:'Steve', age: 15}
 
 // YOUR CODE BELOW
 const dogBreeder = (name, age) => {
-    let dogInfo = {};
-    
-    dogInfo.name = name;
-    
-    dogInfo.age = age;
-    
-    if(dogInfo.name === undefined){
-      dogInfo.name = 'Steve';
-    }
-    if(dogInfo.age === undefined){
-      dogInfo.age = 0;
-    }
-    if(typeof dogInfo.name === typeof 1 ){
-      dogInfo.age = name;
-      dogInfo.name = 'Steve';
-    }
-    return dogInfo;
-}
+  let dogInfo = {};
+
+  dogInfo.name = name;
+
+  dogInfo.age = age;
+
+  if (dogInfo.name === undefined) {
+    dogInfo.name = "Steve";
+  }
+  if (dogInfo.age === undefined) {
+    dogInfo.age = 0;
+  }
+  if (typeof dogInfo.name === typeof 1) {
+    dogInfo.age = name;
+    dogInfo.name = "Steve";
+  }
+  return dogInfo;
+};
 
 // console.log(dogBreader('Snoopy', 3));
 // console.log(dogBreader('Snoopy'));
@@ -89,7 +89,6 @@ const dogBreeder = (name, age) => {
   }
   */
 
-
 // question frequencyAnalaysis;
 /* 
 Frequency Analysis
@@ -102,26 +101,20 @@ frequencyAnalysis('abca'); // => {a: 2, b: 1, c: 1}
 // YOUR CODE BELOW
 
 const frequencyAnalysis = (str, letter) => {
+  let letterCount = {};
 
-    let letterCount = {};
+  for (let i = 0; i < str.length; i++) {
+    let strCount = str[i];
 
-    for(let i = 0; i < str.length; i++){
-
-        let strCount = str[i];
-
-        if(strCount in letterCount === false){
-
-            letterCount[strCount] = 1;
-
-        } else {
-
-            letterCount[strCount]++;
-
-        }
+    if (strCount in letterCount === false) {
+      letterCount[strCount] = 1;
+    } else {
+      letterCount[strCount]++;
     }
-    // console.log(letterCount);
-    return letterCount;
   }
+  // console.log(letterCount);
+  return letterCount;
+};
 
 // console.log(frequencyAnalysis('i like pumpkins'));
 // console.log(frequencyAnalysis('tomato soup is bomb'));
@@ -155,7 +148,6 @@ function frequencyAnalysis(string) {
 }
 */
 
-
 // question petSounds;
 /*
 Pet Sounds
@@ -169,69 +161,70 @@ petSounds('cat', 'Korea'); // => Cats in Korea say Nyaong!
 */
 
 let animalNoises = [
-    { 'dog': {
-      'America' : 'Woof! Woof!',
-      'Germany' : 'Wau Wau!',
-      'England' : 'Bow wow!',
-      'Uruguay' : 'Jua jua!',
-      'Afrikaans' : 'Blaf!',
-      'Korea' : 'Mong mong!',
-      'Iceland' : 'Voff voff!',
-      'Albania' : 'Ham!',
-      'Algeria' : 'Ouaf ouaf!'
-      }
+  {
+    dog: {
+      America: "Woof! Woof!",
+      Germany: "Wau Wau!",
+      England: "Bow wow!",
+      Uruguay: "Jua jua!",
+      Afrikaans: "Blaf!",
+      Korea: "Mong mong!",
+      Iceland: "Voff voff!",
+      Albania: "Ham!",
+      Algeria: "Ouaf ouaf!",
     },
-    { 'cat': {
-      'America' : 'Meow',
-      'Germany' : 'Miauw!',
-      'England' : 'mew mew',
-      'Uruguay' : 'Miau Miau!',
-      'Afrikaans' : 'Purr',
-      'Korea' : 'Nyaong!',
-      'Iceland' : 'Kurnau!',
-      'Albania' : 'Miau',
-      'Algeria' : 'Miaou!'
-      }
+  },
+  {
+    cat: {
+      America: "Meow",
+      Germany: "Miauw!",
+      England: "mew mew",
+      Uruguay: "Miau Miau!",
+      Afrikaans: "Purr",
+      Korea: "Nyaong!",
+      Iceland: "Kurnau!",
+      Albania: "Miau",
+      Algeria: "Miaou!",
     },
-    { 'chicken': {
-      'America' : 'Cluck cluck',
-      'Germany' : 'tock tock tock',
-      'England' : 'Cluck Cluck',
-      'Uruguay' : 'gut gut gdak',
-      'Afrikaans' : 'kukeleku',
-      'Korea' : 'ko-ko-ko',
-      'Iceland' : 'Chuck-chuck!',
-      'Albania' : 'Kotkot',
-      'Algeria' : 'Cotcotcodet'
-      }
-    }
-  ];
+  },
+  {
+    chicken: {
+      America: "Cluck cluck",
+      Germany: "tock tock tock",
+      England: "Cluck Cluck",
+      Uruguay: "gut gut gdak",
+      Afrikaans: "kukeleku",
+      Korea: "ko-ko-ko",
+      Iceland: "Chuck-chuck!",
+      Albania: "Kotkot",
+      Algeria: "Cotcotcodet",
+    },
+  },
+];
 
 const petSounds = (animal, region) => {
-    for(let i = 0; i < animalNoises.length; i++){
+  for (let i = 0; i < animalNoises.length; i++) {
+    let animalObject = animalNoises[i];
 
-      let animalObject = animalNoises[i];
+    if (animal in animalObject) {
+      let countrySound = animalObject[animal];
 
-      if(animal in animalObject){
-      
-        let countrySound = animalObject[animal];
-      
-        let sound = countrySound[region];
-      
-        animal = animal[0].toUpperCase() + animal.slice(1) + 's'
-      
-        // console.log(animal)
-        return `${animal} in ${region} say ${sound}`;
-       }
-     }
-   }
-   
+      let sound = countrySound[region];
+
+      animal = animal[0].toUpperCase() + animal.slice(1) + "s";
+
+      // console.log(animal)
+      return `${animal} in ${region} say ${sound}`;
+    }
+  }
+};
+
 //    console.log(petSounds('dog', 'Korea'));
 //    console.log(petSounds('cat', 'Algeria'));
 //    console.log(petSounds('chicken', 'Uruguay'));
 //    console.log(petSounds());
 
- /*
+/*
  function petSounds(animal, country) {
 
   // loop through the animalNoises array
@@ -290,76 +283,74 @@ classCheck('Wednesday'); // => ['Marnie', 'Lena']
 */
 
 let classRoom = [
-    {
-        "Marnie" : [
-                {"Monday" : true},
-                {"Tuesday" : true},
-                {"Wednesday" : true},
-                {"Thursday" : true},
-                {"Friday" : true}
-            ]
-    },
-    {
-        "Lena" : [
-                {"Monday" : false},
-                {"Tuesday" : false},
-                {"Wednesday" : true},
-                {"Thursday" : false},
-                {"Friday" : true}
-            ]
-    },
-    {
-        "Shoshanna" : [
-                {"Monday" : true},
-                {"Tuesday" : true},
-                {"Wednesday" : false},
-                {"Thursday" : true},
-                {"Friday" : false}
-            ]
-    },
-    {
-        "Jessa" : [
-                {"Monday" : false},
-                {"Tuesday" : false},
-                {"Wednesday" : false},
-                {"Thursday" : false},
-                {"Friday" : true}
-            ]
-    }
+  {
+    Marnie: [
+      { Monday: true },
+      { Tuesday: true },
+      { Wednesday: true },
+      { Thursday: true },
+      { Friday: true },
+    ],
+  },
+  {
+    Lena: [
+      { Monday: false },
+      { Tuesday: false },
+      { Wednesday: true },
+      { Thursday: false },
+      { Friday: true },
+    ],
+  },
+  {
+    Shoshanna: [
+      { Monday: true },
+      { Tuesday: true },
+      { Wednesday: false },
+      { Thursday: true },
+      { Friday: false },
+    ],
+  },
+  {
+    Jessa: [
+      { Monday: false },
+      { Tuesday: false },
+      { Wednesday: false },
+      { Thursday: false },
+      { Friday: true },
+    ],
+  },
 ];
 
 // YOUR CODE BELOW
 const attendanceCheck = (day) => {
-  
-    let studentsOnDay = [];
-    
-    for(let i = 0; i < classRoom.length; i++){
-      let classCheck = classRoom[i];
-      
-      let studentName = Object.keys(classCheck)[0];
-      
-      let studentAtt = classCheck[studentName];
-      
-      for(let j = 0; j < studentAtt.length; j++){
-        
-        let dayCheck = studentAtt[j];
-        
-        let dayName = Object.keys(dayCheck)[0];
-        if(dayName === day && dayCheck[dayName]){
-          studentsOnDay.push(studentName);
-          }
-        }
-      }
-    return studentsOnDay;
-    }
+  let studentsOnDay = [];
 
-    // console.log(attendanceCheck('Monday'));
-    // console.log(attendanceCheck('Tuesday'));
-    // console.log(attendanceCheck('Wednesday'));
-    // console.log(attendanceCheck('Thursday'));
-    // console.log(attendanceCheck('Friday'));
-      
-  /*
+  for (let i = 0; i < classRoom.length; i++) {
+    let classCheck = classRoom[i];
+
+    let studentName = Object.keys(classCheck)[0];
+
+    let studentAtt = classCheck[studentName];
+
+    for (let j = 0; j < studentAtt.length; j++) {
+      let dayCheck = studentAtt[j];
+
+      let dayName = Object.keys(dayCheck)[0];
+      if (dayName === day && dayCheck[dayName]) {
+        studentsOnDay.push(studentName);
+      }
+    }
+  }
+  return studentsOnDay;
+};
+
+// console.log(attendanceCheck('Monday'));
+// console.log(attendanceCheck('Tuesday'));
+// console.log(attendanceCheck('Wednesday'));
+// console.log(attendanceCheck('Thursday'));
+// console.log(attendanceCheck('Friday'));
+
+/*
   function attendanceCheck(day) {
     let presentStudents = [];
   
@@ -409,43 +400,44 @@ leetTranslator should return a new string that is the translation of the origina
 The leet codex is below, along with an array of english letters and an array of the corresponding leet characters. Use the two arrays to create a leetCodex object to use in making the translations.
 */
 
-const leetCodex = { a : '@',
-                    b : '8', 
-                    c : '(', 
-                    d : '|)', 
-                    e : '3', 
-                    f : 'ph', 
-                    g : 'g', 
-                    h : '#', 
-                    i : 'l', 
-                    j : '_|', 
-                    k : '|<', 
-                    l : '1', 
-                    m : "|'|'|", 
-                    n : "/\/", 
-                    o : '0', 
-                    p : '|D', 
-                    q : '(,)', 
-                    r : '|2', 
-                    s : '5', 
-                    t : '+', 
-                    u : '|_|', 
-                    v : '|/', 
-                    w : '|/|/', 
-                    x : '><', 
-                    y : 'j', 
-                    z : '2',
-                    ' ' : ' '};
-
+const leetCodex = {
+  a: "@",
+  b: "8",
+  c: "(",
+  d: "|)",
+  e: "3",
+  f: "ph",
+  g: "g",
+  h: "#",
+  i: "l",
+  j: "_|",
+  k: "|<",
+  l: "1",
+  m: "|'|'|",
+  n: "//",
+  o: "0",
+  p: "|D",
+  q: "(,)",
+  r: "|2",
+  s: "5",
+  t: "+",
+  u: "|_|",
+  v: "|/",
+  w: "|/|/",
+  x: "><",
+  y: "j",
+  z: "2",
+  " ": " ",
+};
 
 const leetTranslator = (cypher) => {
-  let solution = '';
-  for(let i = 0; i < cypher.length; i++){
+  let solution = "";
+  for (let i = 0; i < cypher.length; i++) {
     let current = cypher[i].toLowerCase();
     solution += leetCodex[current];
   }
   return solution;
-}
+};
 
 // console.log(leetTranslator('fullstack'));
 // console.log(leetTranslator('Hopper'));
@@ -509,19 +501,18 @@ compareObjects({ name: 'zeke' }, { name: 'zeke', age: 12 }) // -> false
 
 // YOUR CODE BELOW
 const compareObjects = (obj1, obj2) => {
-    for(let key in obj1){
-      
-     if(obj1[key] !== obj2[key]){
-       return false;
-     }
+  for (let key in obj1) {
+    if (obj1[key] !== obj2[key]) {
+      return false;
     }
-    for(let key in obj2){
-      if(obj1[key] !== obj2[key]){
-        return false;
-      }
-    }
-    return true;
   }
+  for (let key in obj2) {
+    if (obj1[key] !== obj2[key]) {
+      return false;
+    }
+  }
+  return true;
+};
 
 //   console.log(compareObjects({a: 1, b: 2}, {a: 1, b: 2})); //true
 //   console.log(compareObjects({a: 1, b: 2}, {a: 1, c: 2})); //false
@@ -601,42 +592,38 @@ let transactions = [
       }
 */
 
-
 let transactions = [
-    {
-      name: "Tons of glitter",
-      amount: 70
-    },
-    {
-      name: "Porcelain Pink Flamingos",
-      amount: 92
-    },
-    {
-      name: "Chandelier replacement",
-      amount: 10000,
-    },
-    {
-      name: "Dinner at TGIF x6",
-      amount: 350
-    }
-  ];
+  {
+    name: "Tons of glitter",
+    amount: 70,
+  },
+  {
+    name: "Porcelain Pink Flamingos",
+    amount: 92,
+  },
+  {
+    name: "Chandelier replacement",
+    amount: 10000,
+  },
+  {
+    name: "Dinner at TGIF x6",
+    amount: 350,
+  },
+];
 
+// YOUR CODE BELOW
+const lastFridayNight = (transactions) => {
+  let sum = 0;
 
-  // YOUR CODE BELOW
-  const lastFridayNight = (transactions) => {
-    
-    let sum = 0;
-    
-    for(let i = 0; i < transactions.length; i++){
-      
-      let addAmount = transactions[i];
-      
-      let cost = addAmount.amount;
-      // let cost = transaction[i].amount // also acceptable instead of the two variables
-      sum += cost;
-    }
-    return sum;
+  for (let i = 0; i < transactions.length; i++) {
+    let addAmount = transactions[i];
+
+    let cost = addAmount.amount;
+    // let cost = transaction[i].amount // also acceptable instead of the two variables
+    sum += cost;
   }
+  return sum;
+};
 
 //   console.log(lastFridayNight(transactions))
 

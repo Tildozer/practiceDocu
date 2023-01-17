@@ -16,17 +16,16 @@ function fourMaker(){
 toneItDown(tenMaker) // returns 0
 */
 
-
 function toneItDown(tenMaker) {
-    //write code here
-      let funcNum = tenMaker();
-      let sub = funcNum - 5;
-      if(sub < 0){
-        return 0;
-      }
-      return sub;
-    }
-    
+  //write code here
+  let funcNum = tenMaker();
+  let sub = funcNum - 5;
+  if (sub < 0) {
+    return 0;
+  }
+  return sub;
+}
+
 /* 
 Finder Function
 Write a function called finderFunc:
@@ -50,13 +49,13 @@ console.log(finderFunc(odds, isEven)) // -1
 */
 
 function finderFunc(arr, callback) {
-    //write code here
-      let map = arr.map(function (element, idx) {
-        return callback(element);
-      });
-        return map.indexOf(true);
-    }
-    
+  //write code here
+  let map = arr.map(function (element, idx) {
+    return callback(element);
+  });
+  return map.indexOf(true);
+}
+
 /*
 Who's a Special
 Write a function called whosASpecial:
@@ -82,17 +81,17 @@ whosASpecial(specialPets) should return this string:
 "Sadie the cat is very special! Layla the cat is very special! Bogie the dog is very special!"
 */
 
-function whosASpecial(pets){
-    // Your code here
-    let string = '';
-    pets.forEach((element, idx) => {
-      if(idx !== 0){
-        string += ' '
-      }
-      string += `${element.name} the ${element.species} is very special!`
-    })
-      return string;
-  }
+function whosASpecial(pets) {
+  // Your code here
+  let string = "";
+  pets.forEach((element, idx) => {
+    if (idx !== 0) {
+      string += " ";
+    }
+    string += `${element.name} the ${element.species} is very special!`;
+  });
+  return string;
+}
 
 /*
 Phone Book
@@ -131,14 +130,14 @@ console.log(phoneBook(list, 'name')) // should return ['Doug', 'Lily', 'Sarah']
 */
 
 function phoneBook(arrOfObj, propOfObj) {
-    //write code here
-      let info = [];
-      arrOfObj.map(x => {
-        info.push(x[propOfObj])
-      })
-      return info;
-    }
-    
+  //write code here
+  let info = [];
+  arrOfObj.map((x) => {
+    info.push(x[propOfObj]);
+  });
+  return info;
+}
+
 /*
 Names Too Long
 Write a function called namesTooLong:
@@ -153,13 +152,13 @@ console.log(namesTooLong(nameArray)) // should return ['Corey', 'Danielle']
 */
 
 function namesTooLong(names) {
-    //write code here
-      let shortNames = names.filter(name => {
-        return name.length < 9;
-      })
-      return shortNames; 
-    }
-    
+  //write code here
+  let shortNames = names.filter((name) => {
+    return name.length < 9;
+  });
+  return shortNames;
+}
+
 /* 
 Carded
 Write a function called carded:
@@ -185,15 +184,15 @@ console.log(carded(people)) // should return ['Lily', 'Danielle']
 */
 
 function carded(arrOfObj) {
-    //write code here
-      let over21 = [];
-     arrOfObj.forEach(element => {
-       if(element.age > 20){
-         over21.push(element.name)
-       }
-     })
-      return over21;
+  //write code here
+  let over21 = [];
+  arrOfObj.forEach((element) => {
+    if (element.age > 20) {
+      over21.push(element.name);
     }
+  });
+  return over21;
+}
 
 /* 
 Only the Best
@@ -243,25 +242,24 @@ console.log(onlyTheBest(cookies, cookieChecker, 'chocolate chip')) // should ret
 */
 
 function onlyTheBest(cookies, callback, typeWeWant) {
-    //write code here
-       let map = cookies.map(element => {
-         if(element.type === typeWeWant && callback(element)){ 
-            return element.number;
-        } else {
-          return 0;
-        }
-      })
-       if(map.length === 0){
-         map = 0;
-       }
-       let initialVal = 0;
-       let reduce = map.reduce(
-         (accumulator, currentVal) =>
-           accumulator + currentVal,
-         initialVal
-        );
-      return reduce;
+  //write code here
+  let map = cookies.map((element) => {
+    if (element.type === typeWeWant && callback(element)) {
+      return element.number;
+    } else {
+      return 0;
     }
+  });
+  if (map.length === 0) {
+    map = 0;
+  }
+  let initialVal = 0;
+  let reduce = map.reduce(
+    (accumulator, currentVal) => accumulator + currentVal,
+    initialVal
+  );
+  return reduce;
+}
 
 /* 
 My Filter
@@ -301,17 +299,17 @@ console.log(myFilter(numbersArr, isOdd)) // should return [3,7]
 */
 
 function myFilter(arr, callback) {
-    //write code here
-      let trueArr = [];
-      arr.forEach(element => {
-        let trueOr = callback(element);
-        if(trueOr === true){
-          trueArr.push(element);
-        }
-      });
-      return trueArr;
+  //write code here
+  let trueArr = [];
+  arr.forEach((element) => {
+    let trueOr = callback(element);
+    if (trueOr === true) {
+      trueArr.push(element);
     }
-    
+  });
+  return trueArr;
+}
+
 /* 
 My Map
 Write a function called myMap:
@@ -337,12 +335,11 @@ console.log(myMap(numbersArr, doubleNumbers)) // should return [4,8,12,16,20]
 */
 
 function myMap(arr, callback) {
-    //write code here
-      let mapped = [];
-      arr.forEach(element => {
-        let newElement = callback(element);
-        mapped.push(newElement);
-      })
-      return mapped;
-    }
-    
+  //write code here
+  let mapped = [];
+  arr.forEach((element) => {
+    let newElement = callback(element);
+    mapped.push(newElement);
+  });
+  return mapped;
+}

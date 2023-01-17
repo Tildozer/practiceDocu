@@ -1,4 +1,4 @@
-// ticTacToe 
+// ticTacToe
 /*
 Tic Tac Toe
 Define an object ticTacToe.
@@ -13,28 +13,28 @@ The clear method should reset the board to all nulls.
 */
 
 let ticTacToe = {
-    board: [
-      [null, null, null],
-      [null, null, null],
-      [null, null, null],
-    ],
-    
-    move: function(char, row, column) {
-      if(this.board[row][column] === null){
-        this.board[row][column] = char;
+  board: [
+    [null, null, null],
+    [null, null, null],
+    [null, null, null],
+  ],
+
+  move: function (char, row, column) {
+    if (this.board[row][column] === null) {
+      this.board[row][column] = char;
       // console.log(this.board[row][column] = char)
-      }
-      return this.board
-    },
-    clear: function() {
-      this.board =  [
-      [null, null, null],
-      [null, null, null],
-      [null, null, null],
-    ]
-     return this.board;   
     }
-  }
+    return this.board;
+  },
+  clear: function () {
+    this.board = [
+      [null, null, null],
+      [null, null, null],
+      [null, null, null],
+    ];
+    return this.board;
+  },
+};
 
 /*
 Call Them All
@@ -45,17 +45,17 @@ callThemAll should call every method in the object, passing in the value as the 
 callThemAll should return an array with all of the returned values from each method invocation. The order of the elements in the returned array does not matter.
 */
 
-  const callThemAll = (obj, num) => {
-    let results = [];
-    for(let key in obj){
-      if(typeof obj[key] === 'function') {
-        // console.log(key)
-        results.push(obj[key](num));
-      }
-      // console.log(results)
+const callThemAll = (obj, num) => {
+  let results = [];
+  for (let key in obj) {
+    if (typeof obj[key] === "function") {
+      // console.log(key)
+      results.push(obj[key](num));
     }
-      return results;
+    // console.log(results)
   }
+  return results;
+};
 
 /*sayYourName
 Say Your Name
@@ -68,13 +68,13 @@ me2.getGreeting(you); // => 'Hi Alyssa, my name is Tarana.'
 
 // YOUR CODE BELOW
 let me2 = {
-    name: 'Kat',
-    getGreeting: function(nam) {
-      return `Hi ${nam.name}, my name is ${me2.name}.`
-    }
-  }
+  name: "Kat",
+  getGreeting: function (nam) {
+    return `Hi ${nam.name}, my name is ${me2.name}.`;
+  },
+};
 
-  /*
+/*
     Say My Name
 Define an object, me, that has a name property and a getGreeting method. getGreeting should return a greeting.
 
@@ -83,11 +83,11 @@ me.getGreeting(); // => 'Hi, my name is Kat.'
    */
 
 const me = {
-    name : 'Kat',
-    getGreeting: function() {
-      return `Hi, my name is ${me.name}.`
-    }
-}
+  name: "Kat",
+  getGreeting: function () {
+    return `Hi, my name is ${me.name}.`;
+  },
+};
 
 /* tacoCatInc;
 Taco Cat Inc.
@@ -101,75 +101,72 @@ Heads up: This problem is a bit more involved than anything you'd see on an admi
 */
 
 let tacoCatInc = {
-    gourmetShell: {
-      'hard treat shell': {cost: 2, quantity: 100},
-      'soft treat shell': {cost: 1.5, quantity: 100}
-    },
-  
-    gourmetFishFilling: {
-      'salmon': {cost: 5, quantity: 100},
-      'tuna': {cost: 5.5, quantity: 100},
-      'sardines': {cost: 1.5, quantity: 100}
-    },
-  
-    gourmetVeggie: {
-      'cat grass': {cost: 1, quantity: 100}
-    },
-  
-    gourmetSeasoning: {
-      'cat nip': {cost: 0.5, quantity: 100},
-      'treat dust': {cost: 0.1, quantity: 100}
-    },
-  
-    cash: 0,
-    
-  };
-  
-  // YOUR CODE BELOW
-  tacoCatInc.currentInventory = function () {
-    let sum = 0;
-    
-    for(let key in this){
-    if(key === 'cash'){
+  gourmetShell: {
+    "hard treat shell": { cost: 2, quantity: 100 },
+    "soft treat shell": { cost: 1.5, quantity: 100 },
+  },
+
+  gourmetFishFilling: {
+    salmon: { cost: 5, quantity: 100 },
+    tuna: { cost: 5.5, quantity: 100 },
+    sardines: { cost: 1.5, quantity: 100 },
+  },
+
+  gourmetVeggie: {
+    "cat grass": { cost: 1, quantity: 100 },
+  },
+
+  gourmetSeasoning: {
+    "cat nip": { cost: 0.5, quantity: 100 },
+    "treat dust": { cost: 0.1, quantity: 100 },
+  },
+
+  cash: 0,
+};
+
+// YOUR CODE BELOW
+tacoCatInc.currentInventory = function () {
+  let sum = 0;
+
+  for (let key in this) {
+    if (key === "cash") {
       continue;
     }
-      let item = this[key];
-      
-    for(let key2 in item){
-      
+    let item = this[key];
+
+    for (let key2 in item) {
       let itemObj = item[key2];
-      
+
       let product = itemObj.cost * itemObj.quantity;
-   
+
       sum += product;
     }
-    }
-    return sum;
   }
-  tacoCatInc.sale = function(order) {
-    let finalPrice = 0;
-  
-    // loop through all of the categories in the order
-    for (let category in order) {
-  console.log(category)
-      // the choices are the keys in the order object
-      let choice = order[category];
-  
-      // add the cost of the choice to the final price
-      finalPrice += this[category][choice].cost;
-  
-      // also add the cost of the choice to the cash property
-      this.cash += this[category][choice].cost;
-  
-      // also subtract one from the quantity of the chosen item
-      this[category][choice].quantity--;
-    }
-  
-    return finalPrice;
-  }
-  
+  return sum;
+};
+tacoCatInc.sale = function (order) {
+  let finalPrice = 0;
 
-  /*
+  // loop through all of the categories in the order
+  for (let category in order) {
+    console.log(category);
+    // the choices are the keys in the order object
+    let choice = order[category];
+
+    // add the cost of the choice to the final price
+    finalPrice += this[category][choice].cost;
+
+    // also add the cost of the choice to the cash property
+    this.cash += this[category][choice].cost;
+
+    // also subtract one from the quantity of the chosen item
+    this[category][choice].quantity--;
+  }
+
+  return finalPrice;
+};
+
+/*
   tacoCatInc.currentInventory = function() {
   let total = 0;
 

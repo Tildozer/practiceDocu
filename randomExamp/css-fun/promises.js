@@ -43,50 +43,49 @@ watchTutorialPromise((message) => {
 
 // same thing with promises instead of callbacks
 /*
-*/
+ */
 function watchTutorialPromise() {
-    return new Promise((resolve, reject) => {
-        if (userLeft) {
-            reject({
-                name: 'User Left',
-                message: ':(',
-            });
-        } else if (userWatchingCatMeme) {
-            reject({
-                name: 'User Watching Cat Meme',
-                message: 'someting < cat',
-            });
-        } else {
-            resolve('thumbs up');
-        }  
-    })
-    
+  return new Promise((resolve, reject) => {
+    if (userLeft) {
+      reject({
+        name: "User Left",
+        message: ":(",
+      });
+    } else if (userWatchingCatMeme) {
+      reject({
+        name: "User Watching Cat Meme",
+        message: "someting < cat",
+      });
+    } else {
+      resolve("thumbs up");
+    }
+  });
 }
 
-watchTutorialPromise().then((message) => {
-    console.log('success: ' + message);
-}).catch((error) => {
-    console.log(error.name + ' ' + error.message);
-})
+watchTutorialPromise()
+  .then((message) => {
+    console.log("success: " + message);
+  })
+  .catch((error) => {
+    console.log(error.name + " " + error.message);
+  });
 
 // multiple promises resolved at once
 const recordVideoOne = new Promise((resolve, reject) => {
-    resolve('video 1 Recorded');
-})
+  resolve("video 1 Recorded");
+});
 const recordVideoTwo = new Promise((resolve, reject) => {
-    resolve('video 2 Recorded');
-})
+  resolve("video 2 Recorded");
+});
 const recordVideoThree = new Promise((resolve, reject) => {
-    resolve('video 3 Recorded');
-})
+  resolve("video 3 Recorded");
+});
 
-Promise.all([
-    recordVideoOne,
-    recordVideoTwo,
-    recordVideoThree,
-]).then((messages) => {
-    console.log(messages)
-})
+Promise.all([recordVideoOne, recordVideoTwo, recordVideoThree]).then(
+  (messages) => {
+    console.log(messages);
+  }
+);
 
 //race return the fist one to finish instead of them all
 /*
@@ -98,4 +97,3 @@ Promise.race([
     console.log(message);
 })
 */
-

@@ -6,15 +6,14 @@ import DarkMode from "./darkMode";
 import Todo from "./todo";
 
 const App = (props) => {
-    return <div className="app">
+  return (
+    <div className="app">
       <Profile />
       <DarkMode />
       <TicTacToe />
       <Todo />
     </div>
-  }
-  
-  ReactDOM.render(
-    <App />,
-    document.getElementById('app'),
   );
+};
+
+ReactDOM.render(<App />, document.getElementById("app"));

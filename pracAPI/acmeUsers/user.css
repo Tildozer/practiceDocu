@@ -1,20 +1,22 @@
 .btnBx {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 .title {
-    text-align: center;
+  text-align: center;
 }
-#companyName, #randomButton, #loadButton {
-    border-radius: 0%;
-    color: whitesmoke;
-    background-color: black;
-    height: 2rem;
+#companyName,
+#randomButton,
+#loadButton {
+  border-radius: 0%;
+  color: whitesmoke;
+  background-color: black;
+  height: 2rem;
 }
 #random {
-    text-align: center;
+  text-align: center;
 }
 .nameAndComp {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }

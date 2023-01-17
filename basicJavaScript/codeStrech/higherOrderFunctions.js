@@ -6,24 +6,24 @@ it returns a string using the array and template function
 */
 
 const template = (arr, callback) => {
-    let finalStr = '';
-      arr.forEach(num => {
-        callback(num);
-        finalStr += `${callback(num)} `;
-      })
-        return finalStr;
-    }
-    
-    // let output = template([1, 2, 3], function(x){
-    //   return `**${x}**`;
-    // });
-    // console.log(output);//**1** **2** **3**
-    // output = template([1, 2, 3], function(x){
-    //   return `|${ x * 2}|`;
-    // });
-    // console.log(output);//|2| |4| |6|
+  let finalStr = "";
+  arr.forEach((num) => {
+    callback(num);
+    finalStr += `${callback(num)} `;
+  });
+  return finalStr;
+};
 
-    /*
+// let output = template([1, 2, 3], function(x){
+//   return `**${x}**`;
+// });
+// console.log(output);//**1** **2** **3**
+// output = template([1, 2, 3], function(x){
+//   return `|${ x * 2}|`;
+// });
+// console.log(output);//|2| |4| |6|
+
+/*
     countOdd with forEach
 write countOdd function
 takes an array
@@ -32,14 +32,14 @@ use forEach
     */
 
 const countOdd = (arrOfNums) => {
-    let count = 0;
-arrOfNums.forEach(num => {
-  if(num % 2 === 1){
-    count++;
+  let count = 0;
+  arrOfNums.forEach((num) => {
+    if (num % 2 === 1) {
+      count++;
     }
-  })
+  });
   return count;
-}
+};
 
 // console.log(countOdd([1, 2, 3]));//2
 // console.log(countOdd([1, 2, 3, 4, 5]));//3
@@ -51,16 +51,16 @@ template gets passed an array, a decorator string, and an optional transformatio
 
 //TODO
 const templateTrans = (arr, strDecoration, optFunc) => {
-    let str = '';
-    arr.forEach(element => {
-        if(optFunc){
+  let str = "";
+  arr.forEach((element) => {
+    if (optFunc) {
       element = optFunc(element);
     }
-      str += `${strDecoration}${element}${strDecoration} `;
-    })
-    return str;
-  }
-  
+    str += `${strDecoration}${element}${strDecoration} `;
+  });
+  return str;
+};
+
 //   console.log(templateTrans(['foo', 'bar', 'bazz'], '-'));//-foo- -bar- -bazz-
 //   console.log(templateTrans(['foo', 'bar', 'bazz'], '*'));//*foo* *bar* *bazz*
 //   console.log(templateTrans(['moe', 'lucy'], '*', (item)=> item.toUpperCase()));//"*MOE* *LUCY*"
@@ -74,17 +74,17 @@ oddsEvens
 */
 
 const oddEvens = (nums) => {
-    let oddOrEven = {odds: [], evens : [],};
-    nums.forEach(num => {
-      if(num % 2 === 0){
-        oddOrEven.evens.push(num);
-      } else {
-          oddOrEven.odds.push(num);
-      }
-  })
-    return oddOrEven;
-  }
-  //  console.log(oddEvens([1, 3, 2]));//{ odds: [1, 3], evens: [2]}
+  let oddOrEven = { odds: [], evens: [] };
+  nums.forEach((num) => {
+    if (num % 2 === 0) {
+      oddOrEven.evens.push(num);
+    } else {
+      oddOrEven.odds.push(num);
+    }
+  });
+  return oddOrEven;
+};
+//  console.log(oddEvens([1, 3, 2]));//{ odds: [1, 3], evens: [2]}
 
 /*
 oddProduct
@@ -95,15 +95,15 @@ returns the product of all odd numbers in the array
 
 //TODO
 const oddProduct = (nums) => {
-//  My solution
-    //let oddProd = 1;
+  //  My solution
+  //let oddProd = 1;
   /*    nums.forEach(number => {
         if(number % 2 === 1){
           oddProd *= number;
       }
     })*/
-// one correct solution
-    /*
+  // one correct solution
+  /*
   let odds = nums.filter(number => {
     return number % 2 === 1;
   });
@@ -111,16 +111,16 @@ const oddProduct = (nums) => {
       oddProd *= odd
     })
     */
-// even better solution
-    return nums.filter(num => {
+  // even better solution
+  return nums
+    .filter((num) => {
       return num % 2 === 1;
     })
     .reduce((acc, num) => {
-      return acc *= num;
-    }, 1)
-  
-  }
-  
+      return (acc *= num);
+    }, 1);
+};
+
 //   console.log(oddProduct([1, 2, 3]));//3
 //   console.log(oddProduct([1, 2, 3, 4, 5]));//15
 
@@ -133,24 +133,23 @@ it returns an array of strings which are templated based on function
 
 //TODO
 const gobbler = (num, optFunc) => {
-    let gobble = [];
-    for(let i = 0; i < num; i++){
-      gobble.push(optFunc('gobble'));
-    }
-    return gobble;
+  let gobble = [];
+  for (let i = 0; i < num; i++) {
+    gobble.push(optFunc("gobble"));
   }
-  // I was trying to do this with the new stuff we learned, 
-  // but wasnt sure if we could use anny of those methods without an array
+  return gobble;
+};
+// I was trying to do this with the new stuff we learned,
+// but wasnt sure if we could use anny of those methods without an array
 //   let output = gobbler(3, function(x){
 //     return `${x}!!`;
 //   });
 //   console.log(output);//['gobble!!', 'gobble!!', 'gobble!!']
-  
+
 //   output = gobbler(3, function(x){
 //     return x.toUpperCase();
 //   });
 //   console.log(output);//['GOBBLE', 'GOBBLE', 'GOBBLE']
-
 
 /*
 transformer
@@ -162,10 +161,10 @@ it returns a new array where each item in the initial array is used as an input 
 
 //TODO
 const transformer = (nums, callback) => {
-    return nums.map(num => {
-      return callback(num);
-    });
-  }
+  return nums.map((num) => {
+    return callback(num);
+  });
+};
 
 //   let input = [1, 2, 3];
 //   let output = transformer(input, function(x){
@@ -191,21 +190,21 @@ you can not use the array reduce method within reduce. Pretend it doesn't exist.
 
 //TODO
 const reduce = (arrOfItems, callback, acc) => {
-    let product;
+  let product;
   arrOfItems.forEach((item, idx) => {
-    if(idx === 0){
+    if (idx === 0) {
       product = callback(acc, item);
     } else {
-      product = callback(product, item)
+      product = callback(product, item);
     }
   });
-    return product;
-  }
-  
+  return product;
+};
+
 //   console.log(reduce([1, 2, 3], (acc, item)=> {
 //     return item * acc;
 //   }, 2));//12
-  
+
 //   console.log(reduce([1, 2, 3, 4], (acc, item)=> {
 //     return item * acc;
 //   }, 10));//240
@@ -219,29 +218,27 @@ it returns an array of numbers by filtering the passed in array and taking the o
 
 //TODO
 const doubleTheOdds = (arrOfNums) => {
-    let filtered = arrOfNums.filter(num => (num % 2 === 1));
-      return filtered.map(oddnum => oddnum * 2);
-    }
+  let filtered = arrOfNums.filter((num) => num % 2 === 1);
+  return filtered.map((oddnum) => oddnum * 2);
+};
 
-
-    /* one liner solution
+/* one liner solution
     const doubleTheOdds = (arrOfNums) => {
     return arrOfNums.filter(num => (num % 2 === 1)).map(oddnum => oddnum * 2);
     }
     */
 
+// let input = [ 1, 1, 1];
+// let output = doubleTheOdds(input);
+// console.log(output);//[2, 2, 2];
+// input = [ 2, 2, 2];
+// output = doubleTheOdds(input);
+// console.log(output);//[]; no odd numbers
+// input = [ 1, 2, 3];
+// output = doubleTheOdds(input);
+// console.log(output);//[2, 6]; 1 and 3 are odd, they get doubled to [2, 6]
 
-    // let input = [ 1, 1, 1];
-    // let output = doubleTheOdds(input);
-    // console.log(output);//[2, 2, 2];
-    // input = [ 2, 2, 2];
-    // output = doubleTheOdds(input);
-    // console.log(output);//[]; no odd numbers
-    // input = [ 1, 2, 3];
-    // output = doubleTheOdds(input);
-    // console.log(output);//[2, 6]; 1 and 3 are odd, they get doubled to [2, 6]
-
-    /*
+/*
     filterFunctionsAndCallThem - use filter and map
 write the function filterFunctionsAndCallThem
 it takes an array
@@ -249,13 +246,14 @@ the array should be filtered for functions
 those functions should be called and the results returned in an array
 try and use filter followed by map
     */
-   // solution was left there on this one lol
+// solution was left there on this one lol
 
-const filterFunctionsAndCallThem = (arr)=> arr.filter(x => typeof x === 'function').map(x => x());
-const x = ()=> 'foo';
-const y = ()=> 'bar';
+const filterFunctionsAndCallThem = (arr) =>
+  arr.filter((x) => typeof x === "function").map((x) => x());
+const x = () => "foo";
+const y = () => "bar";
 
-const results = filterFunctionsAndCallThem([x, y, 42, true]);//['foo', 'bar']
+const results = filterFunctionsAndCallThem([x, y, 42, true]); //['foo', 'bar']
 console.log(results);
 
 /*
@@ -276,14 +274,14 @@ const createTemplateList = (count, callback) => {
 }*/
 
 const createTemplateList = (count, callback) => {
-    return new Array(count).fill('').map((_, idx) => callback(idx));
-  }
-  
+  return new Array(count).fill("").map((_, idx) => callback(idx));
+};
+
 //   console.log(createTemplateList(3, (n)=> `Item ${n}`));['Item 0', 'Item 1', 'Item 2']
 //   console.log(createTemplateList(4, (n)=> `Foo ${n * 2}`));['Foo 0', 'Foo 2', 'Foo 4', 'Foo 6']
 //   console.log(createTemplateList(2, (n)=> n * 2));[0, 2]
-  
-  /*
+
+/*
     catMarkup
 catMarkup
 takes an array of cat names
@@ -294,14 +292,12 @@ console.log(catMarkup(['fluffy', 'meeka', 'itchy']));//['FLIUFFY', 'MEEKA', 'ITC
 
 //TODO
 
-const catMarkup = cats => (
-  cats.map(catName => catName.toUpperCase())
-  );
-  
-  // console.log(catMarkup(['fluffy', 'meeka']));//['FLIUFFY', 'MEEKA']
-  // console.log(catMarkup(['fluffy', 'meeka', 'itchy']));//['FLIUFFY', 'MEEKA', 'ITCHY']
+const catMarkup = (cats) => cats.map((catName) => catName.toUpperCase());
 
-  /*
+// console.log(catMarkup(['fluffy', 'meeka']));//['FLIUFFY', 'MEEKA']
+// console.log(catMarkup(['fluffy', 'meeka', 'itchy']));//['FLIUFFY', 'MEEKA', 'ITCHY']
+
+/*
     fourByFour
 fourByFour takes a list of words
 returns all four letter words
@@ -310,12 +306,12 @@ if there are more than four words it only returns the first four
 
 //TODO
 const fourByFour = (names) => {
-  let filteredNames = names.filter(name =>  name.length === 4)
-  while (filteredNames.length > 4){
-    filteredNames.pop();   
-}
-return filteredNames;
-}
+  let filteredNames = names.filter((name) => name.length === 4);
+  while (filteredNames.length > 4) {
+    filteredNames.pop();
+  }
+  return filteredNames;
+};
 
 // console.log(fourByFour(['foo', 'bar', 'fizz', 'buzz']));//['fizz', 'buzz']
 // console.log(fourByFour(['foo', 'bar', 'fizz', 'buzz', 'boat', 'tack', 'bill']));//['fizz', 'buzz', 'boat', 'tack']
@@ -329,12 +325,16 @@ returns the pairs of friends
 */
 
 const findFriendPairs = (people) => {
-  const peopleWithFriends = people.filter(person => person.friends);
-  const names = peopleWithFriends.map(person => person.name);
-  const friendsList = peopleWithFriends.map(person => person.friends.map(friend => friend.name));
-  
-    return friendsList.map((friends, idx) => friends.map((friend) => [names[idx], friend])).flat();
-}
+  const peopleWithFriends = people.filter((person) => person.friends);
+  const names = peopleWithFriends.map((person) => person.name);
+  const friendsList = peopleWithFriends.map((person) =>
+    person.friends.map((friend) => friend.name)
+  );
+
+  return friendsList
+    .map((friends, idx) => friends.map((friend) => [names[idx], friend]))
+    .flat();
+};
 // that took me to long to do...
 // const people = [
 //   {
@@ -370,9 +370,9 @@ const obj = generateObject('FOO', 'BAR', 'BAZZ');
 //TODO
 const generateObject = (...arr) => {
   let obj = {};
-  arr.forEach(key => obj[key] = key);
-    return obj;
-}
+  arr.forEach((key) => (obj[key] = key));
+  return obj;
+};
 // I can't remember how to make an object pair with recuce() so this was the best I could do.
 //const obj = generateObject('FOO', 'BAR', 'BAZZ');
 
@@ -410,9 +410,10 @@ Didn't finish, profs answer below
 */
 
 const findPopularPeople = () => {
-  return people.filter(person => person.friends && person.friends.length > 1)
-  .map(person => person.name);
-}
+  return people
+    .filter((person) => person.friends && person.friends.length > 1)
+    .map((person) => person.name);
+};
 // const people = [
 //   {
 //     name: 'moe',
@@ -445,19 +446,20 @@ anagrams are words which have the exact same letters in different orders
 
 //TODO
 const isAnagram = (word, wordTwo) => {
-  const longerWord = word.length > wordTwo.length ? word.length : wordTwo.length;
-  let wordArr = word.split('');
-  
-  for(let i = 0; i < longerWord; i++){
+  const longerWord =
+    word.length > wordTwo.length ? word.length : wordTwo.length;
+  let wordArr = word.split("");
+
+  for (let i = 0; i < longerWord; i++) {
     const letterCheck = wordArr.indexOf(wordTwo[i]);
-    if(letterCheck !== -1){
-      wordArr.splice(letterCheck, 1)
+    if (letterCheck !== -1) {
+      wordArr.splice(letterCheck, 1);
     } else {
       return false;
     }
   }
   return true;
-}
+};
 
 // console.log(isAnagram("cinema", "iceman")); // true
 // console.log(isAnagram("the eyes", "they see")); // true
@@ -475,34 +477,28 @@ it returns false if there are no spaces
 
 //TODO
 const whoGoesNext = (board) => {
-  const pieceCount = board.reduce((howMany, piece) => {
-    howMany[piece]++;
-    return howMany;
-  }, {x: 0, o: 0});
-  
-  if(pieceCount.x + pieceCount.o === 9){
-   return false;
-  } 
-  if(pieceCount.x > pieceCount.o){
-    return 'o';
-  } 
-  return 'x';
-}
-let board = [
-  'x','o','x',
-  '', '', '',
-  '', '', ''
-];
-console.log(whoGoesNext(board));//'o'
-board[4] = 'o';//
-console.log(whoGoesNext(board));//'x'
-board = [
-  'x','o','x',
-  'o', 'x', 'o',
-  'o', 'x', 'x'
-];
-console.log(whoGoesNext(board));//false
+  const pieceCount = board.reduce(
+    (howMany, piece) => {
+      howMany[piece]++;
+      return howMany;
+    },
+    { x: 0, o: 0 }
+  );
 
+  if (pieceCount.x + pieceCount.o === 9) {
+    return false;
+  }
+  if (pieceCount.x > pieceCount.o) {
+    return "o";
+  }
+  return "x";
+};
+let board = ["x", "o", "x", "", "", "", "", "", ""];
+console.log(whoGoesNext(board)); //'o'
+board[4] = "o"; //
+console.log(whoGoesNext(board)); //'x'
+board = ["x", "o", "x", "o", "x", "o", "o", "x", "x"];
+console.log(whoGoesNext(board)); //false
 
 /**
  * processScores
@@ -523,21 +519,24 @@ lucy,100,99,98
 curly,80,81,82
 `;
 
-const processScores = (data)=> {
+const processScores = (data) => {
   const result = {};
-  data.trim().split('\n').forEach( row => {
-    const parts = row.split(',')
-    const name = parts[0];
-    const scores = parts.slice(1);
-    let sum = 0;
-    scores.forEach( score => {
-      sum += +score;
-    })
-    const average = sum / scores.length;
-    result[name] = average;
-  });
-  return result; 
-}
+  data
+    .trim()
+    .split("\n")
+    .forEach((row) => {
+      const parts = row.split(",");
+      const name = parts[0];
+      const scores = parts.slice(1);
+      let sum = 0;
+      scores.forEach((score) => {
+        sum += +score;
+      });
+      const average = sum / scores.length;
+      result[name] = average;
+    });
+  return result;
+};
 // console.log(processScores(str));//{moe: 90, lucy: 99, curly: 81}
 
 /**
@@ -548,42 +547,41 @@ returns all the users and an array of the pets that user owns
 
 //TODO
 //const peopleAndPets = () => {
-  //return people.map(person => {return person})
+//return people.map(person => {return person})
 //}
 
 const peopleAndPets = () => {
   let results = [];
-  people.forEach( person => {
+  people.forEach((person) => {
     person.pets = [];
-    ownerships.forEach( ownership => {
-      if(ownership.personId === person.id){
-        const pet = pets.find(pet => pet.id === ownership.petId);
+    ownerships.forEach((ownership) => {
+      if (ownership.personId === person.id) {
+        const pet = pets.find((pet) => pet.id === ownership.petId);
         person.pets.push(pet);
       }
-    })
+    });
     results.push(person);
-  })
+  });
   return results;
-}
-
+};
 
 const pets = [
-  { id: 1, name: 'Fido'},
-  { id: 2, name: 'Rex'},
-  { id: 3, name: 'Fluffy'},
+  { id: 1, name: "Fido" },
+  { id: 2, name: "Rex" },
+  { id: 3, name: "Fluffy" },
 ];
 
 const people = [
-  { id: 1, name: 'Prof'},
-  { id: 2, name: 'Pete'},
-  { id: 3, name: 'Stanley'},
-  { id: 4, name: 'Ben'},
+  { id: 1, name: "Prof" },
+  { id: 2, name: "Pete" },
+  { id: 3, name: "Stanley" },
+  { id: 4, name: "Ben" },
 ];
 
 const ownerships = [
-  { personId: 2, petId: 2},
-  { personId: 3, petId: 2},
-  { personId: 3, petId: 3},
+  { personId: 2, petId: 2 },
+  { personId: 3, petId: 2 },
+  { personId: 3, petId: 3 },
 ];
 
 //console.log(peopleAndPets());
@@ -648,19 +646,19 @@ const stringConverter = (str) => {
   return newStr;*/
   const strArr = [...str];
   let acc = 0;
-  
-  return strArr.reduce( (newStr, letter) => {
-    acc % 2 ?
-      newStr += letter.toLowerCase()
-    : newStr += letter.toUpperCase();
-    
-    if(letter.match(/[a-z]/i)){
+
+  return strArr.reduce((newStr, letter) => {
+    acc % 2
+      ? (newStr += letter.toLowerCase())
+      : (newStr += letter.toUpperCase());
+
+    if (letter.match(/[a-z]/i)) {
       acc++;
     }
-    
+
     return newStr;
-  }, '');
-}
+  }, "");
+};
 // console.log(stringConverter("That was so cool!!!! Let's do it again!")); // "ThAt WaS sO cOoL!!!! lEt'S dO iT aGaIn!"
 // console.log(stringConverter("My name is Jon and I am so serious right now!")); // "My NaMe Is JoN aNd I aM sO sErIoUs RiGhT nOw!"
 
@@ -674,13 +672,13 @@ returns false otherwise
 
 //TODO
 const objContainsString = (obj, str) => {
-  for(let key in obj){
-    if(obj[key].toLowerCase().includes(str.toLowerCase())){
+  for (let key in obj) {
+    if (obj[key].toLowerCase().includes(str.toLowerCase())) {
       return true;
     }
   }
   return false;
-}
+};
 
 // console.log(objContainsString({
 //   x: 'Foo',
@@ -706,20 +704,20 @@ but don't count keys which are longer than 3 characters
 
 //TODO
 const obj = {
-  foo: 'hello',
-  bar: 'world',
-  bazz: '!!'
-}
+  foo: "hello",
+  bar: "world",
+  bazz: "!!",
+};
 
 const countShortKeys = (obj) => {
   let keyLength = 0;
-  for(let key in obj){
-    if(key.length < 4){
+  for (let key in obj) {
+    if (key.length < 4) {
       keyLength += key.length;
     }
   }
   return keyLength;
-}
+};
 
 // console.log(countShortKeys(obj));//6 because the short keys are foo and bar
 // delete obj.foo;
@@ -745,20 +743,22 @@ lucy,100,99,98
 curly,80,81,82
 `;
 
-const processScoresStr = (data)=> {
+const processScoresStr = (data) => {
   const result = {};
-  data.trim().split('\n').forEach( row => {
-    const parts = row.split(',')
-    const name = parts[0];
-    const scores = parts.slice(1);
-    let sum = 0;
-    scores.forEach( score => {
-      sum += +score;
-    })
-    const average = sum / scores.length;
-    result[name] = average;
-  });
-  return result; 
-}
+  data
+    .trim()
+    .split("\n")
+    .forEach((row) => {
+      const parts = row.split(",");
+      const name = parts[0];
+      const scores = parts.slice(1);
+      let sum = 0;
+      scores.forEach((score) => {
+        sum += +score;
+      });
+      const average = sum / scores.length;
+      result[name] = average;
+    });
+  return result;
+};
 //console.log(processScoresStr(studentsScores));//{moe: 90, lucy: 99, curly: 81}
-

@@ -1,40 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <title>Add things</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="root"></div>
     <script type="text/babel">
-        function App(){
-            let [numbers, setNumbers] = React.useState([3, 4]);
-            let sum = numbers.reduce((acc, num) =>  acc + num, 0);
-            function addRandom() {
-                setNumbers([...numbers, Math.ceil(Math.random() * 10)]);
-            }
-            return (
-                <div>
-                  <h1>The sum is { sum }</h1>
-                  <button onClick={ addRandom }>Click me</button>
-                  <ul>
-                        { 
-                        numbers.map((num, idx) => {
-                            return <li key ={ idx }>{ num }</li>
-                        })
-                     }
-                  </ul>
-                </div>
-            );
+      function App() {
+        let [numbers, setNumbers] = React.useState([3, 4]);
+        let sum = numbers.reduce((acc, num) => acc + num, 0);
+        function addRandom() {
+          setNumbers([...numbers, Math.ceil(Math.random() * 10)]);
         }
-        let root = ReactDOM.createRoot(document.querySelector('#root'))
-        root.render(<App />)
+        return (
+          <div>
+            <h1>The sum is {sum}</h1>
+            <button onClick={addRandom}>Click me</button>
+            <ul>
+              {numbers.map((num, idx) => {
+                return <li key={idx}>{num}</li>;
+              })}
+            </ul>
+          </div>
+        );
+      }
+      let root = ReactDOM.createRoot(document.querySelector("#root"));
+      root.render(<App />);
     </script>
-    
-</body>
+  </body>
 </html>

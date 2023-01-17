@@ -6,21 +6,20 @@ Your task is to write a function which returns the time since midnight in millis
 
 */
 
-function past(h, m, s){
-    //#Happy Coding! ^_^
-    let totMilli = 0;
-    let sec = s * 1000;
-    let min = m * 60000;
-    let hour = h * 3600000;
-    return sec + min + hour;
-  }
+function past(h, m, s) {
+  //#Happy Coding! ^_^
+  let totMilli = 0;
+  let sec = s * 1000;
+  let min = m * 60000;
+  let hour = h * 3600000;
+  return sec + min + hour;
+}
 
-  /*other solution
+/*other solution
   function past(h, m, s){
   return ((h*3600)+(m*60)+s)*1000;
 }
   */
-
 
 /*
 DESCRIPTION:
@@ -34,16 +33,16 @@ Example(Input1, Input2 --> Output):
 Note: for the purposes of this kata you will assume that it is a square if its length and width are equal, otherwise it is a rectangle
 */
 
-const areaOrPerimeter = function(l , w) {
-    // Return your answer
-    if(l === w){
-      return l * l;
-    } else {
-      return l * 2 + w * 2;
-    }
-  };
+const areaOrPerimeter = function (l, w) {
+  // Return your answer
+  if (l === w) {
+    return l * l;
+  } else {
+    return l * 2 + w * 2;
+  }
+};
 
-  /* other solution
+/* other solution
   const areaOrPerimeter = function(l , w) {
   let area = l * w;
   let perimeter = (l + w) * 2;
@@ -66,15 +65,14 @@ Good Luck!
 */
 
 function doubleChar(str) {
-    let dub = '';
-    for(let i = 0; i < str.length; i++){
-      dub += str[i] + str[i]
-    }
-    return dub
-  
+  let dub = "";
+  for (let i = 0; i < str.length; i++) {
+    dub += str[i] + str[i];
   }
-  
-  /*other solution
+  return dub;
+}
+
+/*other solution
   function doubleChar(str) {
   return str.replace(/(.)/g, "$1$1")
 }
@@ -91,16 +89,15 @@ If he doesn't get 10 hoops, return the string "Keep at it until you get it".
 
 */
 
-function hoopCount (n) {
-    //your code goes here
-   if(n < 10){
-     return `Keep at it until you get it`
-   }
-   return `Great, now move on to tricks`
- }
+function hoopCount(n) {
+  //your code goes here
+  if (n < 10) {
+    return `Keep at it until you get it`;
+  }
+  return `Great, now move on to tricks`;
+}
 
-
- /*
+/*
  DESCRIPTION:
 All of the animals are having a feast! Each animal is bringing one dish. There is just one rule: the dish must start and end with the same letters as the animal's name. For example, the great blue heron is bringing garlic naan and the chickadee is bringing chocolate cake.
 
@@ -111,22 +108,21 @@ Assume that beast and dish are always lowercase strings, and that each has at le
 
  */
 
- function feast(beast, dish) {
-    //your function here
-      let i = beast.length - 1;
-      let j = dish.length - 1;
-      if(beast[0] === dish[0] && beast[i] === dish[j]){
-        return true;
-      }
-      return false;
-    }
+function feast(beast, dish) {
+  //your function here
+  let i = beast.length - 1;
+  let j = dish.length - 1;
+  if (beast[0] === dish[0] && beast[i] === dish[j]) {
+    return true;
+  }
+  return false;
+}
 
-    /* othersolution
+/* othersolution
     function feast(beast, dish) {
   return beast[0] === dish[0] && beast[beast.length - 1] === dish[dish.length - 1]
 }
     */
-
 
 /*
 DESCRIPTION:
@@ -148,16 +144,16 @@ cap = 100, on = 60, wait = 50 --> 10 # He can't fit 10 of the 50 waiting
 */
 
 function enough(cap, on, wait) {
-    // your code here
-    let howMuch = on + wait;
-    let check = howMuch - cap;
-    if(check < 0){
-      return 0;
-    }
-    return check;
+  // your code here
+  let howMuch = on + wait;
+  let check = howMuch - cap;
+  if (check < 0) {
+    return 0;
   }
+  return check;
+}
 
-  /*
+/*
   otherSolution
 
   function enough(cap, on, wait) {
@@ -179,9 +175,9 @@ Note! The input is a Real number (actual type is language dependent) and is >= 0
 */
 
 function cockroachSpeed(s) {
-    //Good Luck!
-    return Math.floor(s * 27.777777777778)
-  }
+  //Good Luck!
+  return Math.floor(s * 27.777777777778);
+}
 
 /*
 DESCRIPTION:
@@ -192,17 +188,16 @@ For example, for [1, 2, 2] it should return 9 because 1^2 + 2^2 + 2^2 = 9.
 
 */
 
-function squareSum(numbers){
-    let prodSum = 0;
-    for(let i = 0; i < numbers.length; i++){
-      let num = numbers[i];
-      prodSum = prodSum + num * num;
-    }
-    return prodSum;
+function squareSum(numbers) {
+  let prodSum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    let num = numbers[i];
+    prodSum = prodSum + num * num;
   }
+  return prodSum;
+}
 
-
-  /*
+/*
   DESCRIPTION:
 Write function bmi that calculates body mass index (bmi = weight / height2).
 
@@ -215,19 +210,19 @@ if bmi <= 30.0 return "Overweight"
 if bmi > 30 return "Obese"
   */
 
-  function bmi(weight, height) {
-    let heightSq = height * height;
-    let bmiCheck = weight / heightSq
-    if(bmiCheck <= 18.5){
-      return 'Underweight'
-    } else if(bmiCheck <= 25.0){
-      return 'Normal'
-    } else if(bmiCheck <= 30.0){
-      return 'Overweight'
-    }else {
-     return "Obese";
-    }
+function bmi(weight, height) {
+  let heightSq = height * height;
+  let bmiCheck = weight / heightSq;
+  if (bmiCheck <= 18.5) {
+    return "Underweight";
+  } else if (bmiCheck <= 25.0) {
+    return "Normal";
+  } else if (bmiCheck <= 30.0) {
+    return "Overweight";
+  } else {
+    return "Obese";
   }
+}
 
 /*
 DESCRIPTION:
@@ -238,14 +233,14 @@ Write a function reverse which reverses a list (or in clojure's case, any list-l
 
 */
 
-reverse = function(array) {
-    // TODO: program me!
-    let finalArr = [];
-    for(let i = array.length -1; i >= 0; i--){
-      finalArr.push(array[i]);
-    }
-    return finalArr;
+reverse = function (array) {
+  // TODO: program me!
+  let finalArr = [];
+  for (let i = array.length - 1; i >= 0; i--) {
+    finalArr.push(array[i]);
   }
+  return finalArr;
+};
 
 /*
 DESCRIPTION:
@@ -261,14 +256,14 @@ countBy(2,5) === [2,4,6,8,10]
 */
 
 function countBy(x, n) {
-    let z = [];
-    for(let i = 1; i <= n; i++){
+  let z = [];
+  for (let i = 1; i <= n; i++) {
     z.push(i * x);
-    }
-    return z;
   }
+  return z;
+}
 
-  /*
+/*
   DESCRIPTION:
 Given an array of integers your solution should find the smallest integer.
 
@@ -281,15 +276,15 @@ You can assume, for the purpose of this kata, that the supplied array will not b
 
   */
 
-  class SmallestIntegerFinder {
-    findSmallestInt(args) {
-      let smallestNum = args[0];
-      for(let i = 0; i < args.length; i++){
-        let numCheck = args[i];
-        if(numCheck < smallestNum){
-          smallestNum = numCheck;
-        }
+class SmallestIntegerFinder {
+  findSmallestInt(args) {
+    let smallestNum = args[0];
+    for (let i = 0; i < args.length; i++) {
+      let numCheck = args[i];
+      if (numCheck < smallestNum) {
+        smallestNum = numCheck;
       }
-      return smallestNum;
     }
+    return smallestNum;
   }
+}

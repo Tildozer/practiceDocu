@@ -1,13 +1,13 @@
 #container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap-reverse;
-    padding-top: 3rem;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap-reverse;
+  padding-top: 3rem;
 }
 
 .circle {
-    background-color: red;
-    height: 5rem;
-    width:  5rem;
-    border-radius: 50%;
+  background-color: red;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
 }

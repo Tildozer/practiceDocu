@@ -21,19 +21,19 @@ Examples
 */
 
 const isSquare = (n) => {
-    let sqrRoot = Math.sqrt(n);
-    let string = sqrRoot.toString();
-    if(n < 0){
+  let sqrRoot = Math.sqrt(n);
+  let string = sqrRoot.toString();
+  if (n < 0) {
+    return false;
+  }
+  for (let i = 0; i < string.length; i++) {
+    let searchNum = string[i];
+    if (searchNum === ".") {
       return false;
     }
-    for(let i = 0; i < string.length; i++){
-      let searchNum = string[i];
-      if(searchNum === '.'){
-        return false;
-      }
-    }
-    return true;
   }
+  return true;
+};
 
 /* otherSolutoion
 function isSquare(n) {
@@ -58,24 +58,22 @@ Calculate the sum of the numbers in the nth row of this triangle (starting at in
 */
 
 function rowSumOddNumbers(n) {
-    // TODO
-    let rowStart = (n * n) - (n -1);
-    let sum = rowStart;
-    
-    for(let i = 1; i < n; i++){
-      let add = rowStart + (i * 2)
-      sum+= add
-    }
-    return sum
+  // TODO
+  let rowStart = n * n - (n - 1);
+  let sum = rowStart;
+
+  for (let i = 1; i < n; i++) {
+    let add = rowStart + i * 2;
+    sum += add;
   }
+  return sum;
+}
 
-
-  /*other solutions
+/*other solutions
   function rowSumOddNumbers(n) {
   return Math.pow(n, 3);
 }
   */
-
 
 /*
 DESCRIPTION:
@@ -93,18 +91,18 @@ Example: (input --> output)
 "GTAT" --> "CATA"
 */
 
-function DNAStrand(dna){
-    //your code here
-    let compDNA = '';
-    for(let i = 0; i < dna.length; i++){
-      let strand = dna[i]
-      let translate = {A: 'T', T: 'A', G: 'C', C: 'G'};
-      compDNA += translate[strand];
-    }
-    return compDNA
+function DNAStrand(dna) {
+  //your code here
+  let compDNA = "";
+  for (let i = 0; i < dna.length; i++) {
+    let strand = dna[i];
+    let translate = { A: "T", T: "A", G: "C", C: "G" };
+    compDNA += translate[strand];
   }
+  return compDNA;
+}
 
-  /* question solution?
+/* question solution?
   function DNAStrand(dna) {
   return dna.replace(/./g, function(c) {
     return DNAStrand.pairs[c]
@@ -118,7 +116,6 @@ DNAStrand.pairs = {
   G: 'C',
 }
   */
-
 
 /*
 DESCRIPTION:
@@ -138,23 +135,22 @@ output = ["Open", "Open", "Senior", "Open", "Open", "Senior"]
 
 */
 
-function openOrSenior(data){
-    // ...
-    let qualified = [];
-    for(let i = 0; i < data.length; i++){
-      let ageCheck = data[i][0];
-      let handicap = data[i][1];
-      if(ageCheck >= 55 && handicap >= 8){
-        qualified.push('Senior');
-      } else { 
-      qualified.push('Open');
-        }
+function openOrSenior(data) {
+  // ...
+  let qualified = [];
+  for (let i = 0; i < data.length; i++) {
+    let ageCheck = data[i][0];
+    let handicap = data[i][1];
+    if (ageCheck >= 55 && handicap >= 8) {
+      qualified.push("Senior");
+    } else {
+      qualified.push("Open");
     }
-    return qualified;
   }
+  return qualified;
+}
 
-
-  /**otherSolution?
+/**otherSolution?
    function openOrSenior(data){
   function determineMembership(member){
     return (member[0] >= 55 && member[1] > 7) ? 'Senior' : 'Open';
@@ -174,23 +170,22 @@ Examples
 
 function reverseWords(str) {
   // Go for it
-  let word = '';
-  let finalReverse = '';
-  for(let i = 0; i < str.length; i++){
+  let word = "";
+  let finalReverse = "";
+  for (let i = 0; i < str.length; i++) {
     let letter = str[i];
-    if(letter !== ' '){
+    if (letter !== " ") {
       word += letter;
     } else {
-      for(let i = word.length - 1; i >= 0; i--){
-      finalReverse += word[i];
-        
+      for (let i = word.length - 1; i >= 0; i--) {
+        finalReverse += word[i];
       }
-      finalReverse += ' ';
-      word = '';
+      finalReverse += " ";
+      word = "";
     }
   }
-  for(let i = word.length - 1; i >= 0; i--){
-      finalReverse += word[i];
+  for (let i = word.length - 1; i >= 0; i--) {
+    finalReverse += word[i];
   }
   return finalReverse;
 }
@@ -203,4 +198,3 @@ function reverseWords(str) {
 }
 
 */
-

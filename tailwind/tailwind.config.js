@@ -4,8 +4,8 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      freckle: ["Rubik Vinyl", 'cursive'],
-    }
+      freckle: ["Rubik Vinyl", "cursive"],
+    },
   },
   plugins: [],
-}
+};

@@ -1,4 +1,4 @@
-# template for react-client-application 
+# template for react-client-application
 
 - npm i
 - npm run build

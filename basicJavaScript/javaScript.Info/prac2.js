@@ -1,6 +1,6 @@
 "use strict";
 // Alert on top of screen
- //alert(`I'm a javaScript!`);
+//alert(`I'm a javaScript!`);
 
 //  if you state a prompt before an alert you can use the input from a user to customize alerts.
 //  let test = prompt(`what is your name?`, '');
@@ -69,7 +69,6 @@ do {
     num = prompt("Enter a number greater than 100?", 0);
 } while (num <= 100 && num);
 */
-
 
 /*
 nextPrime:

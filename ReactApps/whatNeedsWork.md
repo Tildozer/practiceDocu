@@ -7,4 +7,3 @@ todo should congragulate you on getting something done,
 and then needs css to make it all look prettier.
 
 - with new knowledge go back to ReactProps and make the select prop work.
-

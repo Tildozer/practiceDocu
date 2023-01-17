@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  font-family: 'Press Start 2P', cursive;
+  font-family: "Press Start 2P", cursive;
 }
 
 html {
@@ -15,14 +15,14 @@ body {
 }
 select {
   text-align: center;
-  height: 1.30rem;
+  height: 1.3rem;
 }
 .form {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-#numOfRows{
+#numOfRows {
   width: 13rem;
 }
 
@@ -30,7 +30,7 @@ select {
   background-color: red;
   height: 50px;
   width: 50px;
-} 
+}
 .green {
   background-color: green;
   height: 50px;

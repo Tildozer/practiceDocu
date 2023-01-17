@@ -39,7 +39,7 @@ body {
 
 #counter button {
   padding: 2em 4em;
-  background-color: #59A9C2;
+  background-color: #59a9c2;
   color: white;
   border: none;
   font-size: 1em;
@@ -48,5 +48,5 @@ body {
 }
 
 #counter button:hover {
-  background-color: #65878F;
+  background-color: #65878f;
 }

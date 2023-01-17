@@ -3,7 +3,10 @@
   <head>
     <title>Pixelate</title>
     <!-- This gets us our fun 8-bit font from Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+      rel="stylesheet"
+    />
     <!-- loads our own CSS file -->
     <link rel="stylesheet" href="style.css" />
     <script type="text/javascript" defer src="script.js"></script>
@@ -12,49 +15,30 @@
     <h1>Pixelate</h1>
     <div class="form">
       <form action="">
-         <input id="numOfRows" type="text"  maxlength="2" onfocus="this.value = ''" value="How Many rows?">  
-         <button id='add-row'>Add rows</button>
+        <input
+          id="numOfRows"
+          type="text"
+          maxlength="2"
+          onfocus="this.value = ''"
+          value="How Many rows?"
+        />
+        <button id="add-row">Add rows</button>
       </form>
-        <select>
-          <option value="pixel">
-             Select a color
-          </option>
-          <option value="red">
-             Red
-          </option>
-          <option value="green">
-             Green
-          </option>
-          <option value="blue">
-             Blue
-          </option>
-          <option value="black">
-             Black
-          </option>
-          <option value="cyan">
-             Cyan
-          </option>
-          <option value="white">
-             White
-          </option>
-          <option value="purple">
-             Purple
-          </option>
-        </select>
-          <button class="fill">
-            Fill grid
-          </button>
-            <button class="fillNon">
-              Fill Non-colored squares
-            </button>
-              <button class="clear">
-                 Clear grid
-              </button>
-                <table class="map">
-                  
-                </table>
+      <select>
+        <option value="pixel">Select a color</option>
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="black">Black</option>
+        <option value="cyan">Cyan</option>
+        <option value="white">White</option>
+        <option value="purple">Purple</option>
+      </select>
+      <button class="fill">Fill grid</button>
+      <button class="fillNon">Fill Non-colored squares</button>
+      <button class="clear">Clear grid</button>
+      <table class="map"></table>
     </div>
   </body>
   <!-- loads our JavaScript file -->
-  
 </html>

@@ -1,9 +1,9 @@
-import Puppies from './components/Puppies';
+import Puppies from "./components/Puppies";
 
-const express = require('express');
+const express = require("express");
 const app = express();
 
-app.get('/', (req, res) => {
+app.get("/", (req, res) => {
   res.send(`
     <html>
       <head>
@@ -13,10 +13,10 @@ app.get('/', (req, res) => {
         <h1>Puppies and kittens galore<h1>
       </body>
     <html>
-  `)
-})
+  `);
+});
 
-app.get('/puppies', (req, res) => {
+app.get("/puppies", (req, res) => {
   res.send(`
     <html>
       <head>
@@ -27,10 +27,10 @@ app.get('/puppies', (req, res) => {
 
       </body>
     </html>
-  `)
-})
+  `);
+});
 
-app.get('/kittens', (req, res) => {
+app.get("/kittens", (req, res) => {
   res.send(`
     <html>
       <head>
@@ -40,15 +40,10 @@ app.get('/kittens', (req, res) => {
         <h1> Kittens!!!</h1>
       </body>
     </html>
-  `)
-})
+  `);
+});
 
-
-
-
-
-
-const port = process.env.PORT || 1337
+const port = process.env.PORT || 1337;
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
-})
+});
