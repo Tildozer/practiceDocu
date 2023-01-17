@@ -15,9 +15,6 @@ module.exports = {
           "10%": { opacity: 0.5 },
           "0%%": { opacity: 0 },
         },
-        rotate: {
-          "100%": { rotate: "12deg" },
-        },
       },
     },
   },
