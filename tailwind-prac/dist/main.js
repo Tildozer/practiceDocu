@@ -6,27 +6,30 @@
  * or disable the default devtool with "devtool: false".
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
-/******/ (function() { // webpackBootstrap
-/******/ 	var __webpack_modules__ = ({
-
-/***/ "./src/index.js":
-/*!**********************!*\
+/******/ (function () {
+  // webpackBootstrap
+  /******/ var __webpack_modules__ = {
+    /***/ "./src/index.js":
+      /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/***/ (function() {
+      /***/ function () {
+        eval(
+          'throw new Error("Module parse failed: Unexpected token (12:4)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n| const root = ReactDOM.createRoot(document.getElementById(\\"root\\"));\\n| root.render(\\n>     <HashRouter>\\n|       <App />\\n|     </HashRouter>");\n\n//# sourceURL=webpack://tailwind-prac/./src/index.js?'
+        );
 
-eval("throw new Error(\"Module parse failed: Unexpected token (12:4)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n| const root = ReactDOM.createRoot(document.getElementById(\\\"root\\\"));\\n| root.render(\\n>     <HashRouter>\\n|       <App />\\n|     </HashRouter>\");\n\n//# sourceURL=webpack://tailwind-prac/./src/index.js?");
+        /***/
+      },
 
-/***/ })
-
-/******/ 	});
-/************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module doesn't tell about it's top-level declarations so it can't be inlined
-/******/ 	var __webpack_exports__ = {};
-/******/ 	__webpack_modules__["./src/index.js"]();
-/******/ 	
-/******/ })()
-;
+    /******/
+  };
+  /************************************************************************/
+  /******/
+  /******/ // startup
+  /******/ // Load entry module and return exports
+  /******/ // This entry module doesn't tell about it's top-level declarations so it can't be inlined
+  /******/ var __webpack_exports__ = {};
+  /******/ __webpack_modules__["./src/index.js"]();
+  /******/
+  /******/
+})();
