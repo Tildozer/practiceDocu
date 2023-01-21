@@ -2,24 +2,8 @@ import React from "react";
 
 function Loading() {
   return (
-    <div>
-      <svg className="bg-yellow-100 float-right" width="100" height="100">
-        <circle
-          className="animate-spin h-80 w-80"
-          cx="100"
-          cy="100"
-          r="100"
-          stroke="green"
-          stroke-width="4"
-        />
-        <line
-          x1="0"
-          y1="0"
-          x2="200"
-          y2="200"
-          className="stroke-white stroke-2"
-        />
-      </svg>
+    <div className="bg-[rgba(0, 0, 0, 0.4)] flex flex-col items-center text-4 text-yellow-700 w-[100vw] h-[100vh] md:text-[6rem] lg:text-[10rem] fixed top-0 left-0 right-0 bottom-0 backdrop-blur-xl">
+      <div className="border-t-4 border-t-solid w-24 h-24 border-t-yellow-400 animate-spin m-4 rounded-[50%] md:border-t-[1rem] md:w-72 md:h-72 lg:w-96 lg:h-96"></div>
       Loading...
     </div>
   );

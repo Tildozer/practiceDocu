@@ -7,6 +7,7 @@ function App() {
 
   return (
     <Fragment>
+      <h1 className="text-yellow-500 text-center text-4xl">Pokédex enteries</h1>
       <Routes>
         <Route
           exact
