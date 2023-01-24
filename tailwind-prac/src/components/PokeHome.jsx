@@ -19,9 +19,13 @@ const PokeHome = (props) => {
   };
 
   useEffect(() => {
+    setIsLoading(true);
     fetchPokemon()
       .then((data) => setPokemon(data))
       .catch((err) => console.error(err));
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 250);
   }, []);
 
   useEffect(() => {

@@ -30,3 +30,7 @@ How can you produce a list of members who joined after the start of September 20
 SELECT memid, surname, firstname, joindate
 		FROM cd.members
 		where joindate >= '2012-09-01';
+
+
+-- left off https://pgexercises.com/questions/basic/unique.html
+
