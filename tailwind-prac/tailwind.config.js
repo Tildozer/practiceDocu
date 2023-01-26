@@ -18,6 +18,12 @@ module.exports = {
           "0%%": { opacity: 0 },
         },
       },
+      width: {
+        'full': '100vh'
+      },
+      height: {
+        'full': '100vh'
+      },
     },
   },
   plugins: [],

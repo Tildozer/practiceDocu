@@ -6,7 +6,7 @@ const PrevAndNextButtons = (props) => {
   const handleClick = async (fetchUrl) => {
     document.querySelectorAll(".shiny-sprites").forEach((shiny) => {
       shiny.className =
-        "shiny-sprites opacity-0 hover:animate-fadeIn hover:cursor-pointer";
+        "m-3 shiny-sprites opacity-0 hover:animate-fadeIn hover:cursor-pointer";
     });
     setIsLoading(true);
     return await fetchPokemon(fetchUrl)

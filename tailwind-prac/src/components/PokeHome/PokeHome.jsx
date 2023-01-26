@@ -25,12 +25,14 @@ const PokeHome = (props) => {
       .catch((err) => console.error(err));
     setTimeout(() => {
       setIsLoading(false);
-    }, 250);
+    }, 500);
   }, []);
 
   useEffect(() => {
     getAllPokemonInfo();
   }, [pokemon]);
+
+  console.log(pokemon)
 
   return (
     <div className="bg-black m-10">
