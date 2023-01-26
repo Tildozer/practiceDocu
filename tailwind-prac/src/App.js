@@ -7,13 +7,12 @@ function App() {
 
   return (
     <Fragment>
-      <h1 className="text-yellow-500 text-center text-4xl">Pokédex enteries</h1>
       <Routes>
         <Route
-          exact
-          path="/"
+          path="/pokedex"
           element={
             <>
+              <h1 className="text-yellow-500 text-center text-4xl">Pokédex enteries</h1>
               <PokeHome setIsLoading={setIsLoading} isLoading={isLoading} />
               {isLoading ? <Loading /> : null}
             </>
