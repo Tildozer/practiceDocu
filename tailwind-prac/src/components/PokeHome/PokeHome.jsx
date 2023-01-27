@@ -4,7 +4,7 @@ import { fetchPokemon, fetchPokemonInfo } from "../../api";
 import { PokeDex, PrevAndNextButtons } from "..";
 
 const PokeHome = (props) => {
-  const { setIsLoading } = props;
+  const { setIsLoading, isLoading } = props;
   const [pokemon, setPokemon] = useState({});
   const [pokemonInfo, setPokemonInfo] = useState([]);
 
@@ -32,8 +32,6 @@ const PokeHome = (props) => {
     getAllPokemonInfo();
   }, [pokemon]);
 
-  console.log(pokemon)
-
   return (
     <div className="bg-black m-10">
       {pokemon.results ? (
@@ -41,6 +39,7 @@ const PokeHome = (props) => {
           <PrevAndNextButtons
             pokemon={pokemon}
             setIsLoading={setIsLoading}
+            isLoading={isLoading}
             fetchPokemon={fetchPokemon}
             setPokemon={setPokemon}
           />

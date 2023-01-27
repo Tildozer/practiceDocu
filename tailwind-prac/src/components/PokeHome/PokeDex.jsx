@@ -4,15 +4,14 @@ import { Fragment } from "react";
 const PokeDex = (props) => {
   const { pokemonInfo, pokemon } = props;
 
-  const sprites = "flex flex-row justify-center w-auto m-0"
-  const shinyHover = "m-3 shiny-sprites opacity-0 hover:animate-fadeIn hover:cursor-pointer"
+  const sprites = "flex flex-row justify-center w-auto m-0";
+  const shinyHover =
+    "m-3 shiny-sprites opacity-0 hover:animate-fadeIn hover:cursor-pointer";
 
   const handleClick = (ev) => {
-    ev.target.className ===
-    shinyHover
+    ev.target.className === shinyHover
       ? (ev.target.className = "shiny-sprites hover:cursor-pointer")
-      : (ev.target.className =
-          { shinyHover });
+      : (ev.target.className = { shinyHover });
   };
 
   return pokemon.results.map((poke, idx) => {
@@ -23,7 +22,7 @@ const PokeDex = (props) => {
         </h1>
         {pokemonInfo.length ? (
           <Fragment>
-            <div className={ sprites }>
+            <div className={sprites}>
               <img
                 className="m-3"
                 src={pokemonInfo[idx].sprites.front_default}
@@ -35,15 +34,15 @@ const PokeDex = (props) => {
                 alt={`${pokemonInfo[idx].name} back facing sprite`}
               />
             </div>
-            <div className={ sprites }>
+            <div className={sprites}>
               <img
-                className={ shinyHover }
+                className={shinyHover}
                 onClick={(ev) => handleClick(ev)}
                 src={pokemonInfo[idx].sprites.front_shiny}
                 alt={`${pokemonInfo[idx].name} front facing shiny sprite`}
               />
               <img
-                className={ shinyHover }
+                className={shinyHover}
                 onClick={(ev) => handleClick(ev)}
                 src={pokemonInfo[idx].sprites.back_shiny}
                 alt={`${pokemonInfo[idx].name} back facing shiny sprite`}

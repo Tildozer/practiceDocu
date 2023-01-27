@@ -1,7 +1,7 @@
 import React from "react";
 
 const PrevAndNextButtons = (props) => {
-  const { pokemon, setIsLoading, fetchPokemon, setPokemon } = props;
+  const { pokemon, setIsLoading, isLoading, fetchPokemon, setPokemon } = props;
 
   const handleClick = async (fetchUrl) => {
     document.querySelectorAll(".shiny-sprites").forEach((shiny) => {
@@ -10,13 +10,10 @@ const PrevAndNextButtons = (props) => {
     });
     setIsLoading(true);
     return await fetchPokemon(fetchUrl)
-      .then((data) => {
-        setPokemon(data);
-        setTimeout(() => {}, 1000);
-      })
+      .then((data) => setPokemon(data))
       .catch((err) => console.error(err))
       .finally((_) => {
-        setTimeout(() => {
+        setTimeout((_) => {
           setIsLoading(false);
         }, 500);
       });
@@ -27,7 +24,7 @@ const PrevAndNextButtons = (props) => {
       <button
         disabled={!pokemon.previous}
         className={`${
-          pokemon.previous
+          pokemon.previous && !isLoading
             ? "bg-white hover:animate-pulse shadow-lg"
             : "bg-slate-500 shadow-md"
         } h-7 w-20 shadow-yellow-600`}
@@ -38,7 +35,7 @@ const PrevAndNextButtons = (props) => {
       <button
         disabled={!pokemon.next}
         className={`${
-          pokemon.next
+          pokemon.next && !isLoading
             ? "bg-white hover:animate-pulse shadow-lg"
             : "bg-slate-500 shadow-md"
         } h-7 w-20 shadow-yellow-600`}
