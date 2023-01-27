@@ -7,7 +7,7 @@ function App() {
   const [singlePokemon, setSinglePokemon] = useState({});
 
   return (
-    <Fragment>
+    <div className="bg-slate-800">
       {isLoading ? <Loading /> : null}
       <Routes>
         <Route
@@ -24,6 +24,7 @@ function App() {
           element={
             <SearchPokemon
               setIsLoading={setIsLoading}
+              singlePokemon={singlePokemon}
               setSinglePokemon={setSinglePokemon}
             />
           }
@@ -32,29 +33,29 @@ function App() {
         <Route
           path="/pokedex"
           element={
-            <>
-              <h1 className="text-yellow-500 text-center text-4xl">
+            <div >
+              <h1 className="text-yellow-500 p-10 text-center text-4xl">
                 Pokédex enteries
               </h1>
               <PokeHome 
                 setIsLoading={setIsLoading} 
                 isLoading={isLoading} 
               />
-            </>
+            </div>
           }
         />
         <Route
           path="/singlePokemon/:name"
           element={
             <SinglePokemon
-              singlePokemon={singlePokemon}
               setIsLoading={setIsLoading}
+              singlePokemon={singlePokemon}
               setSinglePokemon={setSinglePokemon}
             />
           }
         />
       </Routes>
-    </Fragment>
+    </div>
   );
 }
 

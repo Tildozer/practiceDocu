@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { fetchPokemonInfo } from "../api";
 
 const SearchPokemon = (props) => {
-  const { setIsLoading, setSinglePokemon } = props;
+  const { setIsLoading, singlePokemon, setSinglePokemon } = props;
 
   const [search, setSearch] = useState("");
   const [err, setErr] = useState("");
@@ -16,6 +16,7 @@ const SearchPokemon = (props) => {
       const data = await fetchPokemonInfo(search);
       if (data) {
         setSinglePokemon(data);
+        nav(`/singlePokemon/${singlePokemon.name}`)
       } else {
         setErr("Sorry, Try something else.");
       }
@@ -29,7 +30,7 @@ const SearchPokemon = (props) => {
   };
 
   return (
-    <div className="flex flex-col gap-10 justify-center items-center h-full w-full">
+    <div className="flex flex-col bg-slate-700 gap-10 justify-center items-center h-full w-full">
       <h1 className="text-yellow-500">{err}</h1>
       <form onSubmit={(ev) => handleSubmit(ev)}>
         <input

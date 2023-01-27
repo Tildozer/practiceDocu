@@ -33,7 +33,7 @@ const PokeHome = (props) => {
   }, [pokemon]);
 
   return (
-    <div className="bg-black m-10">
+    <div className="m-10">
       {pokemon.results ? (
         <div>
           <PrevAndNextButtons

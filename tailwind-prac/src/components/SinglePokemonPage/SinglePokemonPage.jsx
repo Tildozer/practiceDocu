@@ -2,12 +2,14 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchPokemonInfo } from "../../api";
+import { Sprites, Moves, Stats, Abilities } from ".";
 
 const SinglePokemonPage = (props) => {
   const { singlePokemon, setIsLoading, setSinglePokemon } = props;
   // split the hash if they load into the page from new session
   const urlRoutes = window.location.hash.split("/");
   const pokemon = urlRoutes[urlRoutes.length - 1];
+  const { sprites, abilities, moves, stats } = singlePokemon
 
   const nav = useNavigate();
 
@@ -30,10 +32,16 @@ const SinglePokemonPage = (props) => {
     }
   };
   useEffect(() => {
-    checkForPokemon(pokemon);
+    // checkForPokemon(pokemon);
   }, []);
 
-  return <div className="text-yellow-500">Hello</div>;
+  return (
+  <div className="text-yellow-500">
+    <Sprites />
+    <Stats />
+    <Abilities />
+    <Moves />
+  </div>);
 };
 
 export default SinglePokemonPage;
