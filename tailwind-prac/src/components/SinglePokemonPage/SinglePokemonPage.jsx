@@ -8,13 +8,13 @@ const SinglePokemonPage = (props) => {
   const { singlePokemon, setIsLoading, setSinglePokemon } = props;
   // split the hash if they load into the page from new session
   const urlRoutes = window.location.hash.split("/");
-  const pokemon = urlRoutes[urlRoutes.length - 1];
+  const pokemon = urlRoutes[urlRoutes.length - 1].toLowerCase();
   const { sprites, abilities, moves, stats } = singlePokemon
 
   const nav = useNavigate();
 
   const checkForPokemon = async (search) => {
-    if (!singlePokemon.name) {
+    if (!singlePokemon.name || singlePokemon.name !== search) {
       try {
         const data = await fetchPokemonInfo(search);
         if (data) {
@@ -32,15 +32,27 @@ const SinglePokemonPage = (props) => {
     }
   };
   useEffect(() => {
-    // checkForPokemon(pokemon);
+    setIsLoading(true)
+    checkForPokemon(pokemon);
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 250);
   }, []);
 
   return (
-  <div className="text-yellow-500">
-    <Sprites />
-    <Stats />
-    <Abilities />
-    <Moves />
+  <div className="text-yellow-500 bg-slate-700 h-full w-full">
+    { singlePokemon.name ?
+    <>
+      <h1 className="first-letter:capitalize text-[6rem]">
+        { singlePokemon.name }
+      </h1>
+      <Sprites sprites={ sprites }/>
+      <Stats stats={ stats }/>
+      <Abilities abilities={ abilities } />
+      <Moves moves={ moves }/>
+    </>
+    : null
+    }
   </div>);
 };
 

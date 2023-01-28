@@ -7,7 +7,7 @@ function App() {
   const [singlePokemon, setSinglePokemon] = useState({});
 
   return (
-    <div className="bg-slate-800">
+    <div >
       {isLoading ? <Loading /> : null}
       <Routes>
         <Route
