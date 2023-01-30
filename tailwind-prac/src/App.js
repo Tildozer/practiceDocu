@@ -33,7 +33,7 @@ function App() {
         <Route
           path="/pokedex"
           element={
-            <div >
+            <div  className="bg-gradient-to-r from-slate-700 to-slate-800 h-auto">
               <h1 className="text-yellow-500 p-10 text-center text-4xl">
                 Pokédex enteries
               </h1>

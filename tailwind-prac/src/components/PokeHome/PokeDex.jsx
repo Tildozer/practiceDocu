@@ -9,9 +9,10 @@ const PokeDex = (props) => {
     "m-3 shiny-sprites opacity-0 hover:animate-fadeIn hover:cursor-pointer";
 
   const handleClick = (ev) => {
+    console.log(ev.target.className);
     ev.target.className === shinyHover
-      ? (ev.target.className = "shiny-sprites hover:cursor-pointer")
-      : (ev.target.className = { shinyHover });
+      ? (ev.target.className = "m-3 shiny-sprites hover:cursor-pointer")
+      : (ev.target.className = shinyHover);
   };
 
   return pokemon.results.map((poke, idx) => {

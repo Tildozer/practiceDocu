@@ -13,10 +13,8 @@ export async function fetchPokemon(fetchURL) {
 
 export async function fetchPokemonInfo(pokemonName) {
   if (!pokemonName.match(/[a-z]/i)) {
-    console.log("not");
     return;
   }
-  console.log("here");
   return await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
     .then((res) => res.json())
     .then((data) => data)
