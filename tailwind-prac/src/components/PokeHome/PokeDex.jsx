@@ -1,7 +1,9 @@
 import React from "react";
 import { Fragment } from "react";
+import { useNavigate } from "react-router-dom";
 
 const PokeDex = (props) => {
+  const nav = useNavigate();
   const { pokemonInfo, pokemon } = props;
 
   const sprites = "flex flex-row justify-center w-auto m-0";
@@ -15,10 +17,17 @@ const PokeDex = (props) => {
       : (ev.target.className = shinyHover);
   };
 
+  const handleNav = async (poke) => {
+    nav(`/singlePokemon/${poke.name}`);
+  };
+
   return pokemon.results.map((poke, idx) => {
     return (
       <div key={idx} className="m-3 flex flex-col justify-center">
-        <h1 className="text-yellow-600 text-center self-center w-32 h-10 m-0 hover:cursor-pointer select-none text-xl hover:animate-slowPing">
+        <h1
+          className="text-yellow-600 text-center self-center w-32 h-10 m-0 hover:cursor-pointer select-none text-xl hover:animate-slowPing"
+          onClick={(_) => handleNav(poke)}
+        >
           {[poke.name.slice(0, 1).toUpperCase(), poke.name.slice(1)].join("")}
         </h1>
         {pokemonInfo.length ? (

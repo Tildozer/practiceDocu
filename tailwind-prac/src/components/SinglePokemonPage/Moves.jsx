@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Moves = () => {
-  return (
-    <div>
-      MOVES
-    </div>
-  )
-}
+  return <div>MOVES</div>;
+};
 
 export default Moves;

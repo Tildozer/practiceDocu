@@ -7,7 +7,7 @@ function App() {
   const [singlePokemon, setSinglePokemon] = useState({});
 
   return (
-    <div >
+    <div>
       {isLoading ? <Loading /> : null}
       <Routes>
         <Route
@@ -33,14 +33,11 @@ function App() {
         <Route
           path="/pokedex"
           element={
-            <div  className="bg-gradient-to-r from-slate-700 to-slate-800 h-auto">
+            <div className="bg-gradient-to-r from-slate-700 to-slate-800">
               <h1 className="text-yellow-500 p-10 text-center text-4xl">
                 Pokédex enteries
               </h1>
-              <PokeHome 
-                setIsLoading={setIsLoading} 
-                isLoading={isLoading} 
-              />
+              <PokeHome setIsLoading={setIsLoading} isLoading={isLoading} />
             </div>
           }
         />

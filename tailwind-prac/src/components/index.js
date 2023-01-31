@@ -8,4 +8,3 @@ export { default as PrevAndNextButtons } from "./PokeHome/PrevAndNextButtons.jsx
 
 // SinglePokemonPage
 export { default as SinglePokemon } from "./SinglePokemonPage/SinglePokemonPage.jsx";
-

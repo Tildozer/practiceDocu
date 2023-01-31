@@ -40,14 +40,16 @@ const SinglePokemonPage = (props) => {
   }, [pokemon]);
 
   return (
-    <div className="flex flex-col items-center text-yellow-500 bg-slate-700 h-full w-full">
+    <div className="flex flex-col items-center text-yellow-500 bg-slate-700">
       {singlePokemon.name ? (
         <>
+          <h1>Pokedex Entry # {singlePokemon.id}</h1>
           <h1 className="first-letter:capitalize text-[6rem]">
             {singlePokemon.name}
           </h1>
           <div className="flex">
             <h2 className="m-2">weight: {singlePokemon.weight}hg</h2>
+            <h2 className="m-2">Height: {singlePokemon.height}dam</h2>
             {singlePokemon.types ? (
               <div className="m-2">
                 Typing :

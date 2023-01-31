@@ -11,16 +11,16 @@ const SearchPokemon = (props) => {
 
   const handleSubmit = async (ev) => {
     ev.preventDefault();
-    if(singlePokemon.name){
-      setSinglePokemon({})
+    if (singlePokemon.name) {
+      setSinglePokemon({});
     }
-    setIsLoading(true)
+    setIsLoading(true);
     try {
       const data = await fetchPokemonInfo(search.toLowerCase());
       if (data) {
-        setErr('')
+        setErr("");
         setSinglePokemon(data);
-        nav(`/singlePokemon/${search}`)
+        nav(`/singlePokemon/${search}`);
       } else {
         setErr("Sorry, Try something else.");
       }
