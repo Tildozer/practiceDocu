@@ -25,7 +25,7 @@ const PokeDex = (props) => {
     return (
       <div key={idx} className="m-3 flex flex-col justify-center">
         <h1
-          className="text-yellow-600 text-center self-center w-32 h-10 m-0 hover:cursor-pointer select-none text-xl hover:animate-slowPing"
+          className="text-yellow-600 text-center self-center w-32 h-10 m-0 select-none text-xl hover:cursor-pointer hover:underline hover:animate-slowPing"
           onClick={(_) => handleNav(poke)}
         >
           {[poke.name.slice(0, 1).toUpperCase(), poke.name.slice(1)].join("")}
