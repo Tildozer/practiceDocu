@@ -1,11 +1,11 @@
 import React from "react";
 
 const GenThreeSprites = (props) => {
-  const { genIII } = props;
+  const { genIII, spritesBorder } = props;
   return (
     <>
-      Generation 3:
-      <div className="rounded border-2 border-yellow-400 m-1 p-2 text-center">
+      <span>Generation 3:</span>
+      <div className={`${spritesBorder} p-2 text-center`}>
         {genIII["ruby-sapphire"].front_default ? (
           <div>Ruby & Sapphire</div>
         ) : null}
@@ -16,6 +16,7 @@ const GenThreeSprites = (props) => {
           <div>Fire Red & Leaf Green</div>
         ) : null}
         <img
+          className="m-auto"
           src={
             genIII["ruby-sapphire"].front_default ||
             genIII.emerald.front_default ||
@@ -24,6 +25,7 @@ const GenThreeSprites = (props) => {
           alt=""
         />
         <img
+          className="m-auto"
           src={
             genIII["ruby-sapphire"].back_default ||
             genIII.emerald.back_default ||
@@ -32,6 +34,7 @@ const GenThreeSprites = (props) => {
           alt=""
         />
         <img
+          className="m-auto"
           src={
             genIII["ruby-sapphire"].front_shiny ||
             genIII.emerald.front_shiny ||
@@ -40,6 +43,7 @@ const GenThreeSprites = (props) => {
           alt=""
         />
         <img
+          className="m-auto"
           src={
             genIII["ruby-sapphire"].back_shiny ||
             genIII.emerald.back_shiny ||

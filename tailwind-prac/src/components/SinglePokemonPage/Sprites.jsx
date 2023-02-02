@@ -25,7 +25,9 @@ const Sprites = (props) => {
   ];
   const centerSprites =
     "grid grid-cols-2 w-80 justify-items-center select-none";
-  const extraSprites = `${centerSprites} rounded border-2 border-yellow-400 m-2`;
+  const spritesBorder = "rounded border-2 border-yellow-400 m-2";
+  const extraSprites = `${centerSprites} ${spritesBorder}`;
+  const singleSprite = "h-10 w-10 m-auto mt-1 mb-1";
 
   return (
     <div className="flex flex-col items-center">
@@ -56,20 +58,28 @@ const Sprites = (props) => {
           extraSprites={extraSprites}
         />
         {sprites.versions["generation-i"]["red-blue"].front_default ? (
-          <GenOneSprites genI={genI} />
+          <GenOneSprites
+            genI={genI}
+            spritesBorder={spritesBorder}
+            singleSprite={singleSprite}
+          />
         ) : null}
         {sprites.versions["generation-ii"].silver.front_default ? (
-          <GenTwoSprites genII={genII} />
+          <GenTwoSprites
+            genII={genII}
+            spritesBorder={spritesBorder}
+            singleSprite={singleSprite}
+          />
         ) : null}
         {genIII.emerald.front_default ||
         genIII["firered-leafgreen"].front_default ||
         genIII["ruby-sapphire"].front_default ? (
-          <GenThreeSprites genIII={genIII} />
+          <GenThreeSprites genIII={genIII} spritesBorder={spritesBorder} />
         ) : null}
         {genIV["diamond-pearl"].front_default ||
         genIV["heartgold-soulsilver"].front_default ||
         genIV.platinum.front_default ? (
-          <GenFourSprites genIV={genIV} />
+          <GenFourSprites genIV={genIV} spritesBorder={spritesBorder} />
         ) : null}
       </div>
     </div>

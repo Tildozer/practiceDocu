@@ -5,14 +5,14 @@ const HomeSprites = (props) => {
   return (
     <>
       {home.front_female ? (
-        <div className={extraSprites}>
+        <div className={`${extraSprites} items-center`}>
           <img src={home.front_female} alt="" />
           <img src={home.front_default} alt="" />
           <img src={home.front_shiny_female} alt="" />
           <img src={home.front_shiny} alt="" />
         </div>
       ) : (
-        <div className={`items-center ${extraSprites}`}>
+        <div className={`${extraSprites} items-center`}>
           <img src={home.front_default} alt="" />
           <img src={home.front_shiny} alt="" />
         </div>
