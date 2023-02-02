@@ -6,6 +6,8 @@ import {
   GenTwoSprites,
   GenThreeSprites,
   GenFourSprites,
+  GenFiveSprites,
+  GenSixSprites,
 } from ".";
 
 const Sprites = (props) => {
@@ -17,11 +19,13 @@ const Sprites = (props) => {
     sprites: { versions },
   } = props;
   const officialArt = sprites.other["official-artwork"];
-  const [genI, genII, genIII, genIV] = [
+  const [genI, genII, genIII, genIV, genV, genVI] = [
     versions["generation-i"],
     versions["generation-ii"],
     versions["generation-iii"],
     versions["generation-iv"],
+    versions["generation-v"],
+    versions["generation-vi"],
   ];
   const centerSprites =
     "grid grid-cols-2 w-80 justify-items-center select-none";
@@ -80,6 +84,13 @@ const Sprites = (props) => {
         genIV["heartgold-soulsilver"].front_default ||
         genIV.platinum.front_default ? (
           <GenFourSprites genIV={genIV} spritesBorder={spritesBorder} />
+        ) : null}
+        {genV["black-white"].front_default ? (
+          <GenFiveSprites genV={genV} spritesBorder={spritesBorder} />
+        ) : null}
+        {genVI["omegaruby-alphasapphire"].front_default ||
+        genVI["x-y"].front_default ? (
+          <GenSixSprites genVI={genVI} spritesBorder={spritesBorder} />
         ) : null}
       </div>
     </div>
