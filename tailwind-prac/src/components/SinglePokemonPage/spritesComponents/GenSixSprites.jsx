@@ -20,6 +20,7 @@ const GenSixSprites = (props) => {
               }
             >
               {genVI["x-y"].front_default ? <div>X & Y</div> : null}
+              <br />
               {genVI["omegaruby-alphasapphire"].front_default ? (
                 <div>OmegaRuby & AlphaSapphire</div>
               ) : null}
@@ -27,7 +28,7 @@ const GenSixSprites = (props) => {
               <span>♂</span>
             </div>
             <img
-              className="h-20 w-20"
+              className="h-16 w-16"
               src={
                 genVI["x-y"].front_default ||
                 genVI["omegaruby-alphasapphire"].front_default
@@ -35,7 +36,7 @@ const GenSixSprites = (props) => {
               alt=""
             />
             <img
-              className="h-20 w-20"
+              className="h-16 w-16"
               src={
                 genVI["x-y"].front_shiny ||
                 genVI["omegaruby-alphasapphire"].front_shiny
@@ -48,7 +49,7 @@ const GenSixSprites = (props) => {
                 <span>♀</span>
               </div>
               <img
-                className="h-20 w-20"
+                className="h-16 w-16"
                 src={
                   genVI["x-y"].front_female ||
                   genVI["omegaruby-alphasapphire"].front_female
@@ -56,7 +57,7 @@ const GenSixSprites = (props) => {
                 alt=""
               />
               <img
-                className="h-20 w-20"
+                className="h-16 w-16"
                 src={
                   genVI["x-y"].front_shiny_female ||
                   genVI["omegaruby-alphasapphire"].front_shiny_female
@@ -68,17 +69,19 @@ const GenSixSprites = (props) => {
         </>
       ) : (
         <>
-          <div>Generation 6:</div>
           <div
-            className={`${spritesBorder} w-24 text-center flex flex-col items-center`}
+            className={`${spritesBorder} w-36 text-center flex flex-col items-center`}
           >
-            <div>
-              <div className="mb-10">X & Y</div>
+            <div className="mb-10">
+              {genVI["x-y"].front_default ? <div>X & Y</div> : null}
               <br />
-              <span>♂</span>
+              {genVI["omegaruby-alphasapphire"].front_default ? (
+                <div>OmegaRuby & AlphaSapphire</div>
+              ) : null}
+              <br />
             </div>
             <img
-              className="h-20 w-20 m-4"
+              className="h-12 w-12 m-4"
               src={
                 genVI["x-y"].front_default ||
                 genVI["omegaruby-alphasapphire"].front_default
@@ -86,7 +89,7 @@ const GenSixSprites = (props) => {
               alt=""
             />
             <img
-              className="h-20 w-20 m-4"
+              className="h-12 w-12 m-4"
               src={
                 genVI["x-y"].front_shiny ||
                 genVI["omegaruby-alphasapphire"].front_shiny

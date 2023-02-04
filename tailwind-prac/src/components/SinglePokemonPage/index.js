@@ -5,11 +5,12 @@ export { default as Moves } from "./Moves.jsx";
 export { default as Abilities } from "./Abilities.jsx";
 
 // Generational Sprites
-export { default as GenOneSprites } from "./GenOneSprites.jsx";
-export { default as GenTwoSprites } from "./GenTwoSprites.jsx";
-export { default as GenThreeSprites } from "./GenThreeSprites.jsx";
-export { default as GenFourSprites } from "./GenFourSprites.jsx";
-export { default as GenFiveSprites } from "./GenFiveSprites.jsx";
-export { default as GenSixSprites } from "./GenSixSprites.jsx";
-export { default as HomeSprites } from "./HomeSprites.jsx";
-export { default as OfficialArtwork } from "./OfficialArtwork.jsx";
+export { HomeSprites } from "./spritesComponents/.";
+export { OfficialArtwork } from "./spritesComponents/.";
+export { GenOneSprites } from "./spritesComponents/.";
+export { GenTwoSprites } from "./spritesComponents/.";
+export { GenThreeSprites } from "./spritesComponents/.";
+export { GenFourSprites } from "./spritesComponents/.";
+export { GenFiveSprites } from "./spritesComponents/.";
+export { GenSixSprites } from "./spritesComponents/.";
+export { GenSevenSprites } from "./spritesComponents/.";

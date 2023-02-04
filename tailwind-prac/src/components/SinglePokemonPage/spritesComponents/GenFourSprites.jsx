@@ -9,16 +9,16 @@ const GenFourSprites = (props) => {
       <div>
         <span>Generation 4: </span>
         <br />
-        <span>Gender differences between pokemon started in Gen 4.</span>
       </div>
       {genIV["diamond-pearl"].front_female ||
-      genIV["heartgold-soulsilver"].front_default ||
-      genIV.platinum.front_default ? (
+      genIV["heartgold-soulsilver"].front_female ||
+      genIV.platinum.front_female ? (
         <>
+          <span>Gender differences between pokemon started in Gen 4.</span>
           {genIV["diamond-pearl"].front_default ? (
             <>
               <div className={`${genIVBorder} border-r-0`}>
-                <span className="mb-12">Diamond & Pearl</span>
+                <span className="mb-20">Diamond</span>
                 <span>♂</span>
                 <img
                   className="h-16 w-16"
@@ -41,7 +41,8 @@ const GenFourSprites = (props) => {
                   alt=""
                 />
               </div>
-              <div className={`${genIVBorder} justify-center w-16 border-l-0`}>
+              <div className={`${genIVBorder} w-16 border-l-0`}>
+                <span className="mb-20">& Pearl</span>
                 <span>♀</span>
                 <img
                   className="h-16 w-16"
@@ -69,7 +70,7 @@ const GenFourSprites = (props) => {
           {genIV["heartgold-soulsilver"].front_default ? (
             <>
               <div className={`${genIVBorder} w-16 border-r-0`}>
-                <span>Heart Gold & Soul Silver</span>
+                <span className="mb-14">Heart Gold &</span>
                 <span>♂</span>
                 <img
                   className="h-16 w-16"
@@ -92,7 +93,8 @@ const GenFourSprites = (props) => {
                   alt=""
                 />
               </div>
-              <div className={`${genIVBorder} justify-center w-16 border-l-0`}>
+              <div className={`${genIVBorder} w-16 border-l-0`}>
+                <div className="mb-14">Soul Silver</div>
                 <span>♀</span>
                 <img
                   className="h-16 w-16"
@@ -144,8 +146,8 @@ const GenFourSprites = (props) => {
                 />
               </div>
               <div className={`${genIVBorder} w-16 border-l-0`}>
-                <span className="mb-[5.25rem]"></span>
-                <span className="mb-2">♀</span>
+                <span className="mb-24"></span>
+                <span>♀</span>
                 <img
                   className="h-16 w-16"
                   src={genIV.platinum.front_female}
@@ -174,7 +176,7 @@ const GenFourSprites = (props) => {
         <>
           {genIV["diamond-pearl"].front_default ? (
             <div className={`${genIVBorder}`}>
-              <span>Diamond & Pearl</span>
+              <span className="mb-12">Diamond & Pearl</span>
               <img
                 className="h-16 w-16"
                 src={genIV["diamond-pearl"].front_default}
@@ -199,7 +201,7 @@ const GenFourSprites = (props) => {
           ) : null}
           {genIV["heartgold-soulsilver"].front_default ? (
             <div className={`${genIVBorder} w-20`}>
-              <span>Heart Gold & Soul Silver</span>
+              <span className="mb-6">Heart Gold & Soul Silver</span>
               <img
                 className="h-16 w-16"
                 src={genIV["heartgold-soulsilver"].front_default}
@@ -224,7 +226,7 @@ const GenFourSprites = (props) => {
           ) : null}
           {genIV.platinum.front_default ? (
             <div className={`${genIVBorder}`}>
-              <span>Platinum</span>
+              <span className="mb-20">Platinum</span>
               <img
                 className="h-16 w-16"
                 src={genIV.platinum.front_default}
