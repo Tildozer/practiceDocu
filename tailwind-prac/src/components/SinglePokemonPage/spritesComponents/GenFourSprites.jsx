@@ -9,12 +9,17 @@ const GenFourSprites = (props) => {
       <div>
         <span>Generation 4: </span>
         <br />
+        <br />
+        <div className="text-center">
+          <span>
+            Gender differences between select pokemon started in Gen 4.
+          </span>
+        </div>
       </div>
       {genIV["diamond-pearl"].front_female ||
       genIV["heartgold-soulsilver"].front_female ||
       genIV.platinum.front_female ? (
         <>
-          <span>Gender differences between pokemon started in Gen 4.</span>
           {genIV["diamond-pearl"].front_default ? (
             <>
               <div className={`${genIVBorder} border-r-0`}>
@@ -122,7 +127,7 @@ const GenFourSprites = (props) => {
           {genIV.platinum.front_default ? (
             <>
               <div className={`${genIVBorder} w-16 border-r-0`}>
-                <span className="mb-[4.25rem]">Platinum</span>
+                <span className="mb-20">Platinum</span>
                 <span>♂</span>
                 <img
                   className="h-16 w-16"
@@ -146,7 +151,9 @@ const GenFourSprites = (props) => {
                 />
               </div>
               <div className={`${genIVBorder} w-16 border-l-0`}>
-                <span className="mb-24"></span>
+                <span className="mb-20">
+                  <br />
+                </span>
                 <span>♀</span>
                 <img
                   className="h-16 w-16"
