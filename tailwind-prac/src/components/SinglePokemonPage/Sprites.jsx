@@ -15,11 +15,11 @@ const Sprites = (props) => {
   const {
     sprites,
     sprites: {
-      other: { home },
+      other: { home, "official-artwork": officialArt },
     },
     sprites: { versions },
+    setShowSprites,
   } = props;
-  const officialArt = sprites.other["official-artwork"];
   const [genI, genII, genIII, genIV, genV, genVI, genVII] = [
     versions["generation-i"],
     versions["generation-ii"],
@@ -29,6 +29,7 @@ const Sprites = (props) => {
     versions["generation-vi"],
     versions["generation-vii"],
   ];
+
   const centerSprites =
     "grid grid-cols-2 w-80 justify-items-center select-none";
   const spritesBorder = "rounded border-2 border-yellow-400 m-2";
@@ -49,12 +50,6 @@ const Sprites = (props) => {
           ♂
         </>
       ) : null}
-      <div className={centerSprites}>
-        <img src={sprites.front_default} alt="" />
-        <img src={sprites.back_default} alt="" />
-        <img src={sprites.front_shiny} alt="" />
-        <img src={sprites.back_shiny} alt="" />
-      </div>
       <div className="p-4 h-auto grid grid-flow-col w-full justify-start overflow-x-scroll select-none rounded border-2">
         Pokemon Home Sprites:
         <HomeSprites extraSprites={extraSprites} home={home} />
