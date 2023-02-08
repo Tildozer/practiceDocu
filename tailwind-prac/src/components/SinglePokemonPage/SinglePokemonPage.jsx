@@ -14,16 +14,7 @@ const SinglePokemonPage = (props) => {
   const pokemon = urlRoutes[urlRoutes.length - 1].toLowerCase();
   const { sprites, abilities, moves, stats, weight, height, id, types, name } =
     singlePokemon;
-  const {
-    front_default,
-    back_default,
-    front_shiny,
-    back_shiny,
-    front_female,
-    back_female,
-    front_shiny_female,
-    back_shiny_female,
-  } = sprites;
+
   const [showSprites, setShowSprites] = useState(false);
   const nav = useNavigate();
 
@@ -45,6 +36,7 @@ const SinglePokemonPage = (props) => {
       }
     }
   };
+  
   useEffect(() => {
     setIsLoading(true);
     checkForPokemon(pokemon);
@@ -64,14 +56,14 @@ const SinglePokemonPage = (props) => {
             id={id}
             types={types}
             name={name}
-            front_default={front_default}
-            front_shiny={front_shiny}
-            back_default={back_default}
-            back_shiny={back_shiny}
-            front_female={front_female}
-            front_shiny_female={front_shiny_female}
-            back_female={back_female}
-            back_shiny_female={back_shiny_female}
+            front_default={sprites.front_default}
+            front_shiny={sprites.front_shiny}
+            back_default={sprites.back_default}
+            back_shiny={sprites.back_shiny}
+            front_female={sprites.front_female}
+            front_shiny_female={sprites.front_shiny_female}
+            back_female={sprites.back_female}
+            back_shiny_female={sprites.back_shiny_female}
           />
           <Stats stats={stats} />
           {showSprites ? (
@@ -83,6 +75,7 @@ const SinglePokemonPage = (props) => {
               setIsLoading={setIsLoading}
             />
           )}
+
           <Abilities abilities={abilities} />
           <Moves moves={moves} />
         </>
