@@ -32,24 +32,22 @@ const Sprites = (props) => {
 
   const centerSprites =
     "grid grid-cols-2 w-80 justify-items-center select-none";
-  const spritesBorder = "rounded border-2 border-yellow-400 m-2";
+  const spritesBorder = "rounded border-2 border-yellow-400 m-2  text-black";
   const extraSprites = `${centerSprites} ${spritesBorder}`;
   const singleSprite = "h-10 w-10 m-auto mt-1 mb-1";
 
+  const handleClick = (ev) => {
+    ev.preventDefault();
+    setShowSprites(false);
+  };
   return (
     <div className="flex flex-col items-center">
-      {sprites.front_female ? (
-        <>
-          ♀
-          <div className={centerSprites}>
-            <img src={sprites.front_female} alt="" />
-            <img src={sprites.back_female} alt="" />
-            <img src={sprites.front_shiny_female} alt="" />
-            <img src={sprites.back_shiny_female} alt="" />
-          </div>
-          ♂
-        </>
-      ) : null}
+      <button
+        className="m-6 bg-white text-slate-700 p-1 border-black border-2 rounded-md box active:bg-slate-400 shadow-md shadow-yellow-500 active:animate-none hover:animate-pulse"
+        onClick={(ev) => handleClick(ev)}
+      >
+        Hide sprites
+      </button>
       <div className="p-4 h-auto grid grid-flow-col w-full justify-start overflow-x-scroll select-none rounded border-2">
         Pokemon Home Sprites:
         <HomeSprites extraSprites={extraSprites} home={home} />

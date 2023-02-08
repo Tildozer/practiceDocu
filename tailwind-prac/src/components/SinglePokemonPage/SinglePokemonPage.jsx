@@ -14,7 +14,16 @@ const SinglePokemonPage = (props) => {
   const pokemon = urlRoutes[urlRoutes.length - 1].toLowerCase();
   const { sprites, abilities, moves, stats, weight, height, id, types, name } =
     singlePokemon;
-
+  const {
+    front_default,
+    back_default,
+    front_shiny,
+    back_shiny,
+    front_female,
+    back_female,
+    front_shiny_female,
+    back_shiny_female,
+  } = sprites;
   const [showSprites, setShowSprites] = useState(false);
   const nav = useNavigate();
 
@@ -55,19 +64,25 @@ const SinglePokemonPage = (props) => {
             id={id}
             types={types}
             name={name}
+            front_default={front_default}
+            front_shiny={front_shiny}
+            back_default={back_default}
+            back_shiny={back_shiny}
+            front_female={front_female}
+            front_shiny_female={front_shiny_female}
+            back_female={back_female}
+            back_shiny_female={back_shiny_female}
           />
-          <div className="grid grid-cols-2 w-80 justify-items-center select-none">
-            <img src={sprites.front_default} alt="" />
-            <img src={sprites.back_default} alt="" />
-            <img src={sprites.front_shiny} alt="" />
-            <img src={sprites.back_shiny} alt="" />
-          </div>
+          <Stats stats={stats} />
           {showSprites ? (
             <Sprites sprites={sprites} setShowSprites={setShowSprites} />
           ) : (
-            <ShowSprites setShowSprites={setShowSprites} name={name} />
+            <ShowSprites
+              setShowSprites={setShowSprites}
+              name={name}
+              setIsLoading={setIsLoading}
+            />
           )}
-          <Stats stats={stats} />
           <Abilities abilities={abilities} />
           <Moves moves={moves} />
         </>
