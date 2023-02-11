@@ -4,7 +4,7 @@ const GenThreeSprites = (props) => {
   const { genIII, spritesBorder } = props;
   return (
     <>
-      <span>Generation 3:</span>
+      <div className="text-slate-800">Generation 3:</div>
       <div className={`${spritesBorder} p-2 text-center`}>
         {genIII["ruby-sapphire"].front_default ? (
           <div>Ruby & Sapphire</div>

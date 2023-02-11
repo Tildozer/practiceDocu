@@ -36,7 +36,7 @@ const SinglePokemonPage = (props) => {
       }
     }
   };
-  
+
   useEffect(() => {
     setIsLoading(true);
     checkForPokemon(pokemon);

@@ -4,7 +4,7 @@ const GenOneSprites = (props) => {
   const { genI, spritesBorder, singleSprite } = props;
   return (
     <>
-      Generation 1:
+      <div className="text-slate-800">Generation 1:</div>
       <div className={`${spritesBorder} p-2 text-center`}>
         <br />
         <span>Red & Blue</span>

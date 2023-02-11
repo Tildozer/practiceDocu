@@ -8,7 +8,7 @@ const GenFiveSprites = (props) => {
         <>
           <div>Generation 5:</div>
           <div
-            className={`${spritesBorder} w-24 text-center flex flex-col items-center border-r-0`}
+            className={`${spritesBorder} w-24 text-center flex flex-col items-center border-r-0 mr-0`}
           >
             <div>
               <div className="mb-10">Black &</div>
@@ -37,7 +37,7 @@ const GenFiveSprites = (props) => {
             />
           </div>
           <div
-            className={`${spritesBorder} w-24 text-center flex flex-col items-center border-l-0`}
+            className={`${spritesBorder} w-24 text-center flex flex-col items-center border-l-0 ml-0`}
           >
             <div>
               <div className="mb-10">White</div>

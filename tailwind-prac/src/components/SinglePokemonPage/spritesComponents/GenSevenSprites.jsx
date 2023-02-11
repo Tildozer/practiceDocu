@@ -9,7 +9,7 @@ const GenSevenSprites = (props) => {
       <div>Generation 7:</div>
       {genVII["ultra-sun-ultra-moon"].front_female ? (
         <>
-          <div className={`${genVIIBorder} border-r-0`}>
+          <div className={`${genVIIBorder} border-r-0 mr-0`}>
             <div className="text-center">
               <span>Ultra Sun</span>
             </div>
@@ -26,7 +26,7 @@ const GenSevenSprites = (props) => {
               alt=""
             />
           </div>
-          <div className={`${genVIIBorder} border-l-0`}>
+          <div className={`${genVIIBorder} border-l-0 ml-0`}>
             <span>& Ultra Moon</span>
             <br />
             <span>♀</span>

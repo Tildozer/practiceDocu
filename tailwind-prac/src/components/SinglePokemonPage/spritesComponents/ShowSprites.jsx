@@ -14,7 +14,7 @@ const ShowSprites = (props) => {
   return (
     <div>
       <button
-        className="bg-white text-slate-700 p-1 border-black border-2 rounded-md box active:bg-slate-400 shadow-md shadow-yellow-500 active:animate-none hover:animate-pulse"
+        className="bg-white text-slate-700 p-1 border-black border-2 rounded-md box active:bg-slate-400 shadow-md shadow-yellow-500 active:animate-none hover:animate-pulse min-w-[21rem]"
         onClick={(ev) => handleClick(ev)}
       >
         {`Would you like to see the sprites of ${name} throughout the genrations?`}

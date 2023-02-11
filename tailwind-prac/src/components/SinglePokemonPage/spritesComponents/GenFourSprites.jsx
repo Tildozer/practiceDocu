@@ -6,7 +6,7 @@ const GenFourSprites = (props) => {
 
   return (
     <>
-      <div>
+      <div className="text-slate-800">
         <span>Generation 4: </span>
         <br />
         <br />
@@ -22,7 +22,7 @@ const GenFourSprites = (props) => {
         <>
           {genIV["diamond-pearl"].front_default ? (
             <>
-              <div className={`${genIVBorder} border-r-0`}>
+              <div className={`${genIVBorder} border-r-0 mr-0`}>
                 <span className="mb-20">Diamond</span>
                 <span>♂</span>
                 <img
@@ -46,7 +46,7 @@ const GenFourSprites = (props) => {
                   alt=""
                 />
               </div>
-              <div className={`${genIVBorder} w-16 border-l-0`}>
+              <div className={`${genIVBorder} w-16 border-l-0 ml-0`}>
                 <span className="mb-20">& Pearl</span>
                 <span>♀</span>
                 <img
@@ -74,7 +74,7 @@ const GenFourSprites = (props) => {
           ) : null}
           {genIV["heartgold-soulsilver"].front_default ? (
             <>
-              <div className={`${genIVBorder} w-16 border-r-0`}>
+              <div className={`${genIVBorder} w-16 border-r-0 mr-0`}>
                 <span className="mb-14">Heart Gold &</span>
                 <span>♂</span>
                 <img
@@ -98,7 +98,7 @@ const GenFourSprites = (props) => {
                   alt=""
                 />
               </div>
-              <div className={`${genIVBorder} w-16 border-l-0`}>
+              <div className={`${genIVBorder} w-16 border-l-0 ml-0`}>
                 <div className="mb-14">Soul Silver</div>
                 <span>♀</span>
                 <img
@@ -126,7 +126,7 @@ const GenFourSprites = (props) => {
           ) : null}
           {genIV.platinum.front_default ? (
             <>
-              <div className={`${genIVBorder} w-16 border-r-0`}>
+              <div className={`${genIVBorder} w-16 border-r-0 mr-0`}>
                 <span className="mb-20">Platinum</span>
                 <span>♂</span>
                 <img
@@ -150,7 +150,7 @@ const GenFourSprites = (props) => {
                   alt=""
                 />
               </div>
-              <div className={`${genIVBorder} w-16 border-l-0`}>
+              <div className={`${genIVBorder} w-16 border-l-0 ml-0`}>
                 <span className="mb-20">
                   <br />
                 </span>
