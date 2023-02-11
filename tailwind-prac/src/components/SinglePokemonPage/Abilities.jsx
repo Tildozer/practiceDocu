@@ -6,16 +6,17 @@ const Abilities = (props) => {
   const hiddenAbilities = abilities.filter(({ is_hidden }) => is_hidden);
 
   return (
-    <div className="m-2">
-      <span>Abilities</span>
-      <div className="m-4">
+    <>
+    <div>Abilities</div>
+    <div className="m-2 flex border-inherit border-yellow-500 border-2">
+      <div>
       {regAbilities.map((ability, idx) => {
         const {
           slot,
-          ability: { name, url },
+          ability: { name },
         } = ability;
         return (
-          <div key={idx} className="flex gap-4">
+          <div key={idx} className=" pl-5 pr-5 pb-5 border-yellow-500 border-2 m-2">
             <div className="first-letter:capitalize">{name}</div>
             <div>Slot: {slot}</div>
           </div>
@@ -23,18 +24,18 @@ const Abilities = (props) => {
       })}
       </div>
       {hiddenAbilities.length > 1 ? (
-        <span>Hidden abilities</span>
+        <div className=" mt-auto mb-auto">Hidden abilities :</div>
       ) : (
-        <span>Hidden abilility</span>
+        <div className=" mt-auto mb-auto">Hidden ability :</div>
       )}
-      <div className="m-4">
+      <div className=" pl-5 pr-5 pb-5 border-yellow-500 border-2 m-2">
       {hiddenAbilities.map((ability, idx) => {
         const {
           slot,
           ability: { name },
         } = ability;
         return (
-          <div key={idx} className="flex gap-4">
+          <div key={idx}>
             <div className="first-letter:capitalize">{name}</div>
             <div>Slot: {slot}</div>
           </div>
@@ -42,6 +43,7 @@ const Abilities = (props) => {
       })}
       </div>
     </div>
+    </>
   );
 };
 

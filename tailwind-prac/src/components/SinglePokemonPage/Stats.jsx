@@ -20,6 +20,7 @@ const Stats = (props) => {
             >
               <span>{name} : </span>
               <span>{base_stat}, </span>
+              <br />
               <span>Effort: {effort} </span>
             </div>
           );
