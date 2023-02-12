@@ -182,7 +182,7 @@ const GenFourSprites = (props) => {
       ) : (
         <>
           {genIV["diamond-pearl"].front_default ? (
-            <div className={`${genIVBorder}`}>
+            <div className={`${genIVBorder} pl-2 pr-2`}>
               <span className="mb-12">Diamond & Pearl</span>
               <img
                 className="h-16 w-16"
@@ -207,7 +207,7 @@ const GenFourSprites = (props) => {
             </div>
           ) : null}
           {genIV["heartgold-soulsilver"].front_default ? (
-            <div className={`${genIVBorder} w-20`}>
+            <div className={`${genIVBorder} w-20 pl-2 pr-2`}>
               <span className="mb-6">Heart Gold & Soul Silver</span>
               <img
                 className="h-16 w-16"
@@ -232,7 +232,7 @@ const GenFourSprites = (props) => {
             </div>
           ) : null}
           {genIV.platinum.front_default ? (
-            <div className={`${genIVBorder}`}>
+            <div className={`${genIVBorder} pl-2 pr-2`}>
               <span className="mb-20">Platinum</span>
               <img
                 className="h-16 w-16"

@@ -10,7 +10,7 @@ const Abilities = (props) => {
       <div className="m-auto mt-4 underline">
         {abilities.length > 1 ? "Abilities" : "Ability"}
       </div>
-      <div className="m-2 flex bg-slate-500 border-white border-2">
+      <div className="m-2 flex bg-slate-500 border-white border-2 rounded-md shadow-lg shadow-slate-800">
         <div>
           {regAbilities.map((ability, idx) => {
             const {
@@ -30,7 +30,7 @@ const Abilities = (props) => {
         </div>
         {hiddenAbilities.length ? (
           <>
-            <div className=" mt-auto mb-auto text-slate-900">
+            <div className="mb-auto text-slate-900">
               {hiddenAbilities.length > 1
                 ? "Hidden abilities :"
                 : "Hidden ability :"}

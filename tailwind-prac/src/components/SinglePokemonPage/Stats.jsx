@@ -5,7 +5,7 @@ const Stats = (props) => {
 
   return (
     <>
-      <div>Base Stats</div>
+      <div className="underline">Base Stats</div>
       <div className="grid grid-cols-3 grid-flow-row m-3 min-w-[21rem]">
         {stats.map((statInfo, idx) => {
           const {

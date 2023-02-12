@@ -32,7 +32,7 @@ const Sprites = (props) => {
 
   const centerSprites =
     "grid grid-cols-2 w-80 justify-items-center select-none";
-  const spritesBorder = "rounded border-2 border-yellow-400 m-2 bg-slate-800";
+  const spritesBorder = "rounded border-2 border-yellow-400 m-2 bg-slate-800 shadow-lg shadow-slate-800";
   const extraSprites = `${centerSprites} ${spritesBorder}`;
   const singleSprite = "h-10 w-10 m-auto mt-1 mb-1";
 
@@ -48,7 +48,7 @@ const Sprites = (props) => {
       >
         Hide sprites
       </button>
-      <div className="p-4 h-auto grid grid-flow-col w-full justify-start overflow-x-scroll select-none rounded border-y-2 bg-slate-500">
+      <div className="p-4 h-auto grid grid-flow-col w-full justify-start overflow-x-scroll select-none rounded border-y-2 bg-slate-500 shadow-md shadow-slate-900">
         <div className="text-slate-800">Pokemon Home Sprites:</div>
         <HomeSprites extraSprites={extraSprites} home={home} />
         <div className="text-slate-800">Official Artwork:</div>
