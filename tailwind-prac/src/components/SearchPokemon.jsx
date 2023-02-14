@@ -35,6 +35,11 @@ const SearchPokemon = (props) => {
 
   return (
     <div className="flex flex-col bg-slate-700 gap-10 justify-center items-center h-full w-full">
+      <h1 className="text-yellow-500 text-6xl">Pokemon Info search</h1>
+      <h1 className="text-yellow-500 text-xl">
+        enter the name of a pokemon you want to know info about, or just browse
+        the pokedex.
+      </h1>
       <h1 className="text-yellow-500">{err}</h1>
       <form onSubmit={(ev) => handleSubmit(ev)}>
         <input
@@ -43,7 +48,7 @@ const SearchPokemon = (props) => {
           value={search}
           onChange={(ev) => setSearch(ev.target.value)}
         />
-        <button className="bg-white">Search!</button>
+        <button className="bg-white pl-1 pr-1">Search!</button>
       </form>
       <button className="bg-white w-64" onClick={(ev) => nav("/pokedex")}>
         Look through the Pokedex
