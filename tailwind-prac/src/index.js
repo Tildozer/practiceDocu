@@ -6,6 +6,8 @@ import { HashRouter } from "react-router-dom";
 import { default as App } from "./App.js";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
+// reportWebVitals(console.log)
 root.render(
   <HashRouter>
     <App />
