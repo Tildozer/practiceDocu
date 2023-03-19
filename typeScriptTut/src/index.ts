@@ -125,10 +125,5 @@ let customer = getCustomer(0)
  log?.("a")
 
  
-// any - only do if you need to but not recomended.
-// unknown -
-// never -
-// enum -
-// tuple -
-// advanced types
+
 

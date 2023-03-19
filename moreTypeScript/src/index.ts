@@ -1,3 +1,41 @@
+// any - only do if you need to but not recomended.
+
+// unknown -
+
+// never -
+
+// enum -
+
+// tuple -
+    // Typically an array contains zero to many objects of a
+    // single type. TypeScript has special analysis around
+    // arrays which contain multiple types, and where the order
+    // in which they are indexed is important.
+
+    // These are called tuples. Think of them as a way to
+    // connect some data, but with less syntax than keyed objects.
+
+    // You can create a tuple using JavaScript's array syntax:
+
+    const passingResponse: [string, number] = ["{}", 200];
+
+    if (passingResponse[1] === 200) {
+        const localInfo = JSON.parse(passingResponse[0]);
+        console.log(localInfo);
+      }
+
+    //   passingResponse[2]
+
+    type StaffAccount = [number, string, string, string?];
+
+    const staff: StaffAccount[] = [
+      [0, "Adankwo", "adankwo.e@"],
+      [1, "Kanokwan", "kanokwan.s@"],
+      [2, "Aneurin", "aneurin.s@", "Supervisor"],
+    ];
+
+// advanced types -
+
 type StringArray = Array<string>
 type NumberArray = Array<number>
 type ObjectWithNameArray = Array<{ name: string}>
