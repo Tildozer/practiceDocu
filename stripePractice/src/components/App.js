@@ -19,7 +19,7 @@ export default function App() {
     fetch("/create-payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
+      body: JSON.stringify({ items: [{ id: "xl-tshirt", price: 1099}] }),
     })
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
