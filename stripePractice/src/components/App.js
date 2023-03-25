@@ -44,7 +44,7 @@ export default function App() {
             />
               
             <Route 
-              path="/order/complete/:order"
+              path="/checkout/success/"
               element={<CheckoutComplete />}
             />
           </Routes>
