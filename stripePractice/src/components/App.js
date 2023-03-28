@@ -5,6 +5,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
 import { Routes, Route } from "react-router-dom";
 import CheckoutComplete from "./CheckoutComplete";
+import AddressForm from "./AddressForm";
 
 // Make sure to call loadStripe outside of a component’s render to avoid
 // recreating the Stripe object on every render.
@@ -42,6 +43,7 @@ export default function App() {
               exact path="/"
               element={<CheckoutForm />}
             />
+            <Route path="/address" element={<AddressForm />} /> 
               
             <Route 
               path="/checkout/success/"
