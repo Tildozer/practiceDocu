@@ -33,7 +33,7 @@ const PokeHome = (props) => {
   }, [pokemon]);
 
   return (
-    <div className="m-10">
+    <div className="m-10 min-h-[100vh]">
       {pokemon.results ? (
         <div>
           <PrevAndNextButtons
@@ -49,7 +49,7 @@ const PokeHome = (props) => {
             </div>
           </div>
         </div>
-      ) : null}
+      ) : <div className="min-h-[100vh]"></div>}
     </div>
   );
 };

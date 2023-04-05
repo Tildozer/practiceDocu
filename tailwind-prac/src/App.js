@@ -1,7 +1,7 @@
 import { Fragment, useState } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
-import { PokeHome, SearchPokemon, SinglePokemon } from "./components";
-import LoadingNew from "./components/LoadingNew";
+import { PokeHome, SearchPokemon, SinglePokemon, Loading } from "./components";
+
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div>
-      {isLoading ? <LoadingNew /> : null}
+      {isLoading ? <Loading /> : null}
       <Routes>
         <Route
           exact
