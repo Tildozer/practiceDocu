@@ -32,12 +32,12 @@ console.log(twoNumberSum(
 console.log(twoNumberSum([4, 6], 10))// [4, 6]
 // ---------- Test Case 3 ----------
 console.log(twoNumberSum(
-  [ 4, 6, 1 ],
+  [4, 6, 1],
   5
 ))// [4, 1]
 // ---------- Test Case 4 ----------
 console.log(twoNumberSum(
-  [ 4, 6, 1, -3 ],
+  [4, 6, 1, -3],
   3
 ))// [6, -3]
 // ---------- Test Case 5 ----------
