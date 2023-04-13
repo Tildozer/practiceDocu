@@ -36,7 +36,6 @@ function findClosestValueInBst(tree, target) {
     }
   }
   
-
 // First Attempt
 // function findClosestValueInBst(tree, target) {
 //     // Write your code here.
