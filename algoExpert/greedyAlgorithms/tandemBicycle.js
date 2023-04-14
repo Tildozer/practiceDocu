@@ -14,35 +14,35 @@ For example, if there are 4 riders (2 red shirt riders and 2 blue shirt riders) 
 */
 
 function tandemBicycle(redShirtSpeeds, blueShirtSpeeds, fastest) {
-    // Write your code here.
-    const redShirtsSorted = redShirtSpeeds.sort((a, b) => a - b);
-    const blueShirtsSorted = blueShirtSpeeds.sort((a, b) => a - b);
-    let partnerArray = []
-    if(fastest){
-      _tandemBicycleHelper(blueShirtsSorted, redShirtsSorted, partnerArray)
-    } else {
-      for (let i = 0; i < redShirtSpeeds.length; i++) {
-        partnerArray.push([redShirtsSorted[i], blueShirtsSorted[i]])
-      }
+  // Write your code here.
+  const redShirtsSorted = redShirtSpeeds.sort((a, b) => a - b);
+  const blueShirtsSorted = blueShirtSpeeds.sort((a, b) => a - b);
+  let partnerArray = []
+  if(fastest){
+    _tandemBicycleHelper(blueShirtsSorted, redShirtsSorted, partnerArray)
+  } else {
+    for (let i = 0; i < redShirtSpeeds.length; i++) {
+      partnerArray.push([redShirtsSorted[i], blueShirtsSorted[i]])
     }
-    let sum = 0;  
-    partnerArray.forEach(partner => {
-      sum += Math.max(...partner)
-    })
-    return sum;
   }
-  
-  function _tandemBicycleHelper(blueShirtSpeeds, redShirtSpeeds, partnerArray){
-    const half = redShirtSpeeds.length / 2
-      if(half % 1 !== 0){
-        partnerArray.push([redShirtSpeeds[Math.floor(half)], blueShirtSpeeds[Math.floor(half)]]) 
-      }
-      for (let i = 0; i < Math.floor(half); i++) {
-        partnerArray.push([redShirtSpeeds[i], blueShirtSpeeds[blueShirtSpeeds.length - (i + 1)]])
-        partnerArray.push([blueShirtSpeeds[i], redShirtSpeeds[redShirtSpeeds.length - (i + 1)]]) 
-      }
-  }
-  
+  let sum = 0;  
+  partnerArray.forEach(partner => {
+    sum += Math.max(...partner)
+  })
+  return sum;
+}
+
+function _tandemBicycleHelper(blueShirtSpeeds, redShirtSpeeds, partnerArray){
+  const half = redShirtSpeeds.length / 2
+    if(half % 1 !== 0){
+      partnerArray.push([redShirtSpeeds[Math.floor(half)], blueShirtSpeeds[Math.floor(half)]]) 
+    }
+    for (let i = 0; i < Math.floor(half); i++) {
+      partnerArray.push([redShirtSpeeds[i], blueShirtSpeeds[blueShirtSpeeds.length - (i + 1)]])
+      partnerArray.push([blueShirtSpeeds[i], redShirtSpeeds[redShirtSpeeds.length - (i + 1)]]) 
+    }
+}
+
 
 
 
