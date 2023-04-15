@@ -16,60 +16,59 @@ note: You are allowed to mutate the input array.
 // MY SOLUTION
 
 function minimumWaitingTime(queries) {
-    // Write your code here.
-    let waitTime = 0;
-    let allAdded = 0
-    const sorted = queries.sort((a, b) => a - b);
-    for (let i = 1; i < queries.length; i++) {
-      allAdded += sorted[i - 1];
-      waitTime += allAdded;
-    }
-    console.log(waitTime, queries)
-    return waitTime;
+  // Write your code here.
+  let waitTime = 0;
+  let allAdded = 0;
+  const sorted = queries.sort((a, b) => a - b);
+  for (let i = 1; i < queries.length; i++) {
+    allAdded += sorted[i - 1];
+    waitTime += allAdded;
   }
-  
+  console.log(waitTime, queries);
+  return waitTime;
+}
 
 // ---------- Test Case 1 ----------
-console.log(minimumWaitingTime([ 1, 2, 2, 3, 6 ]));// 17
+console.log(minimumWaitingTime([1, 2, 2, 3, 6])); // 17
 
 // ---------- Test Case 2 ----------
-console.log(minimumWaitingTime([ 1, 1, 1, 2 ]));// 6
+console.log(minimumWaitingTime([1, 1, 1, 2])); // 6
 
 // ---------- Test Case 3 ----------
-console.log(minimumWaitingTime([ 1, 1, 2, 2, 4, 5 ]));// 23
+console.log(minimumWaitingTime([1, 1, 2, 2, 4, 5])); // 23
 
 // ---------- Test Case 4 ----------
-console.log(minimumWaitingTime([ 1, 2, 25, 30 ]));// 32
+console.log(minimumWaitingTime([1, 2, 25, 30])); // 32
 
 // ---------- Test Case 5 ----------
-console.log(minimumWaitingTime([ 1, 1, 1, 1, 1 ]));// 10
+console.log(minimumWaitingTime([1, 1, 1, 1, 1])); // 10
 
 // ---------- Test Case 6 ----------
-console.log(minimumWaitingTime([ 2, 3, 7, 9 ]));// 19
+console.log(minimumWaitingTime([2, 3, 7, 9])); // 19
 
 // ---------- Test Case 7 ----------
-console.log(minimumWaitingTime([1, 1, 1, 2, 3, 3, 4, 8]));// 45
+console.log(minimumWaitingTime([1, 1, 1, 2, 3, 3, 4, 8])); // 45
 
 // ---------- Test Case 8 ----------
-console.log(minimumWaitingTime([ 2 ]));// 0
+console.log(minimumWaitingTime([2])); // 0
 
 // ---------- Test Case 9 ----------
-console.log(minimumWaitingTime([ 7 ]));// 0
+console.log(minimumWaitingTime([7])); // 0
 
 // ---------- Test Case 10 ----------
-console.log(minimumWaitingTime([ 8, 9 ]));// 8
+console.log(minimumWaitingTime([8, 9])); // 8
 
 // ---------- Test Case 11 ----------
-console.log(minimumWaitingTime([ 1, 9 ]));// 1
+console.log(minimumWaitingTime([1, 9])); // 1
 
 // ---------- Test Case 12 ----------
-console.log(minimumWaitingTime([ 1, 2, 3, 4, 5 ]));// 20
+console.log(minimumWaitingTime([1, 2, 3, 4, 5])); // 20
 
 // ---------- Test Case 13 ----------
-console.log(minimumWaitingTime([ 1, 2, 3, 4, 5 ]));// 20
+console.log(minimumWaitingTime([1, 2, 3, 4, 5])); // 20
 
 // ---------- Test Case 14 ----------
-console.log(minimumWaitingTime([1, 1, 1, 1, 1, 1, 2, 4, 5, 6, 8]));// 81
+console.log(minimumWaitingTime([1, 1, 1, 1, 1, 1, 2, 4, 5, 6, 8])); // 81
 
 // ---------- Test Case 15 ----------
-console.log(minimumWaitingTime([ 3, 4, 17 ]));// 10
+console.log(minimumWaitingTime([3, 4, 17])); // 10

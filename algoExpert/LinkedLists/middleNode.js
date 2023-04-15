@@ -8,32 +8,32 @@ Each `LinkedList` node has an integer `value` as well as a `next` node pointing 
 
 // This is an input class. Do not edit.
 class LinkedList {
-    constructor(value) {
-      this.value = value;
-      this.next = null;
-    }
+  constructor(value) {
+    this.value = value;
+    this.next = null;
   }
-  
-  exports.LinkedList = LinkedList;
-  
-  function middleNode(linkedList) {
-    // Write your code here.
-    const half = _findHalf(linkedList, 0)
-    
-    return _returnHalf(linkedList, 0, half)
+}
+
+exports.LinkedList = LinkedList;
+
+function middleNode(linkedList) {
+  // Write your code here.
+  const half = _findHalf(linkedList, 0);
+
+  return _returnHalf(linkedList, 0, half);
+}
+
+function _findHalf(linkedList, acc, half) {
+  if (!linkedList) {
+    return Math.floor(acc / 2);
   }
-  
-  function _findHalf(linkedList, acc, half){
-    if(!linkedList){
-      return Math.floor(acc / 2);
-    }
-  
-    return _findHalf(linkedList.next, acc + 1);
+
+  return _findHalf(linkedList.next, acc + 1);
+}
+
+function _returnHalf(linkedList, acc, half) {
+  if (half === acc) {
+    return linkedList;
   }
-  
-  function _returnHalf(linkedList, acc, half) {
-    if(half === acc){
-      return linkedList;
-    }
-    return _returnHalf(linkedList.next, acc + 1, half);
-  }
+  return _returnHalf(linkedList.next, acc + 1, half);
+}

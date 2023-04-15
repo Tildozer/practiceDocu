@@ -9,27 +9,26 @@ Each `LinkedList` node has an integer `value` as well as a `next` node pointing 
 // MY SOLUTION
 
 class LinkedList {
-    constructor(value) {
-      this.value = value;
-      this.next = null;
-    }
+  constructor(value) {
+    this.value = value;
+    this.next = null;
   }
-  
-  function removeDuplicatesFromLinkedList(linkedList) {
-    // Write your code here.
-    _removeDuplicatesHelper(linkedList)
-    return linkedList;
+}
+
+function removeDuplicatesFromLinkedList(linkedList) {
+  // Write your code here.
+  _removeDuplicatesHelper(linkedList);
+  return linkedList;
+}
+
+function _removeDuplicatesHelper(linkedList) {
+  if (!linkedList || !linkedList.next) {
+    return;
   }
-  
-  function _removeDuplicatesHelper(linkedList){
-    if(!linkedList || !linkedList.next){
-      return;
-    }
-    if(linkedList.value === linkedList.next.value){
-      linkedList.next = linkedList.next.next;
-      _removeDuplicatesHelper(linkedList);
-    } else {
-      _removeDuplicatesHelper(linkedList.next); 
-    }
+  if (linkedList.value === linkedList.next.value) {
+    linkedList.next = linkedList.next.next;
+    _removeDuplicatesHelper(linkedList);
+  } else {
+    _removeDuplicatesHelper(linkedList.next);
   }
-  
+}

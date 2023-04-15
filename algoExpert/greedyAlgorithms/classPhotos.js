@@ -14,74 +14,55 @@ Note: you can assume that each calss has at least 2 students.
 */
 
 function classPhotos(redShirtHeights, blueShirtHeights) {
-    // Write your code here.
-    const sortedRedShirts = redShirtHeights.sort((a, b) => a - b);
-    const sortedBlueShirts = blueShirtHeights.sort((a, b) => a - b);
-    let backrow = ""
-    for (let i = 0; i < redShirtHeights.length; i++) {
-      if(!backrow){
-        backrow = sortedBlueShirts[i] < sortedRedShirts[i] 
-          ? "red"
-          : "blue"
-      }
-      if(sortedBlueShirts[i] === sortedRedShirts[i]){
-        return false;
-      }
-      if(backrow === "blue" && sortedBlueShirts[i] < sortedRedShirts[i]){
-        return false
-      }
-      if(backrow === "red" && sortedBlueShirts[i] > sortedRedShirts[i]){
-        return false
-      }
+  // Write your code here.
+  const sortedRedShirts = redShirtHeights.sort((a, b) => a - b);
+  const sortedBlueShirts = blueShirtHeights.sort((a, b) => a - b);
+  let backrow = "";
+  for (let i = 0; i < redShirtHeights.length; i++) {
+    if (!backrow) {
+      backrow = sortedBlueShirts[i] < sortedRedShirts[i] ? "red" : "blue";
     }
-    return true;
+    if (sortedBlueShirts[i] === sortedRedShirts[i]) {
+      return false;
+    }
+    if (backrow === "blue" && sortedBlueShirts[i] < sortedRedShirts[i]) {
+      return false;
+    }
+    if (backrow === "red" && sortedBlueShirts[i] > sortedRedShirts[i]) {
+      return false;
+    }
   }
-  
-
-
-
-
+  return true;
+}
 
 // ---------- Test Case 1 ----------
-console.log([ 5, 8, 1, 3, 4 ], [ 6, 9, 2, 4, 5 ]);// true
+console.log([5, 8, 1, 3, 4], [6, 9, 2, 4, 5]); // true
 // ---------- Test Case 2 ----------
-console.log([ 6, 9, 2, 4, 5 ], [ 5, 8, 1, 3, 4 ]);// true
+console.log([6, 9, 2, 4, 5], [5, 8, 1, 3, 4]); // true
 // ---------- Test Case 3 ----------
-console.log([ 6, 9, 2, 4, 5, 1 ], [ 5, 8, 1, 3, 4, 9 ]);// false
+console.log([6, 9, 2, 4, 5, 1], [5, 8, 1, 3, 4, 9]); // false
 // ---------- Test Case 4 ----------
-console.log([ 6 ], [ 6 ]);// false
+console.log([6], [6]); // false
 // ---------- Test Case 5 ----------
-console.log([ 126 ], [ 125 ]);// true
+console.log([126], [125]); // true
 // ---------- Test Case 6 ----------
-console.log([ 1, 2, 3, 4, 5 ], [ 2, 3, 4, 5, 6 ]);// true
+console.log([1, 2, 3, 4, 5], [2, 3, 4, 5, 6]); // true
 // ---------- Test Case 7 ----------
-console.log(
-    [1, 1, 1, 1, 1, 1, 1, 1], 
-    [5, 6, 7, 2, 3, 1, 2, 3]
-);// false
+console.log([1, 1, 1, 1, 1, 1, 1, 1], [5, 6, 7, 2, 3, 1, 2, 3]); // false
 // ---------- Test Case 8 ----------
-console.log(
-    [1, 1, 1, 1, 1, 1, 1, 1], 
-    [2, 2, 2, 2, 2, 2, 2, 2]
-);// true
+console.log([1, 1, 1, 1, 1, 1, 1, 1], [2, 2, 2, 2, 2, 2, 2, 2]); // true
 
 // ---------- Test Case 9 ----------
-console.log([ 125 ], [ 126 ]);// true
+console.log([125], [126]); // true
 // ---------- Test Case 10 ----------
-console.log(
-    [19, 2, 4, 6, 2, 3, 1, 1, 4], 
-    [21, 5, 4, 4, 4, 4, 4, 4, 4]
-);// false
+console.log([19, 2, 4, 6, 2, 3, 1, 1, 4], [21, 5, 4, 4, 4, 4, 4, 4, 4]); // false
 // ---------- Test Case 11 ----------
-console.log(
-    [19, 19, 21, 1, 1,  1,  1, 1], 
-    [20, 5, 4, 4, 4, 4, 4, 4]
-);// false
+console.log([19, 19, 21, 1, 1, 1, 1, 1], [20, 5, 4, 4, 4, 4, 4, 4]); // false
 // ---------- Test Case 12 ----------
-console.log([ 3, 5, 6, 8, 2 ], [ 2, 4, 7, 5, 1 ]);// true
+console.log([3, 5, 6, 8, 2], [2, 4, 7, 5, 1]); // true
 // ---------- Test Case 13 ----------
-console.log([ 3, 5, 6, 8, 2, 1 ], [ 2, 4, 7, 5, 1, 6 ]);// false
+console.log([3, 5, 6, 8, 2, 1], [2, 4, 7, 5, 1, 6]); // false
 // ---------- Test Case 14 ----------
-console.log([ 4, 5 ], [ 5, 4 ]);// false
+console.log([4, 5], [5, 4]); // false
 // ---------- Test Case 15 ----------
-console.log([ 5, 6 ] [ 5, 4 ]);// true
+console.log([5, 6][(5, 4)]); // true

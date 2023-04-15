@@ -8,34 +8,34 @@ and its children nodes are either valid BST nodes themselves or None / null
 */
 // Proper solution
 function findClosestValueInBst(tree, target) {
-    // Write your code here.
-    const startNumber = Math.pow(10, 1000);
-    console.log(startNumber)
-    return findClosestValue(tree, target, startNumber)
+  // Write your code here.
+  const startNumber = Math.pow(10, 1000);
+  console.log(startNumber);
+  return findClosestValue(tree, target, startNumber);
+}
+const findClosestValue = (tree, target, closest) => {
+  if (!tree) {
+    return closest;
   }
-    const findClosestValue = (tree, target, closest) => {
-      if(!tree){
-        return closest
-      }
-      if(Math.abs(target - tree.value) < Math.abs(target - closest)){
-        closest = tree.value;
-      }
-      if(target < tree.value){
-        return findClosestValue(tree.left, target, closest)
-      } else{
-        return findClosestValue(tree.right, target, closest)
-      }
-    }
-  
-  // This is the class of the input tree. Do not edit.
-  class BST {
-    constructor(value) {
-      this.value = value;
-      this.left = null;
-      this.right = null;
-    }
+  if (Math.abs(target - tree.value) < Math.abs(target - closest)) {
+    closest = tree.value;
   }
-  
+  if (target < tree.value) {
+    return findClosestValue(tree.left, target, closest);
+  } else {
+    return findClosestValue(tree.right, target, closest);
+  }
+};
+
+// This is the class of the input tree. Do not edit.
+class BST {
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}
+
 // First Attempt
 // function findClosestValueInBst(tree, target) {
 //     // Write your code here.
@@ -57,7 +57,7 @@ function findClosestValueInBst(tree, target) {
 //          closest = left.value
 //        }
 //        if(Math.abs(closest - target) > absRight){
-//          closest = right.value 
+//          closest = right.value
 //        }
 //        if(Math.abs(closest - target) > absCurr){
 //          closest = curr
@@ -72,7 +72,7 @@ function findClosestValueInBst(tree, target) {
 //        const absLeft = Math.abs(left.value - target)
 //        if(Math.abs(closest - target) > absCurr){
 //          closest = curr
-//        } 
+//        }
 //        if(Math.abs(closest - target) > absLeft){
 //          closest = left.value
 //        }
@@ -82,7 +82,7 @@ function findClosestValueInBst(tree, target) {
 //        const absRight = Math.abs(right.value - target)
 //        if(Math.abs(closest - target) > absCurr){
 //          closest = curr;
-//        } 
+//        }
 //        if(Math.abs(closest - target) > absRight){
 //          closest = right.value;
 //        }
@@ -91,10 +91,10 @@ function findClosestValueInBst(tree, target) {
 //        end = true
 //      }
 //     }
-      
+
 //     return closest;
 //   }
-  
+
 //   // This is the class of the input tree. Do not edit.
 //   class BST {
 //     constructor(value) {
@@ -103,4 +103,3 @@ function findClosestValueInBst(tree, target) {
 //       this.right = null;
 //     }
 //   }
-  

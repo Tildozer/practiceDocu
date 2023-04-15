@@ -26,33 +26,49 @@ WATCH CORRECT ANSWER
 */
 
 class BinaryTree {
-    constructor(value) {
-      this.value = value;
-      this.left = null;
-      this.right = null;
-    }
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
   }
-  
-  function branchSums(root) {
-    // Write your code here.
-    return branchSearch(root, root.value, [])
+}
+
+function branchSums(root) {
+  // Write your code here.
+  return branchSearch(root, root.value, []);
+}
+
+function branchSearch(currentBranch, currSum, sumArray) {
+  if (currentBranch.left === null && currentBranch.right === null) {
+    sumArray.push(currSum);
+    return sumArray;
   }
-  
-  function branchSearch(currentBranch, currSum, sumArray){
-    if(currentBranch.left === null && currentBranch.right === null){
-      sumArray.push(currSum)
-      return sumArray
-    } 
-    if(currentBranch.left !== null && currentBranch.right !== null){
-      console.log(sumArray)
-      branchSearch(currentBranch.left, currSum + currentBranch.left.value, sumArray)
-      branchSearch(currentBranch.right, currSum + currentBranch.right.value, sumArray)
-    }
-    if(currentBranch.left === null){
-      branchSearch(currentBranch.right, currSum + currentBranch.right.value, sumArray);
-    } 
-    if(currentBranch.right === null){
-      branchSearch(currentBranch.left, currSum + currentBranch.left.value, sumArray)
-    }
-    return sumArray
+  if (currentBranch.left !== null && currentBranch.right !== null) {
+    console.log(sumArray);
+    branchSearch(
+      currentBranch.left,
+      currSum + currentBranch.left.value,
+      sumArray
+    );
+    branchSearch(
+      currentBranch.right,
+      currSum + currentBranch.right.value,
+      sumArray
+    );
   }
+  if (currentBranch.left === null) {
+    branchSearch(
+      currentBranch.right,
+      currSum + currentBranch.right.value,
+      sumArray
+    );
+  }
+  if (currentBranch.right === null) {
+    branchSearch(
+      currentBranch.left,
+      currSum + currentBranch.left.value,
+      sumArray
+    );
+  }
+  return sumArray;
+}
