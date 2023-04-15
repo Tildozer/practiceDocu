@@ -10,6 +10,9 @@ the product sum of [x, [[y, z]] is x + 2 * (y + z);
 the product sum of [x, [y, [z]]] is × + 2 * (y + 3z)
 */
 
+// MY SOLUTION
+// WATCH PROPER SOLUTION
+
 function productSum(array) {
     // Write your code here.
     return _sum(array, 0, 1, 0)
