@@ -7,46 +7,52 @@ You can assume that there will only be one pair of numbers with the smallest dif
 
 function smallestDifference(arrayOne, arrayTwo) {
   // Write your code here.
-  const sortedOne = arrayOne.sort((a, b) => a - b);
-  const sortedTwo = arrayTwo.sort((a, b) => a - b);
-  return _searchBothArrays(sortedOne, sortedTwo, 0, 1, [
-    arrayOne[0],
-    arrayTwo[0],
-  ]);
+  const sortedArrayOne = arrayOne.sort((a, b) => a - b);
+  const sortedArrayTwo = arrayTwo.sort((a, b) => a - b);
+  return _smallestHelper(sortedArrayOne, sortedArrayTwo, 0, 0, [arrayOne[0], arrayTwo[0]])
 }
 
-function _searchBothArrays(arrayOne, arrayTwo, oneIdx, twoIdx, smallest) {
-  if (oneIdx === arrayOne.length && twoIdx === arrayTwo.length) {
-    return smallest;
+function _smallestHelper(arrOne, arrTwo, i, j, smallest){
+  if(i === arrOne.length && j === arrTwo.length){
+    return smallest
   }
-  const distance = Math.abs(arrayOne[oneIdx] - arrayTwo[twoIdx]);
-  const currentSmallest = Math.abs(smallest[0] - smallest[1]);
-  if (distance < currentSmallest) {
-    if (twoIdx === arrayTwo.length) {
-      return _searchBothArrays(arrayOne, arrayTwo, oneIdx + 1, 0, [
-        arrayOne[oneIdx],
-        arrayTwo[twoIdx],
-      ]);
-    } else {
-      return _searchBothArrays(arrayOne, arrayTwo, oneIdx, twoIdx + 1, [
-        arrayOne[oneIdx],
-        arrayTwo[twoIdx],
-      ]);
-    }
+  if(arrOne[i] > arrTwo[j] || i === arrOne.length){
+    return _changeSmallest(arrOne, arrTwo, i, j + 1, smallest)
   } else {
-    if (twoIdx === arrayTwo.length) {
-      return _searchBothArrays(arrayOne, arrayTwo, oneIdx + 1, 0, smallest);
-    } else {
-      return _searchBothArrays(
-        arrayOne,
-        arrayTwo,
-        oneIdx,
-        twoIdx + 1,
-        smallest
-      );
-    }
+    return _changeSmallest(arrOne, arrTwo, i + 1, j, smallest)
   }
 }
+
+function _changeSmallest(arrOne, arrTwo, i, j, smallest) {
+  if(Math.abs(arrOne[i] - arrTwo[j]) < Math.abs(smallest[0] - smallest[1])){
+    if(Math.abs(arrOne[i] - arrTwo[j] === 0)){
+      return [arrOne[i], arrTwo[j]]
+    }
+    return _smallestHelper(arrOne, arrTwo, i, j, [arrOne[i], arrTwo[j]])
+  } else {
+    return _smallestHelper(arrOne, arrTwo, i, j, smallest)
+  }
+}
+
+
+// MY SOLUTION
+
+function smallestDifference(arrayOne, arrayTwo) {
+  // Write your code here.
+  let smallest = [arrayOne[0], arrayTwo[0]]
+  for (let i = 0; i < arrayOne.length; i++) {
+    for (let j = 0; j < arrayTwo.length; j++) {
+      let smallestAbs = Math.abs(smallest[0] - smallest[1])
+      if(Math.abs(arrayOne[i] - arrayTwo[j]) < smallestAbs){
+        smallest = [arrayOne[i], arrayTwo[j]]
+      }
+    }
+  }
+  return smallest
+}
+
+
+
 
 //   ---------- Test Case 1 ----------
 console.log(smallestDifference([-1, 5, 10, 20, 28, 3][(26, 134, 135, 15, 17)])); //   [ 28, 26 ]
