@@ -4,6 +4,8 @@ In other words, the value at output [i] is equal to the product of every number 
 Note that you're expected to solve this problem without using division.
 */
 
+// MY SOLUTION
+// 
 function arrayOfProducts(array) {
   // Write your code here.
   const newArray = [];
