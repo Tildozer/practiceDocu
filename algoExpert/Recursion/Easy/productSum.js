@@ -14,43 +14,43 @@ the product sum of [x, [y, [z]]] is × + 2 * (y + 3z)
 // WATCH PROPER SOLUTION
 
 function productSum(array) {
-    // Write your code here.
-    return _sum(array, 0, 1, 0)
+  // Write your code here.
+  return _sum(array, 0, 1, 0);
+}
+
+function _sum(array, idx, depth, sum) {
+  if (idx === array.length) {
+    return depth === 1
+      ? sum
+      : depth === 2
+      ? sum * 2
+      : depth > 2
+      ? depth * sum
+      : null;
   }
-  
-  function _sum(array, idx, depth, sum) {
-    if(idx === array.length){
-      return depth === 1 
-        ? sum
-        : depth === 2 
-        ? sum * 2
-        : depth > 2 
-        ? depth * sum
-        : null
-    }
-    if(typeof array[idx] !== "number"){
-      const sumOfArray = _sum(array[idx], 0, depth + 1, 0)
-      sum += sumOfArray
-    } else {
-      sum += array[idx]
-    }
-    return _sum(array, idx + 1, depth, sum)
+  if (typeof array[idx] !== "number") {
+    const sumOfArray = _sum(array[idx], 0, depth + 1, 0);
+    sum += sumOfArray;
+  } else {
+    sum += array[idx];
   }
+  return _sum(array, idx + 1, depth, sum);
+}
 
 //  // ---------- Test Case 1 ----------
-console.log(productSum([5, 2, [7, -1], 3, [6, [-13, 8], 4]]));//12
+console.log(productSum([5, 2, [7, -1], 3, [6, [-13, 8], 4]])); //12
 
 // // ---------- Test Case 2 ----------
-console.log(productSum([1, 2, 3, 4, 5]));//15
+console.log(productSum([1, 2, 3, 4, 5])); //15
 
 // // ---------- Test Case 3 ----------
-console.log(productSum([1, 2, [3], 4, 5]));//18
+console.log(productSum([1, 2, [3], 4, 5])); //18
 
 // // ---------- Test Case 4 ----------
-console.log(productSum([[1, 2], 3, [4, 5]]));//27
+console.log(productSum([[1, 2], 3, [4, 5]])); //27
 
 // // ---------- Test Case 5 ----------
-console.log(productSum([[[[[5]]]]]));//600
+console.log(productSum([[[[[5]]]]])); //600
 
 // // ---------- Test Case 6 ----------
 console.log(
@@ -65,4 +65,4 @@ console.log(
     [1, -3, 2, [1, -3, 2, [1, -3, 2], [1, -3, 2, [1, -3, 2]], [1, -3, 2]]],
     -3,
   ])
-);//1351
+); //1351

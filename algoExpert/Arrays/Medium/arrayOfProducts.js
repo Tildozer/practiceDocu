@@ -5,7 +5,7 @@ Note that you're expected to solve this problem without using division.
 */
 
 // MY SOLUTION
-// 
+//
 function arrayOfProducts(array) {
   // Write your code here.
   const newArray = [];

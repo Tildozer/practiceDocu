@@ -38,22 +38,22 @@ Note that the BST class already has an insert method which you can use if you wa
 // }
 
 function minHeightBst(array) {
-    // Write your code here.
-    return _makeBst(array, 0, array.length - 1)
+  // Write your code here.
+  return _makeBst(array, 0, array.length - 1);
+}
+
+function _makeBst(array, startIdx, endIdx) {
+  if (endIdx < startIdx) {
+    return null;
   }
-  
-  function _makeBst(array, startIdx, endIdx) {
-    if(endIdx < startIdx){
-      return null
-    }
-    const midIdx = Math.floor((startIdx + endIdx) / 2)
-    const bst = new BST(array[midIdx])
-   
-      bst.left = _makeBst(array, startIdx, midIdx - 1)
-      bst.right = _makeBst(array, midIdx + 1, endIdx)
-      return bst
-  }
-  
+  const midIdx = Math.floor((startIdx + endIdx) / 2);
+  const bst = new BST(array[midIdx]);
+
+  bst.left = _makeBst(array, startIdx, midIdx - 1);
+  bst.right = _makeBst(array, midIdx + 1, endIdx);
+  return bst;
+}
+
 class BST {
   constructor(value) {
     this.value = value;
