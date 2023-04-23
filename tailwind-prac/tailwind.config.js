@@ -19,10 +19,10 @@ module.exports = {
         },
       },
       width: {
-        'full': '100vw'
+        full: "100vw",
       },
       height: {
-        'full': '100vh'
+        full: "100vh",
       },
     },
   },

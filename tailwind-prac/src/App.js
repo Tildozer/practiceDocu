@@ -2,7 +2,6 @@ import { Fragment, useState } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { PokeHome, SearchPokemon, SinglePokemon, Loading } from "./components";
 
-
 function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [singlePokemon, setSinglePokemon] = useState({});
@@ -32,7 +31,7 @@ function App() {
         />
         <Route />
         <Route
-          path="/pokedex"
+          path="/pokedex/:num"
           element={
             <div className="bg-gradient-to-r from-slate-700 to-slate-800">
               <h1 className="text-yellow-500 p-10 text-center text-4xl">

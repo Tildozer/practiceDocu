@@ -1,22 +1,18 @@
 import React from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 const PrevAndNextButtons = (props) => {
-  const { pokemon, setIsLoading, isLoading, fetchPokemon, setPokemon } = props;
-
+  const { pokemon, setIsLoading, isLoading } = props;
+  const nav = useNavigate();
+  const { num } = useParams();
+  console.log(isNaN(+num), +num);
   const handleClick = async (fetchUrl) => {
     document.querySelectorAll(".shiny-sprites").forEach((shiny) => {
       shiny.className =
         "m-3 shiny-sprites opacity-0 hover:animate-fadeIn hover:cursor-pointer";
     });
     setIsLoading(true);
-    return await fetchPokemon(fetchUrl)
-      .then((data) => setPokemon(data))
-      .catch((err) => console.error(err))
-      .finally((_) => {
-        setTimeout((_) => {
-          setIsLoading(false);
-        }, 500);
-      });
+    nav(`/pokedex/${!isNaN(+num) ? +num + 1 : 2}`);
   };
 
   return (

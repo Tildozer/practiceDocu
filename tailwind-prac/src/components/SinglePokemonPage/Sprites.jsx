@@ -32,7 +32,8 @@ const Sprites = (props) => {
 
   const centerSprites =
     "grid grid-cols-2 w-80 justify-items-center select-none";
-  const spritesBorder = "rounded border-2 border-yellow-400 m-2 bg-slate-800 shadow-lg shadow-slate-800";
+  const spritesBorder =
+    "rounded border-2 border-yellow-400 m-2 bg-slate-800 shadow-lg shadow-slate-800";
   const extraSprites = `${centerSprites} ${spritesBorder}`;
   const singleSprite = "h-10 w-10 m-auto mt-1 mb-1";
 

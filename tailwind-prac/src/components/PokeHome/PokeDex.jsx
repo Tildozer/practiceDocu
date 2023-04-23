@@ -38,25 +38,33 @@ const PokeDex = (props) => {
                 src={pokemonInfo[idx].sprites.front_default}
                 alt={`${pokemonInfo[idx].name} front facing sprite`}
               />
-              <img
-                className="m-3"
-                src={pokemonInfo[idx].sprites.back_default}
-                alt={`${pokemonInfo[idx].name} back facing sprite`}
-              />
+              {pokemonInfo[idx].sprites.back_default ? (
+                <img
+                  className="m-3"
+                  src={pokemonInfo[idx].sprites.back_default}
+                  alt={`${pokemonInfo[idx].name} back facing sprite`}
+                />
+              ) : null}
             </div>
             <div className={sprites}>
-              <img
-                className={shinyHover}
-                onClick={(ev) => handleClick(ev)}
-                src={pokemonInfo[idx].sprites.front_shiny}
-                alt={`${pokemonInfo[idx].name} front facing shiny sprite`}
-              />
-              <img
-                className={shinyHover}
-                onClick={(ev) => handleClick(ev)}
-                src={pokemonInfo[idx].sprites.back_shiny}
-                alt={`${pokemonInfo[idx].name} back facing shiny sprite`}
-              />
+              {pokemonInfo[idx].sprites.front_shiny ? (
+                <img
+                  className={shinyHover}
+                  onClick={(ev) => handleClick(ev)}
+                  src={pokemonInfo[idx].sprites.front_shiny}
+                  alt={`${pokemonInfo[idx].name} front facing shiny sprite`}
+                />
+              ) : (
+                <div className="h-24"></div>
+              )}
+              {pokemonInfo[idx].sprites.back_shiny ? (
+                <img
+                  className={shinyHover}
+                  onClick={(ev) => handleClick(ev)}
+                  src={pokemonInfo[idx].sprites.back_shiny}
+                  alt={`${pokemonInfo[idx].name} back facing shiny sprite`}
+                />
+              ) : null}
             </div>
           </Fragment>
         ) : null}

@@ -50,7 +50,7 @@ const SearchPokemon = (props) => {
         />
         <button className="bg-white pl-1 pr-1">Search!</button>
       </form>
-      <button className="bg-white w-64" onClick={(ev) => nav("/pokedex")}>
+      <button className="bg-white w-64" onClick={(ev) => nav("/pokedex/1")}>
         Look through the Pokedex
       </button>
     </div>

@@ -2,12 +2,14 @@
 import React, { useState, useEffect } from "react";
 import { fetchPokemon, fetchPokemonInfo } from "../../api";
 import { PokeDex, PrevAndNextButtons } from "..";
+import { useNavigate, useParams } from "react-router-dom";
 
 const PokeHome = (props) => {
   const { setIsLoading, isLoading } = props;
   const [pokemon, setPokemon] = useState({});
   const [pokemonInfo, setPokemonInfo] = useState([]);
-
+  const { num } = useParams();
+  const nav = useNavigate();
   const getAllPokemonInfo = async () => {
     if (!pokemon.results) return;
 
@@ -20,13 +22,19 @@ const PokeHome = (props) => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetchPokemon()
-      .then((data) => setPokemon(data))
+    if (+num > 106) {
+      return nav("/pokedex/105");
+    }
+    fetchPokemon(+num)
+      .then((data) => {
+        console.log(data);
+        setPokemon(data);
+      })
       .catch((err) => console.error(err));
     setTimeout(() => {
       setIsLoading(false);
     }, 500);
-  }, []);
+  }, [num]);
 
   useEffect(() => {
     getAllPokemonInfo();
@@ -49,7 +57,9 @@ const PokeHome = (props) => {
             </div>
           </div>
         </div>
-      ) : <div className="min-h-[100vh]"></div>}
+      ) : (
+        <div className="min-h-[100vh]"></div>
+      )}
     </div>
   );
 };

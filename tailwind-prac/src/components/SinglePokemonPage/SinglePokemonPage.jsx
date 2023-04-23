@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchPokemonInfo } from "../../api";
-import { Sprites, Moves, Stats, Abilities, Header } from ".";
+import { Sprites, Stats, Abilities, Header } from ".";
 import { useState } from "react";
 import { ShowSprites } from "./spritesComponents";
 
@@ -12,7 +12,7 @@ const SinglePokemonPage = (props) => {
   // split the hash if they load into the page from new session
   const urlRoutes = window.location.hash.split("/");
   const pokemon = urlRoutes[urlRoutes.length - 1].toLowerCase();
-  const { sprites, abilities, moves, stats, weight, height, id, types, name } =
+  const { sprites, abilities, stats, weight, height, id, types, name } =
     singlePokemon;
 
   const [showSprites, setShowSprites] = useState(false);
@@ -77,7 +77,6 @@ const SinglePokemonPage = (props) => {
           )}
 
           <Abilities abilities={abilities} />
-          <Moves moves={moves} />
         </>
       ) : null}
     </div>
