@@ -21,9 +21,9 @@ void exampleHelper(){
 // Will Still Print 3 cause d is not null anymore. 
   print(d);
 }
-void anotherExample(){
+void anotherExample(int? example){
   print(1 ?? 3); // <-- Prints 1.
-  print(null ?? 12); // <-- Prints 12.
+  print(example ?? 12); // <-- Prints 12.
 
 }
 
@@ -38,11 +38,8 @@ void updateSomeVars() {
   print(bar);
 }
 
-class MyObject {
-  String? someProperty;
-}
 
 void nullProtection(Object? myObject){
-  
+  // will return null if myObject is null it's self.
   myObject?.toString();
 }
