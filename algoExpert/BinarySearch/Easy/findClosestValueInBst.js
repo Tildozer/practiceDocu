@@ -37,63 +37,63 @@ class BST {
 }
 
 // First Attempt
-// function findClosestValueInBst(tree, target) {
-//     // Write your code here.
-//     let closest;
-//     let end;
-//     let treeSearch = tree;
-//     while (!end) {
-//     let left = treeSearch.left;
-//     let curr = treeSearch.value;
-//     let right = treeSearch.right;
-//       if(closest === undefined){
-//         closest = curr
-//       }
-//      if (left !== null && right !== null) {
-//        const absCurr = Math.abs(curr - target)
-//        const absRight = Math.abs(right.value - target)
-//        const absLeft = Math.abs(left.value - target)
-//        if(Math.abs(closest - target) > absLeft){
-//          closest = left.value
-//        }
-//        if(Math.abs(closest - target) > absRight){
-//          closest = right.value
-//        }
-//        if(Math.abs(closest - target) > absCurr){
-//          closest = curr
-//        }
-//        if(absCurr > absLeft){
-//          treeSearch = treeSearch.left
-//        } else {
-//          treeSearch = treeSearch.right
-//        }
-//      } else if(left !== null) {
-//        const absCurr = Math.abs(curr - target)
-//        const absLeft = Math.abs(left.value - target)
-//        if(Math.abs(closest - target) > absCurr){
-//          closest = curr
-//        }
-//        if(Math.abs(closest - target) > absLeft){
-//          closest = left.value
-//        }
-//        treeSearch = treeSearch.left
-//      } else if(right !== null) {
-//        const absCurr = Math.abs(curr - target)
-//        const absRight = Math.abs(right.value - target)
-//        if(Math.abs(closest - target) > absCurr){
-//          closest = curr;
-//        }
-//        if(Math.abs(closest - target) > absRight){
-//          closest = right.value;
-//        }
-//        treeSearch = treeSearch.right;
-//      } else {
-//        end = true
-//      }
-//     }
+function findClosestValueInBstFirstTry(tree, target) {
+    // Write your code here.
+    let closest;
+    let end;
+    let treeSearch = tree;
+    while (!end) {
+    let left = treeSearch.left;
+    let curr = treeSearch.value;
+    let right = treeSearch.right;
+      if(closest === undefined){
+        closest = curr
+      }
+     if (left !== null && right !== null) {
+       const absCurr = Math.abs(curr - target)
+       const absRight = Math.abs(right.value - target)
+       const absLeft = Math.abs(left.value - target)
+       if(Math.abs(closest - target) > absLeft){
+         closest = left.value
+       }
+       if(Math.abs(closest - target) > absRight){
+         closest = right.value
+       }
+       if(Math.abs(closest - target) > absCurr){
+         closest = curr
+       }
+       if(absCurr > absLeft){
+         treeSearch = treeSearch.left
+       } else {
+         treeSearch = treeSearch.right
+       }
+     } else if(left !== null) {
+       const absCurr = Math.abs(curr - target)
+       const absLeft = Math.abs(left.value - target)
+       if(Math.abs(closest - target) > absCurr){
+         closest = curr
+       }
+       if(Math.abs(closest - target) > absLeft){
+         closest = left.value
+       }
+       treeSearch = treeSearch.left
+     } else if(right !== null) {
+       const absCurr = Math.abs(curr - target)
+       const absRight = Math.abs(right.value - target)
+       if(Math.abs(closest - target) > absCurr){
+         closest = curr;
+       }
+       if(Math.abs(closest - target) > absRight){
+         closest = right.value;
+       }
+       treeSearch = treeSearch.right;
+     } else {
+       end = true
+     }
+    }
 
-//     return closest;
-//   }
+    return closest;
+  }
 
 //   // This is the class of the input tree. Do not edit.
 //   class BST {

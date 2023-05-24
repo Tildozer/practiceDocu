@@ -27,5 +27,6 @@ vector<int> sortedSquaredArray(vector<int> array) {
             newArray = _swap(newArray, squaredCurrent, i - 1);
         }
     }
+    sort(newArray.begin(), newArray.end());
   return newArray;
 }
