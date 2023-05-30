@@ -1,3 +1,6 @@
+#include <vector>
+
+using namespace std;
 // This is the class of the input root. Do not edit it.
 class BinaryTree {
 public:
