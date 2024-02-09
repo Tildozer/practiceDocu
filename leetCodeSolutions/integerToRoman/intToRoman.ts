@@ -61,34 +61,41 @@
 // };
 // More Optimal
 type NumValue = {
-  value: number
-}
-function intToRoman(num: number, roman: string = ""): string {
-    const number: NumValue = {value: num};
-    if(num === 0) {
-      return roman;
-    } else if(num >= 1000) {
-      roman += "M";
-      number.value -= 1000;
-      return intToRoman(number.value, roman);
-    } else if(num >= 500) {
-      roman = checkAndSubtract(number, roman, 500, 900, "CM", "D");
-    } else if(num >= 100) {
-      roman = checkAndSubtract(number, roman, 100, 400, "CD", "C");
-    } else if(num >= 50) {
-      roman = checkAndSubtract(number, roman, 50, 90, "XC", "L");
-    } else if (num >= 10) {
-      roman = checkAndSubtract(number, roman, 10, 40, "XL", "X");
-    } else if(num >= 5) {
-      roman = checkAndSubtract(number, roman, 5, 9, "IX", "V");
-    } else {
-      roman = checkAndSubtract(number, roman, 1, 4, "IV", "I");
-    }
-  return intToRoman(number.value, roman);
+  value: number;
 };
+function intToRoman(num: number, roman: string = ""): string {
+  const number: NumValue = { value: num };
+  if (num === 0) {
+    return roman;
+  } else if (num >= 1000) {
+    roman += "M";
+    number.value -= 1000;
+    return intToRoman(number.value, roman);
+  } else if (num >= 500) {
+    roman = checkAndSubtract(number, roman, 500, 900, "CM", "D");
+  } else if (num >= 100) {
+    roman = checkAndSubtract(number, roman, 100, 400, "CD", "C");
+  } else if (num >= 50) {
+    roman = checkAndSubtract(number, roman, 50, 90, "XC", "L");
+  } else if (num >= 10) {
+    roman = checkAndSubtract(number, roman, 10, 40, "XL", "X");
+  } else if (num >= 5) {
+    roman = checkAndSubtract(number, roman, 5, 9, "IX", "V");
+  } else {
+    roman = checkAndSubtract(number, roman, 1, 4, "IV", "I");
+  }
+  return intToRoman(number.value, roman);
+}
 
-function checkAndSubtract(num: NumValue, roman: string, base: number, basePlus: number, basePlusString: string, baseString: string): string {
-  if(num.value >= basePlus) {
+function checkAndSubtract(
+  num: NumValue,
+  roman: string,
+  base: number,
+  basePlus: number,
+  basePlusString: string,
+  baseString: string,
+): string {
+  if (num.value >= basePlus) {
     roman += basePlusString;
     num.value -= basePlus;
   } else {
