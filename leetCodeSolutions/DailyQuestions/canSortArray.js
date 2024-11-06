@@ -50,19 +50,19 @@ const sortArray = (nums, i) => {
       }
       nums[i] = prevNum;
       nums[i - 1] = currNum;
-      i = 1;
+      i--;
     } else {
-      i++
+      i++;
     }
     return sortArray(nums, i);
   }
   
   const canSortArray = function(nums) {
       if(nums.length < 2){
-        return true
+        return true;
       }
       return sortArray(nums, 1);
-};
+  };
 
 const testSortArray = () => {
     const testCases = [
@@ -85,3 +85,5 @@ const testSortArray = () => {
         console.log(canSortArray(input) === output);
     });
 };
+
+testSortArray();
