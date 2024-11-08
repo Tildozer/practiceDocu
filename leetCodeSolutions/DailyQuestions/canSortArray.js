@@ -36,54 +36,54 @@ Explanation: It can be shown that it is not possible to sort the input array usi
 */
 
 const sortArray = (nums, i) => {
-    if(i === nums.length) {
-      return true;
-    }
-  
-    const currNum = nums[i];
-    const prevNum = nums[i - 1];
-    if(currNum < prevNum) {
-      const currSetBits = currNum.toString(2).replaceAll('0', '').length;
-      const prevSetBits = prevNum.toString(2).replaceAll('0', '').length;
-      if(currSetBits !== prevSetBits) {
-        return false;
-      }
-      nums[i] = prevNum;
-      nums[i - 1] = currNum;
-      i--;
-    } else {
-      i++;
-    }
-    return sortArray(nums, i);
+  if (i === nums.length) {
+    return true;
   }
-  
-  const canSortArray = function(nums) {
-      if(nums.length < 2){
-        return true;
-      }
-      return sortArray(nums, 1);
-  };
+
+  const currNum = nums[i];
+  const prevNum = nums[i - 1];
+  if (currNum < prevNum) {
+    const currSetBits = currNum.toString(2).replaceAll("0", "").length;
+    const prevSetBits = prevNum.toString(2).replaceAll("0", "").length;
+    if (currSetBits !== prevSetBits) {
+      return false;
+    }
+    nums[i] = prevNum;
+    nums[i - 1] = currNum;
+    i--;
+  } else {
+    i++;
+  }
+  return sortArray(nums, i);
+};
+
+const canSortArray = function (nums) {
+  if (nums.length < 2) {
+    return true;
+  }
+  return sortArray(nums, 1);
+};
 
 const testSortArray = () => {
-    const testCases = [
-        {
-            input: [8,4,2,30,15],
-            output: true
-        },
-        {
-            input: [1,2,3,4,5],
-            output: true
-        },
-        {
-            input: [3,16,8,4,2],
-            output: false
-        }
-    ];
+  const testCases = [
+    {
+      input: [8, 4, 2, 30, 15],
+      output: true,
+    },
+    {
+      input: [1, 2, 3, 4, 5],
+      output: true,
+    },
+    {
+      input: [3, 16, 8, 4, 2],
+      output: false,
+    },
+  ];
 
-    testCases.forEach(testCase => {
-        const {input, output} = testCase;
-        console.log(canSortArray(input) === output);
-    });
+  testCases.forEach((testCase) => {
+    const { input, output } = testCase;
+    console.log(canSortArray(input) === output);
+  });
 };
 
 testSortArray();
