@@ -23,29 +23,32 @@ Explanation: There is a single fair pair: (2,3).
 */
 
 function countLessThan(nums, sum) {
-    let res = 0;
-    let j = nums.length - 1;
-  
-    for (let i = 0; i < j; ++i) {
-      while (i < j && nums[i] + nums[j] > sum) {
-          --j;
-      }
-        res += j - i;
+  let res = 0;
+  let j = nums.length - 1;
+
+  for (let i = 0; i < j; ++i) {
+    while (i < j && nums[i] + nums[j] > sum) {
+      --j;
     }
-  
-    return res;
+    res += j - i;
   }
-  var countFairPairs = function (nums, lower, upper) {
-      nums.sort((a, b) => a - b);
-      return countLessThan(nums, upper) - countLessThan(nums, lower - 1);
-  };
 
-    const test = () => { 
-        const nums = [[0,1,7,4,4,5], [1,7,9,2,5]];
-        const lower = [3, 11];
-        const upper = [6, 11];
+  return res;
+}
+var countFairPairs = function (nums, lower, upper) {
+  nums.sort((a, b) => a - b);
+  return countLessThan(nums, upper) - countLessThan(nums, lower - 1);
+};
 
-        for (let i = 0; i < nums.length; i++) {
-            console.log(countFairPairs(nums[i], lower[i], upper[i]));
-        }
-    };
+const test = () => {
+  const nums = [
+    [0, 1, 7, 4, 4, 5],
+    [1, 7, 9, 2, 5],
+  ];
+  const lower = [3, 11];
+  const upper = [6, 11];
+
+  for (let i = 0; i < nums.length; i++) {
+    console.log(countFairPairs(nums[i], lower[i], upper[i]));
+  }
+};
