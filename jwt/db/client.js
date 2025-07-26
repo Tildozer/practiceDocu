@@ -1,3 +1,3 @@
 const { Client } = require('pg');
 
-const client = new Client('postgress://localhost:5432/jwt-server')
+const client = new Client('postgres://localhost:5432/jwt-server')

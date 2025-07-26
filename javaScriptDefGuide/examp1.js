@@ -1,4 +1,4 @@
-// this class extends Map so the get() method returns the specified value instesd of null when the key is not in the map
+// this class extends Map so the get() method returns the specified value instead of null when the key is not in the map
 class DefaultMap extends Map {
   constructor(defaultValue) {
     super(); // invoke the superclass constructor
@@ -56,13 +56,13 @@ class Histogram {
     let lines = entries.map(
       ([l, n]) => `${l}: ${"#".repeat(Math.round(n))} ${n.toFixed(2)}%`
     );
-    // and return the concatenated lines, seperated by new line characters
+    // and return the concatenated lines, separated by new line characters
     return lines.join("\n");
   }
 }
-// the async (promise- returning) function creatse a histogram object,
-// asynchronusly reads chunks of text from standard input and adds those chunks to
-// the histogram when it raeches the end of the stream it return this histogram
+// the async (promise- returning) function create a histogram object,
+// asynchronously reads chunks of text from standard input and adds those chunks to
+// the histogram when it reaches the end of the stream it return this histogram
 
 async function histogramFromStdin() {
   process.stdin.setEncoding("utf-8"); // read uni code string, not bytes
